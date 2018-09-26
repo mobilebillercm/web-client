@@ -85,14 +85,14 @@
             <div class="row" style="margin-bottom: -25px;margin-top: 8px;">
                 <div class="col-md-12">
                     <span class="pull-right"><span class="badge">
-                        <a href="{{url('/login')}}" style="color: #00F3FF; font-weight: bold; font-size: medium;">
+                        <a href="{{url('/login')}}" style="color: #3db4e1; font-weight: bold; font-size: medium;">
                             <i class="fa fa-key"></i>S'enregistrer
                         </a>
                     </span>
                         </span>
 
                     <span class="pull-right"><span class="badge">
-                        <a href="{{url('/login')}}" style="color: #00F3FF; font-weight: bold; font-size: medium;">
+                        <a href="{{url('/login')}}" style="color: #3db4e1; font-weight: bold; font-size: medium;">
                             <i class="fa fa-key"></i>Connexion
                         </a>
                     </span>
@@ -319,7 +319,7 @@
         <div class="container">
             <div class="row">
                 <div class="about_bottom_content">
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="about_bottom_item m-top-20">
                             <div class="ab_head">
                                 <div class="ab_head_icon">
@@ -332,7 +332,7 @@
                                 magna diam aliquafm erat voluitpati. </p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="about_bottom_item m-top-20">
                             <div class="ab_head">
                                 <div class="ab_head_icon">
@@ -345,7 +345,7 @@
                                 magna diam aliquafm erat voluitpati. </p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="about_bottom_item m-top-20">
                             <div class="ab_head">
                                 <div class="ab_head_icon">
@@ -441,7 +441,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="service_item">
                             <i class="icofont icofont-light-bulb"></i>
                             <h6 class="m-top-30">BRANDING</h6>
@@ -451,7 +451,7 @@
                                 magna aliquam erat volutpat. </p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="service_item">
                             <i class="icofont icofont-imac"></i>
                             <h6 class="m-top-30">BRANDING</h6>
@@ -461,7 +461,7 @@
                                 magna aliquam erat volutpat. </p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="service_item">
                             <i class="icofont icofont-video"></i>
                             <h6 class="m-top-30">BRANDING</h6>
@@ -561,7 +561,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-xs-12 col-sm-6 col-md-4">
                             <div class="portfolio_item portfolio_item3 sm-m-top-30">
                                 <img src="assets/images/Portfolio/1.jpg" alt="" />
                                 <div class="portfolio_hover text-center">
@@ -574,7 +574,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 m-top-30">
+                        <div class="col-xs-12 col-sm-6 col-md-4 m-top-30">
                             <div class="portfolio_item portfolio_item2">
                                 <img src="assets/images/Portfolio/6.jpg" alt="" />
                                 <div class="portfolio_hover text-center">
@@ -797,7 +797,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-sm-12">
                         <div class="pricing_item">
                             <div class="pricing_head p-top-30 p-bottom-100 text-center">
                                 <h3 class="text-uppercase">STARTER</h3>
@@ -823,7 +823,7 @@
                         </div>
                     </div><!-- End off col-md-4 -->
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-sm-12">
                         <div class="pricing_item sm-m-top-30">
                             <div class="pricing_top_border"></div>
                             <div class="pricing_head p-top-30 p-bottom-100 text-center">
@@ -849,7 +849,7 @@
                         </div>
                     </div><!-- End off col-md-4 -->
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-sm-12">
                         <div class="pricing_item sm-m-top-30">
                             <div class="pricing_head p-top-30 p-bottom-100 text-center">
                                 <h3 class="text-uppercase">bUSINESS</h3>
@@ -966,7 +966,7 @@
                                 suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="blog_item m-top-20">
                             <div class="blog_item_img">
                                 <img src="assets/images/Blog/1.jpg" alt="" />
@@ -977,7 +977,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="blog_item m-top-20">
                             <div class="blog_item_img">
                                 <img src="assets/images/Blog/2.jpg" alt="" />
@@ -988,7 +988,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="blog_item m-top-20">
                             <div class="blog_item_img">
                                 <img src="assets/images/Blog/3.jpg" alt="" />
@@ -1022,7 +1022,7 @@
         <div class="container">
             <div class="row">
                 <div class="main_contact roomy-100 text-white">
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="rage_widget">
                             <div class="widget_head">
                                 <h3 class="text-white">RAGE</h3>
@@ -1150,3 +1150,13 @@
 
 </body>
 </html>
+
+{{--
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+
+    </div>
+</div>--}}

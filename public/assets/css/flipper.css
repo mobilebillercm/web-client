@@ -1,0 +1,189 @@
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+/*  UPDATED! flip the pane when hovered */
+.flip-container:hover .back {
+    transform: rotateY(0deg);
+}
+.flip-container:hover .front {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 320px;
+    height: 480px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*  UPDATED! front pane, placed above back */
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(-180deg);
+}
+
+/*
+	Some vertical flip updates
+*/
+.vertical.flip-container {
+    position: relative;
+}
+
+.vertical .back {
+    transform: rotateX(180deg);
+}
+
+.vertical.flip-container:hover .back {
+    transform: rotateX(0deg);
+}
+
+.vertical.flip-container:hover .front {
+    transform: rotateX(180deg);
+}
+.service-icon{
+    border-radius: 50%;
+    border: #3db4e1 1px solid;
+    width: 200px;
+    height: 190px;
+}
+
+/*
+Aruba
+ */
+
+.home-products-col{
+    text-align:center;
+    background:#fff;
+    border-radius:3px;
+    margin-bottom:20px
+}
+
+.home-products-col:first-child{
+    margin-top:30px
+}
+
+.animation{transition:all .3s;-webkit-transition:all .3s;-moz-transition:all .3s;-o-transition:all .3s;-ms-transition:all .3s}
+.animation:hover{transform:scale(1.03);-moz-transform:scale(1.03);-webkit-transform:scale(1.03);-o-transform:scale(1.03);-ms-transform:scale(1.03)}
+.animation:hover .icon{transition:all .8s;-webkit-transition:all .8s;-moz-transition:all .8s;-o-transition:all .8s;-ms-transition:all .8s;transform:scale(1.08);
+    -moz-transform:scale(1.08);-webkit-transform:scale(1.08);-o-transform:scale(1.08);-ms-transform:scale(1.08)}
+.home-other-service-col.animation:hover,.wrapper-dev-your-project .row>div.animation:hover{background:#404040;border-radius:3px}
+.home-other-service-col.animation:hover .icon,.wrapper-dev-your-project .row>div.animation:hover .icon{color:#3db4e1}
+
+
+.clickable-area,a.clickable-area-cta{cursor:pointer}
+
+.home-product-pre-col-title-box{background:#3a3a3a;height:20px;border-top-left-radius:3px;border-top-right-radius:3px}
+.home-product-col-blue{background:#3db4e1}
+
+.home-product-col-main-title{
+    font-weight:bold;
+    text-transform:uppercase;
+    font-size:30px;
+    margin:0;
+    padding:10px;
+    text-align: center;
+}
+
+.home-product-col-title-box,.home-product-col-main-title,.home-product-col-title-box a,.home-product-col-title-box a:hover,.home-product-col-price-box{color:#fff}
+
+
+.home-product-col-price-box{font-size:18px;height:160px;padding:20px 10px;position:relative}
+.home-product-col-price-box p{font-size:18px;text-shadow:-1px 1px 0 #2299c6}
+
+.home-product-col-price-box p.home-prodotto-prezzo{font-size:30px;line-height:30px; color: #fff;}
+.PLPL .home-product-col-price-box p.home-prodotto-prezzo,.HUHU .home-product-col-price-box p.home-prodotto-prezzo{font-size:60px;line-height:50px}
+
+.home-product-col-price-box .from-price span{font-size:60px}
+
+.home-product-col-title-box,.home-product-col-main-title,.home-product-col-title-box a,.home-product-col-title-box a:hover,.home-product-col-price-box{color:#fff}
+
+@media screen and (max-width:1199px){
+    .HUHU p.home-prodotto-prezzo{font-size:50px!important;line-height:40px!important}.HUHU .home-prodotto-prezzo sub{font-size:20px!important
+                                                                                     }
+    .HUHU .home-prodotto-prezzo sup{font-size:30px!important}}
+.home-product-col-price-box p.home-prodotto-prezzo{font-size:70px;line-height:60px}
+.PLPL .home-product-col-price-box p.home-prodotto-prezzo,.HUHU .home-product-col-price-box p.home-prodotto-prezzo{font-size:60px;line-height:50px}
+.home-prodotto-prezzo sup{top:-.6em;font-size:20px; color: #fff;}
+.home-prodotto-prezzo sub{bottom:0;font-size:20px; color: #fff;}
+.home-prodotto-prezzo{
+    font-size: 25px;
+}
+
+.home-products-col-details-box{
+    margin:0;padding:20px 20px 10px;background:#fff;color:#474747;border-bottom-left-radius:3px;border-bottom-right-radius:3px}
+
+.home-products-col-details-title,.home-products-col-details-list,.home-products-col-details-par{
+    margin:0 0 20px;padding:0}
+.home-products-col-details-title{
+    text-transform:uppercase;color:#0095d9;font-weight:400;font-size:20px;line-height:20px;min-height:60px}
+
+
+.home-products-col-details-title,.home-products-col-details-list,.home-products-col-details-par{
+    margin:0 0 20px;padding:0}
+.home-products-col-details-title{
+    text-transform:uppercase;color:#0095d9;font-weight:400;font-size:20px;line-height:20px;min-height:60px}
+.home-products-col-details-list{
+    list-style:none;min-height:260px;text-align:left}
+.home-products-col-details-list li{
+    margin:0;padding:4px 0;border-bottom:1px solid #ccc}
+.home-products-col-details-list li:last-child{
+    border-bottom:none}
+
+.home-products-col-details-list .item-flags {
+    padding-top:24px
+}
+@media(min-width:992px)and (max-width:1199px){
+    .PLPL .home-products-col-details-list .item-flags{
+        padding-top:45px
+    }
+
+    .PLPL .col-xs-12:first-child .item-flags{
+        padding-top:66px
+    }
+    .ENUS .col-xs-12:first-child .item-flags,.FRFR .col-xs-12:first-child .item-flags,.HUHU .col-xs-12:first-child .item-flags{
+        padding-top:45px
+    }
+}
+
+.apartireda{
+    color: #fff;
+}
+
+.subtitle{
+    color: #fff;
+}
+
+.home-best-price-vps{
+    margin-top: -0px;
+    margin-right: -0px;
+}
+
+
+
+
+
+

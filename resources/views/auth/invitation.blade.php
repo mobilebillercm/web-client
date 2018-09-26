@@ -8,37 +8,45 @@
                 <div class="home_text">
 
                     <div class="main_home">
+
                         <div class="row">
                             <div class="col-md-1">
 
                             </div>
                             <div class="col-md-10">
                                 <div class="limiter">
-                                    <div class="container-login100">
+                                    <div class="container-login100"
+                                         style="background-image: url('{{asset('images/header.jpg')}}');">
                                         <div class="wrap-login100" style="width: 100%;">
-                                            <form class="login100-form validate-form" method="post" action="{{url('id/register')}}">
+                                            <form class="login100-form validate-form" method="post" action="{{url('id/invitation')}}">
 					<span class="login100-form-logo">
 						<i class="fa fa-user-plus"></i>
-					</span><span class="login100-form-title p-b-34 p-t-27">Sign Up</span>
-                                                <hr style="margin-top: -20px; width: 75%; margin-left: auto; margin-right: auto;"> <br>
-
+					</span>
+                                                <span class="login100-form-title p-b-34 p-t-27">Invitation</span>
+                                                <div class="small" style="text-align: center;">
+                                                    <span style="font-size: large; color: white;" class="center">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
+                                                    <br>
+                                                    <span style="font-size: small; color: white;" class="center">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
+                                                    <hr style="margin-top: -20px; width: 75%; margin-left: auto; margin-right: auto;"> <br>
+                                                </div>
                                                 @csrf
-                                                <div class="row">
+                                                {{--<div class="row">
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter Enterprise Name">
 
-                                                            <input class="input100" type="text" name="tenatname" placeholder="">
-                                                            <span class="focus-input100" data-placeholder="Entreprise ">
-                                                    </span>
+                                                            <input class="input100" type="text" name="tenatname" placeholder="" disabled
+                                                            value="{{\Illuminate\Support\Facades\Auth::user()->email}}">
+                                                            <span class="focus-input100" data-placeholder=" ">
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter Last Name">
-                                                            <textarea class="input100" name="lastname" placeholder=""></textarea>
-                                                            <span class="focus-input100" data-placeholder="Description"></span>
+                                                            <textarea class="input100" name="lastname" placeholder="" disabled="true">{{\Illuminate\Support\Facades\Auth::user()->email}}</textarea>
+                                                            <span class="focus-input100" data-placeholder=""></span>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div>--}}
 
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -69,7 +77,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-6">
+                                                    {{--<div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Password Error">
                                                             <input class="input100" type="password" name="password" placeholder="">
                                                             <span class="focus-input100" data-placeholder="Mot de Passe"></span>
@@ -80,7 +88,7 @@
                                                             <input class="input100" type="password" name="password" placeholder="">
                                                             <span class="focus-input100" data-placeholder="Confirmer Mot de passe"></span>
                                                         </div>
-                                                    </div>
+                                                    </div>--}}
 
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter a City">
@@ -93,6 +101,7 @@
                                                             <input type="hidden" name="addressstreetadresse" value="Douala">
                                                             <input type="hidden" name="addresscountrycode" value="CM">
                                                             <input type="hidden" name="addresspostalcode" value="80209">
+                                                            <input type="hidden" name="tenant" value="{{\Illuminate\Support\Facades\Auth::user()->tenant}}">
                                                         </div>
                                                     </div>
 
@@ -102,12 +111,12 @@
                                                             <span class="focus-input100" data-placeholder="Region"></span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    {{--<div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter A Valid file">
                                                             <input class="input100" type="file" name="logo" placeholder="">
                                                             <span class="focus-input100" data-placeholder="Logo"></span>
                                                         </div>
-                                                    </div>
+                                                    </div>--}}
                                                 </div>
 
 
@@ -142,6 +151,7 @@
                                 </div>
                             </div>
                         </div>
+
 
 
 

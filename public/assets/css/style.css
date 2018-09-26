@@ -103,10 +103,16 @@ section { overflow: hidden; }*/
 
 .text-muted{}
 
-.text-primary{color: #ff6863 !important;;}
-.text-finence{color:#13A0B2 !important;;}
-.text-mega{color:#ff6863 !important;;}
+.text-primary{color: #3db4e1 !important;;}
+.text-finence{color:#3db4e1 !important;;}
+.text-mega{color:#3db4e1 !important;;}
 .text-white{color:#fff !important;;}
+.our-services{color:#FFFFFF !important;;}
+.service-title{
+    color:#FFFFFF;
+    font-size: 15px;
+}
+
 .text-black{color:#000 !important;}
 
 .text-warning{}
@@ -261,7 +267,7 @@ h3 span,
 h4 span,
 h5 span,
 p span{
-    color:#ff6863;
+    color:#3db4e1;
 }
 
 p {
@@ -356,19 +362,19 @@ Separator
     width:85px;
     height:2px;
     margin:20px 0px;
-    background: #ff6863;
+    background: #3db4e1;
 }
 .separator_auto{
     width:85px;
     height:2px;
     margin:20px auto;
-    background: #ff6863;
+    background: #3db4e1;
 }
 .separator_small{
     width:30px;
     height:2px;
     margin:20px 0px;
-    background: #ff6863;
+    background: #3db4e1;
 }
 
 /*
@@ -398,21 +404,21 @@ Button
     border-radius: 0;
 }
 .btn-default:hover{
-    border-color:#ff6863;
-    background-color: #ff6863;
+    border-color:#3db4e1;
+    background-color: #3db4e1;
 }
 
 .btn-primary{
     color: #fff;
-    background-color: #ff6863;
+    background-color: #3db4e1;
     border:1px solid;
-    border-color: #ff6863;
+    border-color: #3db4e1;
     padding: 1rem 2rem;
 }
 .btn-primary:hover{
-    background-color: #eee;
-    border-color: #eee;
-    color:#ff6863;
+    background-color: #fff;
+    border-color: #fff;
+    color:#3db4e1;
 }
 
 .btn-success{}
@@ -762,11 +768,11 @@ textarea::-ms-input-placeholder{
 /*Preloader css*/
 
 #loading{
-    background-color: #d14149;
+    background-color: #3db4e1;
     height: 100%;
     width: 100%;
     position: fixed;
-    z-index: 1;
+    /*z-index: 1;*/
     margin-top: 0px;
     top: 0px;
     left:0;
@@ -999,7 +1005,7 @@ Nav Menu style
     color:#000;
 }
 .btn-cart{
-    background-color: #ff6863;
+    background-color: #3db4e1;
     padding: 2px 10px;
     color:#fff !important;
     border:0px solid;
@@ -1007,7 +1013,7 @@ Nav Menu style
 }
 .btn-cart:hover{
     border:0px solid;
-    background-color: #ff7854 !important;
+    background-color: #3db4e1 !important;
 }
 
 
@@ -1018,6 +1024,7 @@ Home Section style
     background: url(../images/background/header.jpeg) no-repeat bottom center;
     background-size: cover;
     position: relative;
+    background-attachment: fixed;
 }
 .main_home{
     /*overflow: hidden;*/
@@ -1059,12 +1066,12 @@ About section style
     height: 60px;
     line-height: 60px;
     font-size:1.5rem;
-    background-color: #ff6863;
+    background-color: #3db4e1;
     color:#fff;
     display: inline-block;
     text-align: center;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 6px rgba(255, 104, 99, 0.4);
+    box-shadow: 0px 0px 0px 6px rgba(76, 252, 255, 0.4);
 
 }
 
@@ -1385,7 +1392,7 @@ Skill Section style
 .teamskillbar-bar {
     height:10px;
     width:0px;
-    background:#ff6863;
+    background:#3db4e1;
     position: absolute;
     left:0px;
     top:0px;
@@ -1456,7 +1463,7 @@ Pricing Section style
 .pricing_top_border{
     height: 4px;
     width:100%;
-    background-color: #ff6863;
+    background-color: #3db4e1;
 }
 
 .pricing_item{
@@ -1468,7 +1475,7 @@ Pricing Section style
 
 }
 .pricing_price_border{
-    background-color: #ff6863;
+    background-color: #3db4e1;
     padding: 10px;
     border-radius: 50%;
     margin: 0 auto;
@@ -1480,7 +1487,7 @@ Pricing Section style
     right: 25%;
 }
 .pricing_price_border .pricing_price{
-    background-color: #ff6863;
+    background-color: #3db4e1;
     border: 2px solid;
     border-color: #fff;
     width: 130px;
@@ -1618,7 +1625,7 @@ Maps Section style
     height: 20px;
     line-height: 20px;
     border-radius: 50%;
-    background-color: #ff6863;
+    background-color: #3db4e1;
     font-size: 1rem;
     display: inline-block;
     top: -5px;
@@ -1655,7 +1662,7 @@ Contact Section style
     transition: all 0.4s;
 }
 .widget_socail ul li a:hover i{
-    background-color: #ff6863;
+    background-color: #3db4e1;
 }
 
 
@@ -1669,7 +1676,7 @@ Footer Section style
 
 .main_footer i {
     padding: 0px 5px;
-    color: #ff0000;
+    color: #3db4e1;
 }
 
 
@@ -1688,11 +1695,11 @@ Footer Section style
 }
 .main_maps i{
     font-size:2.5rem;
-    color:#f38181;
+    color: #bfedf3;
 
 }
 .main_maps  h2{
-    color:#f38181;
+    color:#bfedf3;
 }
 
 .mapheight{
@@ -1713,7 +1720,7 @@ Footer Section style
     right: 25px;
     color: #fff;
     cursor: pointer;
-    background-color: #000;
+    background-color: #3db4e1;
     z-index: 1000;
     transition: opacity .5s, background-color .5s;
     -moz-transition: opacity .5s, background-color .5s;
@@ -1721,7 +1728,7 @@ Footer Section style
 }
 
 .scrollup:hover {
-    background: #ff6863;
+    background: #3db4e1;
     opacity: 1;
 }
 
@@ -1747,5 +1754,49 @@ Added by Nkalla
     margin-top: -17px;
 }
 .menu-link-color{
-    color: #00F3FF;
+    color: #3db4e1;
 }
+
+hr{
+    border-bottom: 2px;
+}
+
+li.primaire{
+    background: #3db4e1;
+    color: white;
+}
+
+li > h5 {
+    color: #fff;
+}
+
+li.primaire:hover{
+    background: #3db4e1;
+    color: white;
+}
+
+ul.menu-transaction > li > a{
+    color: #3db4e1;
+}
+
+ul.menu-transaction > li > a:hover{
+    color: #3db4e1;
+}
+
+.form-style-9{
+    max-width: 100%;
+    background: #FAFAFA;
+    padding: 30px;
+    margin: 50px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #3db4e1;
+}
+
+.ligne{
+    border-bottom: #0d0d0d 2px solid;
+    margin-top: -0px;
+}
+
+
+

@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/fonticons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-slider.css')}}">
     <link rel="stylesheet" href="{{asset('assets/iconic/css/material-design-iconic-font.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootsnav.css')}}">
@@ -50,6 +51,100 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
     <script src="{{asset('assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
+
+    <link rel="stylesheet" href="{{asset('assets/css/flipper.css')}}">
+    {{--<link rel="stylesheet" href="{{asset('assets/css/aruba.css')}}">--}}
+
+    <style>
+        input[type=range] {
+            -webkit-appearance: none;
+            margin: 10px 0;
+            width: 100%;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 12.8px;
+            cursor: pointer;
+            animate: 0.2s;
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            background: #3db4e1;
+            border-radius: 25px;
+            border: 0px solid #000101;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            border: 0px solid #000000;
+            height: 20px;
+            width: 39px;
+            border-radius: 7px;
+            background: #225274;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -3.6px;
+        }
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #3db4e1;
+        }
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 12.8px;
+            cursor: pointer;
+            animate: 0.2s;
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            background: #3db4e1;
+            border-radius: 25px;
+            border: 0px solid #000101;
+        }
+        input[type=range]::-moz-range-thumb {
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            border: 0px solid #000000;
+            height: 20px;
+            width: 39px;
+            border-radius: 7px;
+            background: #3db4e1;
+            cursor: pointer;
+        }
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 12.8px;
+            cursor: pointer;
+            animate: 0.2s;
+            background: transparent;
+            border-color: transparent;
+            border-width: 39px 0;
+            color: transparent;
+        }
+        input[type=range]::-ms-fill-lower {
+            background: #3db4e1;
+            border: 0px solid #000101;
+            border-radius: 50px;
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        }
+        input[type=range]::-ms-fill-upper {
+            background: #3db4e1;
+            border: 0px solid #000101;
+            border-radius: 50px;
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        }
+        input[type=range]::-ms-thumb {
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            border: 0px solid #000000;
+            height: 20px;
+            width: 39px;
+            border-radius: 7px;
+            background: #225274;
+            cursor: pointer;
+        }
+        input[type=range]:focus::-ms-fill-lower {
+            background: #3db4e1;
+        }
+        input[type=range]:focus::-ms-fill-upper {
+            background: #3db4e1;
+        }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse">
@@ -59,10 +154,11 @@
 <div id="loading">
     <div id="loading-center">
         <div id="loading-center-absolute">
-            <div class="object" id="object_one"></div>
+            {{--<div class="object" id="object_one"></div>
             <div class="object" id="object_two"></div>
             <div class="object" id="object_three"></div>
-            <div class="object" id="object_four"></div>
+            <div class="object" id="object_four"></div>--}}
+            <img src="{{asset('/assets/images/blue_loading.gif')}}" height="112" width="112">
         </div>
     </div>
 </div><!--End off Preloader -->
@@ -92,36 +188,37 @@
                 <div class="row" style="margin-bottom: -25px;margin-top: 8px;">
                     <div class="col-md-12">
                         @if(!\Illuminate\Support\Facades\Auth::check())
-                            <span class="pull-right"><span class="badge">
-                                <a href="{{url('signup')}}" style="color: #00F3FF; font-weight: bold; font-size: medium;">
+                            <span class="pull-right"><span class="">
+                                <a href="{{url('id/signup')}}" style="color: #3db4e1; font-weight: bold; font-size: medium;">
                                     <i class="fa fa-user-plus"></i> &nbsp;&nbsp;S'enregistrer
                                 </a>
                             </span>
+
                                 </span>
 
-                                <span class="pull-right"><span class="badge">
-                                <a href="{{url('/login')}}" style="color: #00F3FF; font-weight: bold; font-size: medium;">
+                                <span class="pull-right"><span class="">
+                                <a href="{{url('id/login')}}" style="color: #3db4e1; font-weight: bold; font-size: medium;">
                                     <i class="fa fa-key"></i>&nbsp;&nbsp;Connexion
                                 </a>
                             </span>
-                                &nbsp;&nbsp;
+                                 &nbsp;&nbsp;&nbsp;<strong style="font-size: large; color: #3db4e1;">|</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                             </span>
 
                         @else
 
-                            <span class="pull-right"><span class="badge">
-                                <a href="{{url('logout')}}" style="color: #00F3FF; font-weight: bold; font-size: medium;">
+                            <span class="pull-right"><span class="">
+                                <a href="{{url('id/logout')}}" style="color: #3db4e1; font-weight: bold; font-size: medium;">
                                     <i class="fa fa-sign-out"></i> &nbsp;&nbsp;Se Deconnecter
                                 </a>
                             </span>
                                 </span>
 
-                            <span class="pull-right"><span class="badge">
-                                <a href="" style="color: #00F3FF; font-weight: bold; font-size: medium;">
-                                    <i class="fa fa-user"></i>&nbsp;&nbsp;<span style="font-size: large">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                            <span class="pull-right"><span class="">
+                                <a href="" style="color: #3db4e1; font-weight: bold; font-size: medium;">
+                                    <i class="fa fa-user"></i>&nbsp;&nbsp;<span style="font-size: large">{{\Illuminate\Support\Facades\Auth::user()->firstname . '  ' . \Illuminate\Support\Facades\Auth::user()->lastname}}</span>
                                 </a>
                             </span>
-                                &nbsp;&nbsp;
+                                &nbsp;&nbsp; <strong style="font-size: large; color: #3db4e1;">|</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                             </span>
 
 
@@ -134,7 +231,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="#brand">
+                    <a class="navbar-brand" href="{{url('/')}}" >
 
                         <img src="{{asset('assets/images/logo.png')}}" class="logo logo-display m-top-10" alt="" height="50" width="105">
                         <img src="{{asset('assets/images/logo.jpg')}}" class="logo logo-scrolled" alt="" height="50" width="105">
@@ -144,29 +241,59 @@
                 <!-- End Header Navigation -->
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
+                @if(\Illuminate\Support\Facades\Auth::check())
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp" style="margin-left: 75px;">
                         <li class="dropdown">
-
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span class="menu-link-color">Identity And Access</span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Nos Services</span></a>
                             <ul class="dropdown-menu" style="margin-top: -20px;">
                                 <li>
-                                    <a href="{{url('signup')}}" style="color: #00F3FF; font-weight: bold; font-size: medium;">
-                                        <i class="fa fa-user-plus"></i> &nbsp;&nbsp;S'enregistrer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/login')}}">Inviter un Collaborateur</a>
+                                    <a href="{{url('/services')}}">Catalogue</a>
                                 </li>
 
-                                <li class="divider" style="height: 1px; "></li>
+                                <li>
+                                    <a href="{{url('/services/'.\Illuminate\Support\Facades\Auth::user()->userid)}}">Mes Services</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/')}}">Payer Un Service</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <?php
+                           $roles = json_decode(\Illuminate\Support\Facades\Auth::user()->roles)
+                        ?>
+                        @if($roles->admin === true)
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Etablir les prix</span></a>
+                                <ul class="dropdown-menu" style="margin-top: -20px;">
+                                    <li>
+                                        <a href="{{url('/login')}}">Parametrer le prix d'un service</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{url('/login')}}">Inserer un Bonus / Offre</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Porte Monnaie</span></a>
+                            <ul class="dropdown-menu" style="margin-top: -20px;">
+                                <li>
+                                    <a href="{{url('wallet/walet')}}">Recharge de Compte</a>
+                                </li>
 
                                 <li>
-                                    <a href="{{url('/login')}}">Modifier Mot de Passe</a>
+                                    <a href="{{url('wallet/balance')}}" onclick="getBalance('{{\Illuminate\Support\Facades\Auth::user()->email}}'); return false;">Mon Solde</a>
                                 </li>
+
                                 <li>
-                                    <a href="{{url('/login')}}">Parametrer son Compte</a>
+                                    <a href="{{url('/login')}}">Mes Mouvements</a>
                                 </li>
+
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -180,56 +307,36 @@
 
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Nos Services</span></a>
+
+                        <li class="dropdown" id="accountmenu">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span class="menu-link-color">Mon Compte</span></a>
                             <ul class="dropdown-menu" style="margin-top: -20px;">
                                 <li>
-                                    <a href="{{url('/login')}}">Catalogue</a>
+                                    @if(\Illuminate\Support\Facades\Auth::check())
+                                        <br>
+                                        <span style="color: #3db4e1; padding: 20px 10px 10px 10px; margin-top: -10px;">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
+                                        <span style="color: #3db4e1; padding: 20px 10px 10px 10px; margin-top: -10px;">
+                                            Solde: <strong> 1000<sup>FCFA</sup></strong>
+                                        </span>
+                                    @endif
+                                    <a href="{{url('id/invitation')}}"> <i class="fa fa-user-plus"></i> &nbsp;&nbsp;Inviter un Collaborateur</a>
                                 </li>
+
+                                <li class="divider" style="height: 1px; "></li>
 
                                 <li>
-                                    <a href="{{url('/login')}}">Valider Un Service</a>
+                                    <a href="{{url('/login')}}">Modifier Mot de Passe</a>
                                 </li>
-
                                 <li>
-                                    <a href="{{url('/login')}}">Payer Un Service</a>
+                                    <a href="{{url('/login')}}">Parametrer son Compte</a>
                                 </li>
-
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Porte Monnaie</span></a>
-                            <ul class="dropdown-menu" style="margin-top: -20px;">
-                                <li>
-                                    <a href="{{url('/login')}}">Recharger Mon Compte</a>
-                                </li>
-
-                                <li>
-                                    <a href="{{url('/login')}}">Mon Solde</a>
-                                </li>
-
-                                <li>
-                                    <a href="{{url('/login')}}">Mes Mouvements</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Etablir de prix</span></a>
-                            <ul class="dropdown-menu" style="margin-top: -20px;">
-                                <li>
-                                    <a href="{{url('/login')}}">Parametrer le prix d'un service</a>
-                                </li>
-
-                                <li>
-                                    <a href="{{url('/login')}}">Inserer un Bonus / Offre</a>
-                                </li>
-
                             </ul>
                         </li>
 
                     </ul>
                 </div><!-- /.navbar-collapse -->
+                @endif
             </div>
         </div>
 
@@ -237,6 +344,8 @@
 
 
     <section id="commonsection" class="home bg-mega">
+        <img src="{{asset('assets/images/loader.gif')}}" id="loading"
+             style="border-radius: 50%; height: 80px; width: 73px; position: fixed; top: 48%; left: 48%; z-index: 500; display: none;">
         @yield('commonsection')
     </section> <!--End off Home Sections-->
 
@@ -251,12 +360,42 @@
         <div class="container">
             <div class="row">
                 <div class="main_footer text-center p-top-40 p-bottom-30">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="openmodal" style="display: none;">
+                        Launch demo modal
+                    </button>
+
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Solde </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="home-prodotto-prezzo" style="font-size: 35px;"><strong id="balance"></strong><sup>FCFA</sup><sub></sub></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <p class="wow fadeInRight" data-wow-duration="1s">
                         Made with
                         <i class="fa fa-heart"></i>
                         by
                         <a target="_blank" href="http://bootstrapthemes.co">Bootstrap Themes</a>
                         2016. All Rights Reserved
+                    </p>
+                    <p>
+
+                        <a href="{{url('id/signup')}}" style="color: #3db4e1; font-weight: bold; font-size: medium;">
+                            <i class="fa fa-user-plus"></i> &nbsp;&nbsp;S'enregistrer
+                        </a>
+
                     </p>
                 </div>
             </div>
@@ -271,9 +410,11 @@
 <!-- JS includes -->
 
 <script src="{{asset('assets/js/vendor/jquery-1.11.2.min.js')}}"></script>
+{{--<script src="{{asset('assets/js/vendor/jquery-mobile.js')}}"></script>--}}
+
 <script src="{{asset('assets/animsition/js/animsition.min.js')}}"></script>
 <script src="{{asset('assets/js/vendor/bootstrap.min.js')}}"></script>
-
+<script src="{{asset('assets/js/vendor/bootstrap-slider.js')}}"></script>
 <script src="{{asset('assets/select2/select2.min.js')}}"></script>
 <script src="{{asset('assets/daterangepicker/moment.min.js')}}"></script>
 <script src="{{asset('assets/daterangepicker/daterangepicker.js')}}"></script>
@@ -287,7 +428,7 @@
 
 <script src="{{asset('js/main.js')}}"></script>
 
-<script src="js/main.js"></script>
+{{--<script src="js/main.js"></script>--}}
 
 <!-- paradise slider js -->
 
@@ -318,7 +459,170 @@
 
 <script type="text/javascript">
 
+    $(document).ready(function () {
+
+        $('#accountmenu').on('shown.bs.dropdown', function () {
+
+        });
+
+        $('#payment_methode11').trigger('click');
+        /*$('#payment_methode11').click(function () {
+            //alert("clicked");
+            $('#mobilemoneyform').show('slow');
+            $('#creditcardform').hide('slow');
+        });*/
+
+        $('#payment_methode22').click(function () {
+            $('#mobilemoneyform').hide('slow');
+            $('#creditcardform').show('slow');
+        });
+
+    });
+
+    function getPrice(serviceid, quantity){
+        var n = parseFloat($('#' + serviceid).val());
+        var p = (n === 1) ? n*1000 : (n < 1) ? (n * 1000*1.1):(n*1000*0.95);
+
+        $('#total_amount_' + serviceid).html(p);
+        $('#price_' + serviceid).val(p);
+        var vet1 = $('#' + serviceid).val().split('.');
+        //alert($('#price').val());
+        $('#n_unit_' + serviceid).html((parseInt(vet1[0]) === 0)?'':'' + vet1[0] + '');
+        $('#decimal_unit_' + serviceid).html((vet1.length === 1)?'':'' + '2 Semaines');
+    }
+
+    function getBalance(username) {
+
+        $.ajax({
+            async:true,
+            beforeSend:function(jqXHR, settings){
+                $('#loading').show();
+            },
+            complete:function(jqXHR ,textStatus){
+                $('#loading').hide();
+            },
+            dataType: "json",
+            error:function(jqXHR, textStatus,errorThrown){
+                $('#loading').hide();
+            },
+            url: 'http://localhost:8000/wallet/mobilebillercreditaccounts/' + username + "?query=balance",
+            data: '',
+            success: function (data) {
+                console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
+
+                if (data.success === 1 && data.faillure === 0){
+                    $('#balance').html(data.response) ;
+                }else {
+                    $('#balance').html(data.raison) ;
+                }
+
+                $('#openmodal').trigger('click');
+            },
+            error:function(jqXHR, textStatus,errorThrown){
+                console.log("Error: " + JSON.stringify(errorThrown));
+                $('#balance').html(JSON.stringify(errorThrown)) ;
+                $('#openmodal').trigger('click');
+            }
+        });
+
+
+    }
+
+
+    function exchangeVisibility(a,b) {
+        //alert(a + "   |   " + b);
+
+        $('#' + b).hide('fast', function () {
+            $('#' + a).show('fast',function () {
+                if (a == 'mobilemoneyform'){
+                    $('#cardnumber').val('');
+                    $('#cardholder').val('');
+                    $('#expired_date').val('');
+                    $('#securitycode').val('');
+                } else {
+                    $('#phonenumber').val('');
+                    $('#holder').val('');
+                }
+            });
+        });
+    }
+
+    $('#phonenumber').change(function () {
+        $('#card_number').val($('#phonenumber').val());
+    });
+
+    $('#holder').change(function () {
+        $('#card_holder').val($('#holder').val());
+    });
+
+
+
+    $('#cardnumber').change(function () {
+        $('#card_number').val($('#cardnumber').val());
+    });
+
+    $('#cardholder').change(function () {
+        $('#card_holder').val($('#cardholder').val());
+    });
+
+    $('#expired_date').change(function () {
+        $('#expiry_date').val($('#expired_date').val());
+    });
+
+    $('#securitycode').change(function () {
+        $('#security_code').val($('#securitycode').val());
+    });
+
+
+    function setPaymentMethodTypeAndIssuer(paymentmethodtype, provider) {
+        $('#payment_method_id').val(paymentmethodtype);
+        $('#issuer').val(provider);
+        //alert($('#issuer').val())
+    }
+    
+    function submitStep2Paymentform() {
+        document.getElementById('form-payment-step2').submit();
+    }
+
+    function getBalancewithNiceLoader(username) {
+
+        $.ajax({
+            async:true,
+            beforeSend:function(jqXHR, settings){
+                $('#balance-loader').show();
+            },
+            complete:function(jqXHR ,textStatus){
+                $('#balance-loader').hide();
+            },
+            dataType: "json",
+            error:function(jqXHR, textStatus,errorThrown){
+                $('#balance-loader').hide();
+            },
+            url: '/wallet/mobilebillercreditaccounts/' + username + "?query=balance",
+            data: '',
+            success: function (data) {
+                console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
+
+                if (data.success === 1 && data.faillure === 0){
+                    $('#balance_content').html('Solde<br>' + data.response + '<br>') ;
+                }else {
+                    $('#balance_content').html('<i style="color: red;">' + data.raison + '</i>') ;
+                }
+
+                //$('#openmodal').trigger('click');
+            },
+            error:function(jqXHR, textStatus,errorThrown){
+                console.log("Error: " + JSON.stringify(errorThrown));
+                $('#balance_content').html('<i style="color: red;">' + JSON.stringify(errorThrown) + '</i>') ;
+                //$('#openmodal').trigger('click');
+            }
+        });
+
+
+    }
 </script>
+
+
 
 </body>
 </html>

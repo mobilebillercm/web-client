@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\domain\model\PaymentMethodType;
+use App\domain\model\Service;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -13,7 +15,7 @@ class FreeController extends Controller
 {
 
     public function welcome () {
-        return view('welcome', array());
+        return view('welcome', array('services'=>Service::all(['b_id', 'name', 'short_description', 'detailed_description', 'unit_amount', 'currency', 'unit'])));
     }
 
     public function showLoginForm() {
@@ -153,7 +155,8 @@ class FreeController extends Controller
             if (Auth::attempt($credentials)) {
                 // Authentication passed...
                 $user->save();
-                return  view('home', array());
+
+                return  view('welcome', array('services'=>Service::all(['b_id', 'name', 'short_description', 'detailed_description', 'unit_amount', 'currency', 'unit'])));
             }else{
 
                 return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
@@ -170,4 +173,43 @@ class FreeController extends Controller
 
     }
 
+    public function getServices(Request $request){
+        return  view('welcome', array('services'=>Service::all(['b_id', 'name', 'short_description', 'detailed_description', 'unit_amount', 'currency', 'unit'])));
+    }
+
+    public function getPaymentMethodTypes(Request $request){
+
+        $client = new Client();
+        $url = env('HOST_WALLET').'/api/paymentmethodtypes';
+        $res = $client->get($url, []);
+
+        return  response(json_decode((string)$res->getBody(), true), 200);
+    }
+
+    public function getServicePaymentFormStep1(Request $request){
+        $request->session()->put('servicepayment-step1', $request->all());
+        //$paymentMethodTypes = json_decode(json_encode($this->getPaymentMethodTypes($request)->original));
+        //return json_encode($paymentMethodTypes);
+        $paymentMethodTypes = PaymentMethodType::all();
+        $request->session()->put('paymentmethodtypes', $paymentMethodTypes);
+        return view('services.payform', array('paymentmethodtypes'=>$paymentMethodTypes));
+    }
+
+
+
+    public function getIcon($serviceid){
+
+        $services = Service::where('b_id', '=', $serviceid)->get();
+
+        if (!(count($services) === 1)){
+            return response()->make(null, 200, array(
+                'Content-Type' => (new \finfo(FILEINFO_MIME))->buffer(null)
+            ));
+        }
+
+        $contents = $services[0]->icon;
+        return response()->make($contents, 200, array(
+            'Content-Type' => (new \finfo(FILEINFO_MIME))->buffer($contents)
+        ));
+    }
 }

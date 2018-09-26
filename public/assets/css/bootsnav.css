@@ -253,7 +253,7 @@ li.close-full-menu{
     -webkit-box-shadow: 0px 0px 0px;
     -o-box-shadow: 0px 0px 0px;
     box-shadow: 0px 0px 0px;
-    border: solid 1px #00F3FF;
+    border: solid 1px #3db4e1;
 }
 
 ul.cart-list{
@@ -546,22 +546,22 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
         padding: 0;
         width: 250px;
         background: #333;
-        border: solid 1px #00F3FF;
+        border: solid 1px #3db4e1;
         border-radius: 5px;
-        /*border-top: solid 1px #00F3FF;*/
+        /*border-top: solid 1px #3db4e1;*/
     }
     
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a:hover,
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a:hover{
         background-color: #333;
-        color: #00F3FF;
+        color: #3db4e1;
         font-weight: bold;
     }
     
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a{
         padding: 10px 15px;
-        border-bottom: solid 0px #00F3FF;
-        color: #00F3FF;
+        border-bottom: solid 0px #3db4e1;
+        color: #3db4e1;
     }
     
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li:last-child > a{
@@ -1072,7 +1072,7 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     }
     
     nav.navbar.bootsnav ul.navbar-nav.navbar-left > li:last-child > ul.dropdown-menu{
-        border-bottom: solid 1px #00F3FF;
+        border-bottom: solid 1px #3db4e1;
     }
     
     nav.navbar.bootsnav ul.nav li.dropdown li a.dropdown-toggle{
@@ -1480,6 +1480,6 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
 .nav > li > a {
     font-family: "DejaVu Sans Mono";
     font-weight: bold;
-    color: #00F3FF;
+    color: #3db4e1;
     font-size: large;
 }

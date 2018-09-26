@@ -143,9 +143,9 @@ jQuery(document).ready(function ($) {
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 600) {
-            $('.scrollup').fadeIn('slow');
+            //$('.scrollup').fadeIn('slow');
         } else {
-            $('.scrollup').fadeOut('slow');
+            //$('.scrollup').fadeOut('slow');
         }
     });
     $('.scrollup').click(function () {
