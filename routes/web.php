@@ -22,13 +22,15 @@
 
 Route::get('/', 'FreeController@welcome');
 
-Route::get('id/login', 'FreeController@showLoginForm');
+Route::get('id/login', 'FreeController@showLoginForm')->name('login');
 Route::post('id/login', 'FreeController@login');
 
 Route::get('id/signup', 'FreeController@showSignupForm');
+Route::post('id/signup', 'FreeController@signup');
 
 Route::get('id/password-forgot', 'FreeController@showPasswordForgotForm');
 
+Route::get('test-signup', 'FreeController@testSignup');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,10 +58,18 @@ Route::get('id/invitation', 'HomeController@showInvitationForm');
 ///
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Route::get('wallet/walet', 'HomeController@showTransactionMenu');
-Route::get('wallet/topup/{userid}', 'HomeController@showTransactionForm');
-Route::post('wallet/topup/{userid}', 'HomeController@makeTopup');
+Route::get('wallet/walets', 'HomeController@showTransactionMenu');
+Route::get('wallet/topups/{userid}', 'HomeController@showTopupForm');
+Route::post('wallet/topups', 'HomeController@makeTopup');
+Route::get('wallet/topups/subaccounts/{userid}', 'HomeController@getSubaccounts');
+Route::get('wallet/topups/others/{userid}', 'HomeController@showTopupOtherForm');
+Route::get('wallet/transferts/{userid}', 'HomeController@showTransfertForm');
+Route::post('wallet/transferts', 'HomeController@makeTransfert');
+Route::get('wallet/users/{tenant}', 'HomeController@getUserByTenant');
 Route::get('wallet/mobilebillercreditaccounts/{n}', 'HomeController@getInfos');
+Route::get('wallet/transactions/{userid}', 'HomeController@getTransactions');
+Route::get('wallets/transactions/details/{transactionid}', 'HomeController@getTransactionDetails');
+
 
 
 
@@ -81,3 +91,18 @@ Route::post('service/pay-step2', 'HomeController@getServicePaymentFormStep2');
 Route::get('services/{userid}', 'HomeController@getServicesForAUser');
 
 Route::get('services/{serviceid}/icon', 'FreeController@getIcon');
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///
+///
+///
+///              TICKETS
+///
+///
+///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Route::get('tickets/tickets/{userid}', 'HomeController@getTickets');
