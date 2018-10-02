@@ -1,0 +1,285 @@
+version: "3"
+
+
+services:
+
+#file servers
+  archive:
+    image: sowedasgi/archive
+    volumes:
+      - archive_files_data:/data/soweda/uploads
+    ports:
+      - 2270:22
+    networks:
+      - soweda_sig_network
+
+
+  rabbit_mq:
+    image: sowedasgi/queue
+    hostname: rabbit_mq
+    ports:
+      - "15675:15672"
+    labels:
+      NAME: "rabbit_mq"
+    networks:
+      - soweda_sig_network
+
+
+#Web services
+  sowedageneral:
+    image: sowedasgi/soweda-general
+    networks:
+      - soweda_sig_network
+    ports:
+      - 8090:80
+    depends_on:
+      - soweda_general_db
+      - rabbit_mq
+    environment:
+      - APP_ENV=doker
+
+
+  activityandprojectmanagement:
+    image: sowedasgi/activity-and-project-management
+    networks:
+      - soweda_sig_network
+    ports:
+      - 8091:80
+    depends_on:
+      - activity_and_project_management_db
+      - rabbit_mq
+    environment:
+      - APP_ENV=doker
+
+
+  resourcemanagement:
+    image: sowedasgi/resource-management
+    networks:
+      - soweda_sig_network
+    ports:
+      - 8092:80
+    depends_on:
+      - resource_management_db
+      - rabbit_mq
+    environment:
+      - APP_ENV=doker
+
+
+
+  notifications:
+    image: sowedasgi/notifications
+    networks:
+       - soweda_sig_network
+    ports:
+       - 8093:80
+    depends_on:
+      - notifications_db
+      - rabbit_mq
+    environment:
+      - APP_ENV=doker
+
+
+  geolocation:
+    image: sowedasgi/geolocation
+    networks:
+      - soweda_sig_network
+    ports:
+      - 8094:80
+    depends_on:
+      - geolocation_db
+      - rabbit_mq
+    environment:
+      - APP_ENV=doker
+
+
+
+  reporting:
+    image: sowedasgi/reporting
+    networks:
+      - soweda_sig_network
+    ports:
+      - 8095:80
+    depends_on:
+      - reporting_db
+    environment:
+      - APP_ENV=doker
+
+
+  financeandaccounting:
+    image: sowedasgi/finance-and-accounting
+    networks:
+      - soweda_sig_network
+    ports:
+      - 8096:80
+    depends_on:
+      - finance_and_accounting_db
+      - rabbit_mq
+    environment:
+      - APP_ENV=doker
+
+
+  evaluation:
+    image: sowedasgi/evaluation
+    networks:
+      - soweda_sig_network
+    ports:
+      - 8097:80
+    depends_on:
+      - evaluation_db
+      - rabbit_mq
+    environment:
+      - APP_ENV=doker
+
+
+
+  identityandaccess:
+    image: sowedasgi/identity-and-access
+    networks:
+    - soweda_sig_network
+    ports:
+    - 8098:80
+    depends_on:
+    - identity_and_access_db
+    - rabbit_mq
+    environment:
+    - APP_ENV=doker
+
+
+#Database services
+
+  soweda_general_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=soweda_general_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/gen:/docker-entrypoint-initdb.d
+      - soweda_general_db_data:/var/lib/mysql
+
+  activity_and_project_management_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=activity_and_project_management_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/apm:/docker-entrypoint-initdb.d
+      - activity_and_project_management_db_data:/var/lib/mysql
+
+
+
+  resource_management_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=resource_management_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/res:/docker-entrypoint-initdb.d
+      - resource_management_db_data:/var/lib/mysql
+
+
+  notifications_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=notifications_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/no:/docker-entrypoint-initdb.d
+      - notifications_db_data:/var/lib/mysql
+
+
+  geolocation_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=geolocation_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/geo:/docker-entrypoint-initdb.d
+      - geolocation_db_data:/var/lib/mysql
+
+
+  evaluation_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=evaluation_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/eval:/docker-entrypoint-initdb.d
+      - evaluation_db_data:/var/lib/mysql
+
+
+  reporting_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=reporting_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/rep:/docker-entrypoint-initdb.d
+      - reporting_db_data:/var/lib/mysql
+
+
+  finance_and_accounting_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=finance_and_accounting_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/fa:/docker-entrypoint-initdb.d
+      - finance_and_accounting_db_data:/var/lib/mysql
+
+
+  identity_and_access_db:
+    image: mysql:5.7
+    networks:
+      - soweda_sig_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=identity_and_access_db
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - ./docker/data/id:/docker-entrypoint-initdb.d
+      - identity_and_access_db_data:/var/lib/mysql
+
+
+
+networks:
+
+  soweda_sig_network:
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+volumes:
+  soweda_general_db_data:
+  activity_and_project_management_db_data:
+  resource_management_db_data:
+  notifications_db_data:
+  geolocation_db_data:
+  evaluation_db_data:
+  reporting_db_data:
+  finance_and_accounting_db_data:
+  identity_and_access_db_data:
+  archive_files_data:
