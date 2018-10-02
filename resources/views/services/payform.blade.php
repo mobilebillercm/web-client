@@ -259,18 +259,39 @@
                                                         <h4>Methode de Paiement</h4>
                                                         <hr class="ligne">
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label class="containerradio" id="payment_methode11" onclick="exchangeVisibility('mobilemoneyform', 'creditcardform');"
+                                                    <div class="col-md-4">
+                                                        <label class="containerradio" id="payment_methode11"
+                                                               onclick="exchangeVisibility('mobilemoneyform', 'creditcardform', 'mobilebillercreditaccountform');"
                                                         style="font-size: 16px;">
                                                             Mobile Money <small style="font-size: x-small">(MTN MObile Money, Orange Money, ...)</small>
                                                             <input type="radio" checked="checked" name="payment_methode" id="payment_methode1">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label class="containerradio" id="payment_methode22" onclick="exchangeVisibility('creditcardform', 'mobilemoneyform');"
+                                                    <div class="col-md-4">
+                                                        <label class="containerradio" id="payment_methode22"
+                                                               onclick="exchangeVisibility('creditcardform', 'mobilemoneyform', 'mobilebillercreditaccountform');"
                                                                style="font-size: 16px;">Credit Card <small style="font-size: x-small;">(VISA, MAESTRO, MASTER, PAYPAL, etc.)</small>
                                                             <input type="radio"  name="payment_methode" id="payment_methode2">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <?php
+
+                                                        $pmt = null;
+                                                        foreach ($paymentmethodtypes as $paymentmethodtype){
+                                                            if ($paymentmethodtype->name === 'MOBILEBILLERCM'){
+                                                                $pmt = $paymentmethodtype;
+                                                                break;
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <label class="containerradio" id="payment_methode33"
+                                                               onclick="exchangeVisibility('mobilebillercreditaccountform','creditcardform', 'mobilemoneyform');
+                                                               setPaymentMethodTypeAndIssuer('{{$pmt->b_id}}', '{{$pmt->provider}}');"
+                                                               style="font-size: 16px;">Compte Mobile Biller <small style="font-size: x-small;"></small>
+                                                            <input type="radio"  name="payment_methode" id="payment_methode3">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
@@ -295,7 +316,7 @@
                                                                                 <div class="col-md-6">
                                                                                     <label class="containerradio" style="font-size: 16px;"
                                                                                            onclick="setPaymentMethodTypeAndIssuer('{{$paymentmethodtype->b_id}}', '{{$paymentmethodtype->provider}}');">{{$paymentmethodtype->name}}</small>
-                                                                                        <input type="radio" checked="checked" name="paymentmethodtype" id="numbertype_mtn"
+                                                                                        <input type="radio" checked="checked" name="paymentmethodtype" id="{{$paymentmethodtype->b_id}}"
                                                                                         value="{{$paymentmethodtype->b_id}}">
                                                                                         <span class="checkmark"></span>
                                                                                     </label>
@@ -354,7 +375,7 @@
                                                                                 <div class="col-md-2">
                                                                                     <label class="containerradio" style="font-size: 16px;"
                                                                                            onclick="setPaymentMethodTypeAndIssuer('{{$paymentmethodtype->b_id}}', '{{$paymentmethodtype->provider}}');">{{$paymentmethodtype->name}}</small>
-                                                                                        <input type="radio" checked="checked" name="paymentmethodtype" id="numbertype_mtn"
+                                                                                        <input type="radio" checked="checked" name="paymentmethodtype" id="{{$paymentmethodtype->b_id}}"
                                                                                                value="{{$paymentmethodtype->b_id}}">
                                                                                         <span class="checkmark"></span>
                                                                                     </label>
@@ -438,30 +459,63 @@
 
                                                     </div>
                                                 </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="information-account" id="mobilebillercreditaccountform" style="display: none;" >
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <br>
+                                                                        <h4>Information du Compte</h4>
+                                                                        <hr class="ligne">
+                                                                    </div>
+
+                                                                    <div class="col-md-12">
+                                                                        <div cclass="form-group" style="text-align: left;">
+                                                                            <label for="password" style="font-size: 16px;">Confirmer Avec votre Mot de passe <b style="color: red;" class=""> *</b></label>
+                                                                            <input type="password" class="form-control form-control-text" required name="password" id="password"
+                                                                                   placeholder="Votre Mot de Passe"
+                                                                                   style="color: #0d0d0d;" /> <br>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+
+                                                        </div>
+                                                    </div>
                                                 <br><br>
+
+                                                    <input type="hidden" name="payment_method_id" id="payment_method_id" value="">
+                                                    <input type="hidden" name="card_number" id="card_number" value="">
+                                                    <input type="hidden" name="card_holder" id="card_holder" value="">
+                                                    <input type="hidden" name="user_id" id="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->userid}}">
+                                                    <input type="hidden" name="firstname" id="firstname" value="{{\Illuminate\Support\Facades\Auth::user()->firstname}}">
+                                                    <input type="hidden" name="lastname" id="lastname" value="{{\Illuminate\Support\Facades\Auth::user()->lastname}}">
+                                                    <input type="hidden" name="username" id="username" value="{{\Illuminate\Support\Facades\Auth::user()->username}}">
+
+                                                    <input type="hidden" name="expiry_date" id="expiry_date" value="">
+                                                    <input type="hidden" name="security_code" id="security_code" value="">
+                                                    <input type="hidden" name="issuer" id="issuer" value="">
+
+
+
+                                                    <div class="container-login100-form-btn">
+                                                        <button class="login100-form-btn-blue" type="submit" onclick="submitStep2Paymentform();">
+                                                            Payer
+                                                        </button>
+                                                    </div>
 
                                                 @else
                                                     <div class="container-login100-form-btn">
                                                         <a href="{{url('id/signup')}}" class="btn btn-outline-info btn-lg login100-form-btn-blue">S'enregistrer</a>
                                                     </div>
                                                 @endif
-                                                <input type="hidden" name="payment_method_id" id="payment_method_id" value="">
-                                                <input type="hidden" name="card_number" id="card_number" value="">
-                                                <input type="hidden" name="card_holder" id="card_holder" value="">
-                                                <input type="hidden" name="user_id" id="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->userid}}">
-                                                <input type="hidden" name="firstname" id="firstname" value="{{\Illuminate\Support\Facades\Auth::user()->firstname}}">
-                                                <input type="hidden" name="lastname" id="lastname" value="{{\Illuminate\Support\Facades\Auth::user()->lastname}}">
-                                                <input type="hidden" name="username" id="username" value="{{\Illuminate\Support\Facades\Auth::user()->username}}">
-
-                                                <input type="hidden" name="expiry_date" id="expiry_date" value="">
-                                                <input type="hidden" name="security_code" id="security_code" value="">
-                                                <input type="hidden" name="issuer" id="issuer" value="">
-
-                                                <div class="container-login100-form-btn">
-                                                    <button class="login100-form-btn-blue" type="submit" onclick="submitStep2Paymentform();">
-                                                        Payer
-                                                    </button>
-                                                </div>
 
                                             </form>
 

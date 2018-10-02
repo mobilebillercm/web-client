@@ -8,8 +8,10 @@ use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Webpatser\Uuid\Uuid;
 
 class FreeController extends Controller
 {
@@ -30,16 +32,160 @@ class FreeController extends Controller
         return view('auth.passwords.email');
     }
 
-    public function login(Request $request){
+    public function signup(Request $request){
         //return $request;
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'firstname' => 'required|string|min:1|max:100',
+                'lastname' => 'required|string|min:1|max:100',
+                'email' => 'required|email|min:1|max:50',
+                'phone' => ['required', 'regex:/^(22|23|24|67|69|65|68|66)[0-9]{7}$/'],
+                'tenatname' => 'required|string|min:1|max:100',
+                'description' => 'required|string|min:1|max:5000',
+                'password' => 'required|string|min:6|max:50',
+                'passwordconfirmation' => 'required|string|min:1|max:50',
+                'city' => 'required|string|min:1|max:250',
+                'province' => 'required|string|min:1|max:250',
+                'logo'=> 'required|file',
+            ]
+        );
+
+        if ($validator->fails()){
+            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                'result'=>json_decode(json_encode(array('raison'=>$validator->errors()->first(), 'success'=>0, 'faillure'=>1)), true)));
+        }
+
+        $client = new Client();
+        try {
+
+            $multipart = [];
+            foreach ($request->all() as $key => $value) {
+                if (!($request->get($key) === null)){
+                    array_push($multipart,['name'=>$key, 'contents'=>$value]);
+                }else if (!($request->file($key) === null)){
+
+                    array_push($multipart,['name'=>$key, 'contents'=>fopen($request->file($key)->path(), 'r')]);
+                }
+
+            }
+
+            $url = env('HOST_IDENTITY_AND_ACCESS').'/api/signup';
+
+            $response = $client->post($url, [
+                'headers'=>[
+                    //'Authorization' => 'Bearer '.Auth::user()->access_token,
+                ],
+                'multipart'=>$multipart
+            ]);
+
+            $isjson = $this->is_JSON((string)$response->getBody());
+
+            if(!($isjson == 0)){
+
+                return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                    'result'=>array("success"=>0, 'faillure'=>1, 'raison'=>'Something Went Wrong')));
+            }
+
+            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                'result'=>json_decode((string)$response->getBody(), true)));
+
+        } catch (BadResponseException $e) {
+            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                'result'=>json_decode(json_encode(array('raison'=>"Unable to invite the user : ".
+                    $request->get('firstname') . " " . $request->get('lastname'), 'success'=>0, 'faillure'=>1)), true)));
+        }
+
+
+    }
+
+    public function registerInvitedUser(Request $request, $inviteduserid){
+
+
+        try {
+
+            $client = new Client();
+
+            $validator = Validator::make($request->all(), [
+                'password' => 'required|confirmed|min:6|max:50',
+            ]);
+
+            if ($validator->fails()) {
+                return Redirect::back()->with('message', array('receiveResultStatusCode' => 200, 'result' => array('success' => 0, 'faillure' => 1, 'raison' => $validator->errors())));
+            }
+
+            $url = env('HOST_IDENTITY_AND_ACCESS') . '/api/users/' . $inviteduserid . '/registration-invitations';
+            $body = json_encode(array('password' => $request->get('password'), 'password_confirmation' => $request->get('password_confirmation')));
+            //return $body;
+            $res = $client->post($url, [
+                'headers' => [
+                    'content-type' => 'application/json',
+                ],
+                'body' => $body
+            ]);
+
+
+            $isjson = $this->is_JSON((string)$res->getBody());
+
+            if(!($isjson == 0)){
+
+                return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                    'result'=>array("success"=>0, 'faillure'=>1, 'raison'=>'Something Went Wrong')));
+            }
+
+            $responseBody = json_decode((string)$res->getBody(), true);
+            if ($responseBody['success'] === 0 and $responseBody['faillure'] === 1) {
+                //return json_encode($responseBody);
+                return Redirect::back()->with('message', array('receiveResultStatusCode' => 200,
+                    'result' => $responseBody));
+            }
+        }catch (\Exception $e){
+
+            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                'result'=>array("success"=>0, 'faillure'=>1, 'raison'=>'Registration failled')));
+        }
+
+        return view('auth.login');
+    }
+
+    public function testSignup(Request $request){
+
+
+
+        $password = Hash::make($request->get('password'));
+
+        try {
+
+            $user = new User(Uuid::generate()->string, $request->get('firstname'), $request->get('lastname'),
+                $request->get('email'), $request->get('email'), $request->get('tenant'), $password, $request->get('roles'));
+            $user->save();
+
+            return response(array('success' => 1, 'faillure' => 0, 'response' => 'User created successfully'), 200);
+
+        } catch (Exception $e) {
+            return response(array('success' => 0, 'faillure' => 1, 'raison' => $e->getMessage()), 200);
+        }
+
+
+
+    }
+
+
+
+    public function login(Request $request){
 
         $validator = Validator::make($request->all(), [
             'email'=>'required|email|min:5|max:255',
-            'password'=>'required|string|min:8|max:50',
+            'password'=>'required|string|min:6|max:50',
         ]);
+
         if ($validator->fails()){
-            Redirect::back()->withErrors($validator->errors());
+            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                'result'=>json_decode(json_encode(array('raison'=>$validator->errors()->first(), 'success'=>0, 'faillure'=>1)), true)));
         }
+        /*if ($validator->fails()){
+            Redirect::back()->withErrors($validator->errors());
+        }*/
 
         $credentials = $request->only('email', 'password');
 
@@ -160,14 +306,14 @@ class FreeController extends Controller
             }else{
 
                 return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
-                    'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=> 'Unable to authenticate the user')), true)));
+                    'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=> 'Impossible d\'authentifier l\'utilisateur')), true)));
 
             }
 
 
         }else{
             return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
-                'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=>'Unable to authenticate the user.')),true)));
+                'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=>'Impossible d\'authentifier l\'utilisateur.')),true)));
 
         }
 

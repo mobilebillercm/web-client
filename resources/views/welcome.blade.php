@@ -9,12 +9,12 @@
                 <div class="main_home">
                     <div class="home_text">
                         <div class="main_home">
-                            <br /><br /><br />
+                            <br />
                             <h1 class="text-white">MOBILE BILLER - CREATIVE DESIGNERS!</h1>
 
                             <div class="limiter">
-                                <h2 class="our-services ">Nos Services</h2><br />
-                                <div class="row">
+                                <h2 class="our-services ">Nos Services</h2>
+                                <div class="row" style="margin-top: -20px;">
                                     @if($services and count($services) > 0)
                                         @foreach($services as $service)
 
@@ -77,7 +77,7 @@
                                                                 <input name="servicename" value="{{$service->name}}" type="hidden" id="service_{{$service->b_id}}">
                                                                 <input name="serviceshortdescription" value="{{$service->short_description}}" type="hidden">
                                                                 <input name="serviceid" value="{{$service->b_id}}" type="hidden">
-                                                                <input name="price" value="" type="hidden" id="price_{{$service->b_id}}">
+                                                                <input name="price" value="{{$service->unit_amount}}" type="hidden" id="price_{{$service->b_id}}">
                                                                 <input name="unit" value="{{$service->unit}}" type="hidden" id="price_{{$service->b_id}}">
                                                                 <input name="currency" value="{{$service->currency}}" type="hidden" id="currency_{{$service->b_id}}">
                                                             </div>

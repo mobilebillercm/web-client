@@ -233,8 +233,8 @@
                     </button>
                     <a class="navbar-brand" href="{{url('/')}}" >
 
-                        <img src="{{asset('assets/images/logo.png')}}" class="logo logo-display m-top-10" alt="" height="50" width="105">
-                        <img src="{{asset('assets/images/logo.jpg')}}" class="logo logo-scrolled" alt="" height="50" width="105">
+                        <img src="{{asset('assets/images/logo0.png')}}" class="logo logo-display m-top-10" alt="">
+                        <img src="{{asset('assets/images/logo.png')}}" class="logo logo-scrolled" alt="" >
 
                     </a>
                 </div>
@@ -244,6 +244,9 @@
                 @if(\Illuminate\Support\Facades\Auth::check())
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp" style="margin-left: 75px;">
+                        <li class="">
+                            <a href="{{url('')}}" ><span class="menu-link-color"><i class="fa fa-home" style="font-size: 25px; margin-top: -8px;"></i> Accueil</span></a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Nos Services</span></a>
                             <ul class="dropdown-menu" style="margin-top: -20px;">
@@ -283,28 +286,25 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Porte Monnaie</span></a>
                             <ul class="dropdown-menu" style="margin-top: -20px;">
                                 <li>
-                                    <a href="{{url('wallet/walet')}}">Recharge de Compte</a>
+                                    <a href="{{url('wallet/walets')}}">Recharge de Compte</a>
                                 </li>
 
-                                <li>
+                                {{--<li>
                                     <a href="{{url('wallet/balance')}}" onclick="getBalance('{{\Illuminate\Support\Facades\Auth::user()->email}}'); return false;">Mon Solde</a>
-                                </li>
+                                </li>--}}
 
                                 <li>
-                                    <a href="{{url('/login')}}">Mes Mouvements</a>
+                                    <a href="{{url('wallet/transactions/' . \Illuminate\Support\Facades\Auth::user()->userid)}}">Mes Mouvements</a>
                                 </li>
 
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Transactions</span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Tickets</span></a>
                             <ul class="dropdown-menu" style="margin-top: -20px;">
                                 <li>
-                                    <a href="{{url('/login')}}">Liste de Transactions </a>
+                                    <a href="{{url('tickets/tickets/'.\Illuminate\Support\Facades\Auth::user()->userid)}}">Tickets Imprimes </a>
                                 </li>
-
-
-
                             </ul>
                         </li>
 
@@ -315,9 +315,10 @@
                                 <li>
                                     @if(\Illuminate\Support\Facades\Auth::check())
                                         <br>
-                                        <span style="color: #3db4e1; padding: 20px 10px 10px 10px; margin-top: -10px;">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
+                                        <span style="color: #3db4e1; padding: 20px 10px 10px 10px; margin-top: -10px;">{{\Illuminate\Support\Facades\Auth::user()->email}}</span><br>
                                         <span style="color: #3db4e1; padding: 20px 10px 10px 10px; margin-top: -10px;">
-                                            Solde: <strong> 1000<sup>FCFA</sup></strong>
+                                            Solde: <strong id="myaccount_balance"></strong> <img  src="{{asset('assets/images/loader.gif')}}" height="20" width="15"
+                                            style="display: none;" id="myaccount_balance_loader"/> <i id="userid" style="display: none;">{{\Illuminate\Support\Facades\Auth::user()->userid}}</i>
                                         </span>
                                     @endif
                                     <a href="{{url('id/invitation')}}"> <i class="fa fa-user-plus"></i> &nbsp;&nbsp;Inviter un Collaborateur</a>
@@ -336,6 +337,16 @@
 
                     </ul>
                 </div><!-- /.navbar-collapse -->
+
+                @else
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp" style="margin-left: 75px;">
+                            <li class="">
+                                <a href="{{url('')}}" ><span class="menu-link-color"><i class="fa fa-home" style="font-size: 30px;"></i> Accueil</span></a>
+                            </li>
+
+                        </ul>
+                    </div>
                 @endif
             </div>
         </div>
@@ -461,8 +472,83 @@
 
     $(document).ready(function () {
 
-        $('#accountmenu').on('shown.bs.dropdown', function () {
 
+        $('.filterable .btn-filter').click(function(){
+            //alert("voila");
+            var $panel = $(this).parents('.filterable'),
+                $filters = $panel.find('.filters input'),
+                $tbody = $panel.find('.table tbody');
+            if ($filters.prop('disabled') == true) {
+                $filters.prop('disabled', false);
+                $filters.first().focus();
+            } else {
+                $filters.val('').prop('disabled', true);
+                $tbody.find('.no-result').remove();
+                $tbody.find('tr').show();
+            }
+        });
+
+        $('.filterable .filters input').keyup(function(e){
+            /* Ignore tab key */
+            var code = e.keyCode || e.which;
+            if (code == '9') return;
+            /* Useful DOM data and selectors */
+            var $input = $(this),
+                inputContent = $input.val().toLowerCase(),
+                $panel = $input.parents('.filterable'),
+                column = $panel.find('.filters th').index($input.parents('th')),
+                $table = $panel.find('.table'),
+                $rows = $table.find('tbody tr');
+            /* Dirtiest filter function ever ;) */
+            var $filteredRows = $rows.filter(function(){
+                var value = $(this).find('td').eq(column).text().toLowerCase();
+                return value.indexOf(inputContent) === -1;
+            });
+            /* Clean previous no-result if exist */
+            $table.find('tbody .no-result').remove();
+            /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+            $rows.show();
+            $filteredRows.hide();
+            /* Prepend no-result row if all rows are filtered */
+            if ($filteredRows.length === $rows.length) {
+                $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+            }
+        });
+
+        $('#accountmenu').on('show.bs.dropdown', function () {
+            //alert('Showing...');
+            $('#myaccount_balance').html('') ;
+            $.ajax({
+                async:true,
+                beforeSend:function(jqXHR, settings){
+                    $('#myaccount_balance_loader').show();
+                },
+                complete:function(jqXHR ,textStatus){
+                    $('#myaccount_balance_loader').hide();
+                },
+                dataType: "json",
+                error:function(jqXHR, textStatus,errorThrown){
+                    $('#myaccount_balance_loader').hide();
+                },
+                url: '/wallet/mobilebillercreditaccounts/' + $('#userid').html() + "?query=balance",
+                data: '',
+                success: function (data) {
+                    console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
+
+                    if (data.success === 1 && data.faillure === 0){
+                        $('#myaccount_balance').html(data.response ) ;
+                    }else {
+                        $('#balance_content').html('<i style="color: red;">' + data.raison + '</i>') ;
+                    }
+
+                    //$('#openmodal').trigger('click');
+                },
+                error:function(jqXHR, textStatus,errorThrown){
+                    console.log("Error: " + JSON.stringify(errorThrown));
+                    $('#myaccount_balance').html('<i style="color: red;">' + JSON.stringify(errorThrown) + '</i>') ;
+                    //$('#openmodal').trigger('click');
+                }
+            });
         });
 
         $('#payment_methode11').trigger('click');
@@ -476,6 +562,21 @@
             $('#mobilemoneyform').hide('slow');
             $('#creditcardform').show('slow');
         });
+
+        $('.popovertransactiondetails').popover({
+            container: 'body',
+            html:true/*,
+            template:'<div class="panel panel-primary popover" role="tooltip">' +
+                        '<div class="arrow"></div>' +
+                        '<div class="panel-heading">\n' +
+                        '    <h3 class="panel-title popover-header"></h3>\n' +
+                        '    <div class="pull-right">\n' +
+                        '    </div>\n' +
+                        '</div>'+
+                        '<div class="popover-body panel-body"></div>' +
+                    '</div>'*/
+        });
+        //$('[data-toggle="popover"]').popover();
 
     });
 
@@ -529,9 +630,7 @@
     }
 
 
-    function exchangeVisibility(a,b) {
-        //alert(a + "   |   " + b);
-
+    function exchangeVisibility(a,b, c) {
         $('#' + b).hide('fast', function () {
             $('#' + a).show('fast',function () {
                 if (a == 'mobilemoneyform'){
@@ -539,12 +638,22 @@
                     $('#cardholder').val('');
                     $('#expired_date').val('');
                     $('#securitycode').val('');
-                } else {
+                    $('#password').val('');
+                } else if(a === 'creditcardform') {
+                    $('#phonenumber').val('');
+                    $('#holder').val('');
+                    $('#password').val('');
+                }else {
+                    $('#cardnumber').val('');
+                    $('#cardholder').val('');
+                    $('#expired_date').val('');
+                    $('#securitycode').val('');
                     $('#phonenumber').val('');
                     $('#holder').val('');
                 }
             });
         });
+        $('#' + c).hide('fast');
     }
 
     $('#phonenumber').change(function () {
@@ -584,6 +693,14 @@
         document.getElementById('form-payment-step2').submit();
     }
 
+    function submitFormTopup() {
+        document.getElementById('form-topup').submit();
+    }
+
+    function submitForm(id) {
+        document.getElementById(id).submit();
+    }
+
     function getBalancewithNiceLoader(username) {
 
         $.ajax({
@@ -617,9 +734,45 @@
                 //$('#openmodal').trigger('click');
             }
         });
+    }
 
+    function loadBenefiaryByTenant(tenant) {
+
+        $.ajax({
+            async:true,
+            beforeSend:function(jqXHR, settings){
+                $('#benefiary-loader').show();
+            },
+            complete:function(jqXHR ,textStatus){
+                $('#benefiary-loader').hide();
+            },
+            dataType: "json",
+            error:function(jqXHR, textStatus,errorThrown){
+                $('#benefiary-loader').hide();
+            },
+            url: '/wallet/users/' + tenant ,
+            data: '',
+            success: function (data) {
+                console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
+                var strinoption = '<option value="">--- Beneficiaire ---</option>';
+                for (var i = 0; i<data.length; i++){
+                    strinoption += '<option value="'+data[i].userid+'">'+data[i].firstname + '  ' + data[i].lastname+'</option>';
+                }
+                $('#beneficiary').html(strinoption);
+            },
+            error:function(jqXHR, textStatus,errorThrown){
+                console.log("Error: " + JSON.stringify(errorThrown));
+                $('#balance_content').html('<i style="color: red;">' + JSON.stringify(errorThrown) + '</i>') ;
+                //$('#openmodal').trigger('click');
+            }
+        });
 
     }
+
+    $('#amount_transfert').change(function () {
+        $('#residual_amount_transfert').html(parseFloat(this.max) - parseFloat(this.value));
+        $('#choosen_amount_transfert').html(parseFloat(this.value));
+    });
 </script>
 
 

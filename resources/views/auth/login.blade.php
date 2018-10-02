@@ -27,7 +27,39 @@
 
                                                     <hr style="margin-top: -20px; width: 75%; margin-left: auto; margin-right: auto;"> <br>
                                                     @csrf
-                                                    <div class="wrap-input100 validate-input" data-validate = "Enter username">
+
+                                                    @if(session('message') and session('message')['result']['success'] === 1 and session('message')['result']['faillure'] === 0)
+                                                        <div class="alert-success">{{session('message')['result']['response']}}</div>
+                                                    @else
+                                                        @if(session('message') and session('message')['result']['success'] === 0 and session('message')['result']['faillure'] === 1)
+                                                            <?php
+                                                            $jsonObj = json_decode(session('message')['result']['raison'], true);
+                                                            ?>
+                                                            <div class="alert-danger">
+                                                                <ul class="list-group">
+                                                                    <?php
+                                                                    //echo  var_dump($jsonObj); exit();
+                                                                    if ($jsonObj == null or is_string($jsonObj)) {
+                                                                        echo '<li class="list-group-item">' . session('message')['result']['raison'] . '</li>';
+                                                                    } else {
+                                                                    foreach ($jsonObj as $key => $value) {
+                                                                    ?>
+
+                                                                    <li class="list-group-item">{{$value[0]}}</li>
+                                                                    <?php
+                                                                    }
+                                                                    }
+                                                                    ?>
+                                                                </ul>
+                                                            </div>
+                                                            <?php
+                                                            ?>
+                                                        @else
+                                                            <div class="alert-danger">{{session('message')['result']['raison']}}</div>
+                                                        @endif
+                                                    @endif
+
+                                                    <div class="wrap-input100 validate-input" data-validate = "Enter a Valide E-mail">
                                                         <input class="input100" type="text" name="email" placeholder="" style="font-family: Poppins-Medium;">
                                                         <span class="focus-input100" data-placeholder="E-Mail"></span>
                                                     </div>

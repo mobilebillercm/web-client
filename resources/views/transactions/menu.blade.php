@@ -27,7 +27,7 @@
                                             Solde<br>{{$balance}}<br>
 
                                         </span>
-                                        <a href="#" onclick=" getBalancewithNiceLoader('{{\Illuminate\Support\Facades\Auth::user()->email}}') ; return false;" title="Rafraichir"
+                                        <a href="#" onclick=" getBalancewithNiceLoader('{{\Illuminate\Support\Facades\Auth::user()->userid}}') ; return false;" title="Rafraichir"
                                            style="display: block; font-weight: bold; font-size: 30px; color: #225274; position: absolute; top: 67%; left: 49%;">
                                             <i class="fa fa-refresh" style="color: #225274;"></i>
                                         </a>
@@ -50,10 +50,10 @@
                             <div class="col-md-5">
                                 <ul class="list-group menu-transaction" style="width: 100%;">
                                     <li class="list-group-item">
-                                        <a  href="{{url('wallet/topup/'.\Illuminate\Support\Facades\Auth::user()->email)}}">Recharger mon Compte</a>
+                                        <a  href="{{url('wallet/topups/'.\Illuminate\Support\Facades\Auth::user()->userid)}}">Recharger mon Compte</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <a  href="{{'wallet/topup'}}">Un de mes sous Comptes</a>
+                                        <a  href="{{url('wallet/topups/subaccounts/' . \Illuminate\Support\Facades\Auth::user()->userid)}}">Un de mes sous Comptes</a>
                                     </li>
                                 </ul>
                             </div>
@@ -61,11 +61,11 @@
                                 <ul class="list-group menu-transaction" style="width: 100%;">
 
                                     <li class="list-group-item">
-                                        <a  href="{{'wallet/mobilebillercreditaccounttransactions/2'}}">Un Autre compte</a>
+                                        <a  href="{{url('wallet/topups/others/'. \Illuminate\Support\Facades\Auth::user()->userid)}}">Un Autre compte</a>
                                     </li>
 
                                     <li class="list-group-item">
-                                        <a  href="{{'wallet/mobilebillercreditaccounttransactions/3'}}">Transfere</a>
+                                        <a  href="{{url('wallet/transferts/' . \Illuminate\Support\Facades\Auth::user()->userid).'?query=balance'}}">Transfert</a>
                                     </li>
 
                                 </ul>

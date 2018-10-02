@@ -190,8 +190,7 @@
                                             <form class="form-style-9" method="post" action="{{url('wallet/topups')}}" id="form-topup">
                                                 @if(\Illuminate\Support\Facades\Auth::check())
                                                     <span class="login100-form-title p-b-34 p-t-27" style="color: #3db4e1;">
-                                                        <h5>Beneficiaire: {{$beneficiary->firstname}} {{$beneficiary->lastname}}</h5>
-                                                        <input type="hidden" name="beneficiary" value="{{$beneficiary->userid}}">
+                                                       {{-- <h5>Beneficiaire: {{$beneficiary->firstname}} {{$beneficiary->lastname}}</h5>--}}
                                                         <input type="hidden" name="userid" value="{{\Illuminate\Support\Facades\Auth::user()->userid}}">
                                                     </span>
                                                     @csrf
@@ -239,8 +238,36 @@
                                                                          <h4>Information du Compte</h4>
                                                                          <hr class="ligne">
                                                                      </div>--}}
+                                                                    {{--<input type="hidden" name="beneficiary" value="{{$beneficiary->userid}}">--}}
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-4">
+                                                                        <div cclass="form-group" style="text-align: left;">
+                                                                            <label for="entreprise" style="font-size: 16px;"> Entreprise<b style="color: red;" class=""> *</b>
+                                                                                <img src="{{asset('/assets/images/blue_loading.gif')}}" height="25" width="25" id="benefiary-loader"
+                                                                                     style="display: none;">
+                                                                            </label>
+                                                                            <select class="form-control form-control-text" required name="entreprise" id="entreprise"
+
+                                                                                    style="color: #0d0d0d;" onchange="loadBenefiaryByTenant(this.value);"
+                                                                            onclick="loadBenefiaryByTenant(this.value);">
+                                                                                <option value="">--- Selectionner une Entreprise ---</option>
+                                                                                @foreach($tenants as $tenant)
+                                                                                    <option value="{{$tenant->tenant}}">{{$tenant->tenant_name}}</option>
+                                                                               @endforeach
+                                                                            </select> <br>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-4">
+                                                                        <div cclass="form-group" style="text-align: left;">
+                                                                            <label for="beneficiary" style="font-size: 16px;">Beneficiaire <b style="color: red;" class=""> *</b></label>
+                                                                            <select class="form-control form-control-text" required name="beneficiary" id="beneficiary"
+
+                                                                                    style="color: #0d0d0d;" ></select> <br>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-4">
                                                                         <div cclass="form-group" style="text-align: left;">
                                                                             <label for="amount" style="font-size: 16px;">Montant de recharge <b style="color: red;" class=""> *</b></label>
                                                                             <input type="number" class="form-control form-control-text" required name="amount" id="amount"
@@ -279,30 +306,6 @@
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
-
-                                                        @if(!($beneficiary->email === \Illuminate\Support\Facades\Auth::user()->email))
-                                                            <div class="col-md-4">
-
-                                                                <?php
-
-                                                                $pmt = null;
-                                                                foreach ($paymentmethodtypes as $paymentmethodtype){
-                                                                    if ($paymentmethodtype->name === 'MOBILEBILLERCM'){
-                                                                        $pmt = $paymentmethodtype;
-                                                                        break;
-                                                                    }
-                                                                }
-                                                                ?>
-
-                                                                <label class="containerradio" id="payment_methode33"
-                                                                       onclick="exchangeVisibility('mobilebillercreditaccountform','creditcardform', 'mobilemoneyform');
-                                                                           setPaymentMethodTypeAndIssuer('{{$pmt->b_id}}', '{{$pmt->provider}}');"
-                                                                       style="font-size: 16px;">Compte Mobile Biller <small style="font-size: x-small;"></small>
-                                                                    <input type="radio"  name="payment_methode" id="payment_methode3">
-                                                                    <span class="checkmark"></span>
-                                                                </label>
-                                                            </div>
-                                                        @endif
                                                     </div>
 
                                                     <div class="row">
