@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -44,7 +43,7 @@ class User extends Authenticatable
         $this->parent = $parent;
         $this->password = $password;
         $this->roles = $roles;
-        $this->access_token = $expires_in;
+        $this->expires_in = $expires_in;
         $this->mobilebillercreditaccount = $mobilebillercreditaccount;
     }
 }

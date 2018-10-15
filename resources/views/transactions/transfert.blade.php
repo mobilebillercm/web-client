@@ -243,28 +243,45 @@
 
                                                                     <div class="col-md-6">
                                                                         <div cclass="form-group" style="text-align: left;">
-                                                                            <label for="beneficiary" style="font-size: 16px;">Beneficiaire <b style="color: red;" class=""> *</b></label>
-                                                                            <select class="form-control form-control-text" required name="beneficiary" id="beneficiary"
-                                                                                    style="color: #0d0d0d;" >
-                                                                                <option value="">--- Choisir un Beneficiaire ---</option>
-
-                                                                                @foreach($users as $user)
-
-                                                                                    <option value="{{$user->userid}}">{{$user->firstname}}  {{$user->lastname}}</option>
-                                                                               @endforeach
+                                                                            <label for="entreprise" style="font-size: 16px;"> Entreprise<b style="color: red;" class=""> *</b>
+                                                                                <img src="{{asset('/assets/images/blue_loading.gif')}}" height="25" width="25" id="benefiary-loader"
+                                                                                     style="display: none;">
+                                                                            </label>
+                                                                            <select class="form-control form-control-text" required name="entreprise" id="entreprise"
+                                                                                    style="color: #0d0d0d;" onchange="loadBenefiaryByTenant(this.value);"
+                                                                                    onclick="loadBenefiaryByTenant(this.value);">
+                                                                                <option value="">--- Selectionner une Entreprise ---</option>
+                                                                                @foreach($tenants as $tenant)
+                                                                                    <option value="{{$tenant->tenantid}}">{{$tenant->name}}</option>
+                                                                                @endforeach
                                                                             </select> <br>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-md-6">
                                                                         <div cclass="form-group" style="text-align: left;">
+                                                                            <label for="beneficiary" style="font-size: 16px;">Beneficiaire <b style="color: red;" class=""> *</b></label>
+                                                                            <select class="form-control form-control-text" required name="beneficiary" id="beneficiary"
+                                                                                    style="color: #0d0d0d;" >
+                                                                                <option value="">--- Choisir un Beneficiaire ---</option>
+
+                                                                               {{-- @foreach($users as $user)
+
+                                                                                    <option value="{{$user->userid}}">{{$user->firstname}}  {{$user->lastname}}</option>
+                                                                               @endforeach--}}
+                                                                            </select> <br>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-12">
+                                                                        <div cclass="form-group" style="text-align: left;">
                                                                             <label for="amount_transfert" style="font-size: 16px;">Montant de recharge en {{$balance['unit']}} <b style="color: red;" class=""> *</b></label>
                                                                             <input type="range" class=" " required name="amount" id="amount_transfert"
-                                                                                   max="{{$balance['amount']}}" min="100" value="{{((int)$balance['amount'])/2}}" step="50"/>
-                                                                            <label for="amount_transfert" class="pull-left" style="color: #e1141d; font-size: x-small;">
+                                                                                   max="{{$balance['amount']}}" min="100" value="{{((int)$balance['amount'])/2}}" step="100"/>
+                                                                            <label for="amount_transfert" class="pull-left" style="color: forestgreen; font-size: large;">
                                                                                 Il vous reste: <span id="residual_amount_transfert">{{((int)$balance['amount'])/2}}</span>{{$balance['unit']}}</label>
-                                                                            <label for="amount_transfert" class="pull-right" style="color: forestgreen; font-size: x-small;">
-                                                                                Montant Sellectionne: <span id="choosen_amount_transfert">{{((int)$balance['amount'])/2}}</span>{{$balance['unit']}}</label><br>
+                                                                            <label for="amount_transfert" class="pull-right" style="color: #e1141d; font-size: 1.3em;">
+                                                                                Montant Selectionne: <span id="choosen_amount_transfert">{{((int)$balance['amount'])/2}}</span>{{$balance['unit']}}</label><br>
                                                                         </div>
                                                                     </div>
 
@@ -306,6 +323,7 @@
                                                 @endif
 
                                                 <input type="hidden" name="username" id="username" value="{{\Illuminate\Support\Facades\Auth::user()->username}}">
+                                                    <input type="hidden" name="tenantid" id="tenantid" value="{{\Illuminate\Support\Facades\Auth::user()->tenant}}">
 
 
                                                 <input type="hidden" name="user_transaction_number" id="user_transaction_number" value="{{time()}}">

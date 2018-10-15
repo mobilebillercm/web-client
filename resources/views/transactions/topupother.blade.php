@@ -187,7 +187,7 @@
                                 <div class="">
                                     <div class="" style="color: #3db4e1; border-radius: 8px;">
                                         <div class="" style="width: 100%; padding: 15px; border-radius: 8px;">
-                                            <form class="form-style-9" method="post" action="{{url('wallet/topups')}}" id="form-topup">
+                                            <form class="form-style-9" method="post" action="{{url('wallet/cash-topups')}}" id="form-topup">
                                                 @if(\Illuminate\Support\Facades\Auth::check())
                                                     <span class="login100-form-title p-b-34 p-t-27" style="color: #3db4e1;">
                                                        {{-- <h5>Beneficiaire: {{$beneficiary->firstname}} {{$beneficiary->lastname}}</h5>--}}
@@ -252,7 +252,7 @@
                                                                             onclick="loadBenefiaryByTenant(this.value);">
                                                                                 <option value="">--- Selectionner une Entreprise ---</option>
                                                                                 @foreach($tenants as $tenant)
-                                                                                    <option value="{{$tenant->tenant}}">{{$tenant->tenant_name}}</option>
+                                                                                    <option value="{{$tenant->tenantid}}">{{$tenant->name}}</option>
                                                                                @endforeach
                                                                             </select> <br>
                                                                         </div>
@@ -306,6 +306,19 @@
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
+
+
+                                                        @if(\Illuminate\Support\Facades\Auth::user()->userid === env('SUPER_ADMINISTRATOR_ID'))
+                                                            <div class="col-md-4">
+                                                                <label class="containerradio" id="payment_methode33"
+                                                                       onclick="exchangeVisibility('cashform', 'mobilemoneyform', 'creditcardform'); setPaymentMethodTypeId('a6ba8bb6-b960-11e8-8c3b-ac2b6ee888a2');"
+                                                                       style="font-size: 16px;">Cash <small style="font-size: x-small;"></small>
+                                                                    <input type="radio"  name="payment_methode" id="payment_methode3">
+                                                                    <span class="checkmark"></span>
+                                                                </label>
+                                                            </div>
+                                                        @endif
+
                                                     </div>
 
                                                     <div class="row">
@@ -476,7 +489,7 @@
 
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <div class="information-account" id="mobilebillercreditaccountform" style="display: none;" >
+                                                            <div class="information-account" id="cashform" style="display: none;" >
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <br>
@@ -516,6 +529,7 @@
                                                 <input type="hidden" name="firstname" id="firstname" value="{{\Illuminate\Support\Facades\Auth::user()->firstname}}">
                                                 <input type="hidden" name="lastname" id="lastname" value="{{\Illuminate\Support\Facades\Auth::user()->lastname}}">
                                                 <input type="hidden" name="username" id="username" value="{{\Illuminate\Support\Facades\Auth::user()->username}}">
+                                                <input type="hidden" name="tenantid" id="tenantid" value="{{\Illuminate\Support\Facades\Auth::user()->tenant}}">
 
                                                 <input type="hidden" name="expiry_date" id="expiry_date" value="">
                                                 <input type="hidden" name="security_code" id="security_code" value="">

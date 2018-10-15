@@ -12,30 +12,7 @@ nohup fuser -n tcp -k  8044 &&
 nohup fuser -n tcp -k  8045 &&
 nohup fuser -n tcp -k  8046 &&
 nohup fuser -n tcp -k  8047 &&
-
 echo "freeing server ports done..."
-
-
-
-
-echo "stopping rabbitmq ..."
-
-
-
-nohup service rabbitmq-server stop &&
-
-
-echo "rabbitmq stopped..."
-
-
-
-echo "starting rabbitmq ..."
-
-
-nohup service rabbitmq-server start &&
-
-
-echo "rabbitmq started..."
 
 
 echo "starting to launch the servers ..."
@@ -54,12 +31,21 @@ echo "WEB CLIENT STARTED"
 cd ~/Documents/app-code/business/mobile-biller-php/web-client
 nohup php artisan queue:work --tries=3 --timeout=500 >/dev/null 2>&1 &
 
-nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/template-queue-listener.php  >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/tenant-ssl-provisioned-queue-listener.php  >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/tenant-collaborator-registration-invitation-queue-listener.php  >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/service-created-queue-listener.php  >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/tenant-collaborator-ssl-registered-queue-listener.php >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/service-unit-price-defined-queue-listener.php >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/account-topupped-with-cash-queue-listener.php >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/user-mobile-credit-account-created-queue-listener.php >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/web-client/app/Infrastructure/Messaging/transfere-operation-created-queue-listener.php >/dev/null 2>&1 &
+
+
 echo "WEB CLIENT DONE..."
 
 
 echo "IAM STARTED"
-cd ~/Documents/app-code/business/mobile-biller-php/web-client
+cd ~/Documents/app-code/business/mobile-biller-php/identity-and-access
 nohup php artisan queue:work --tries=3 --timeout=500 >/dev/null 2>&1 &
 echo "IAM DONE ..."
 
@@ -94,10 +80,13 @@ cd ~/Documents/app-code/business/mobile-biller-php/service-access
 nohup php artisan queue:work --tries=3 --timeout=500 >/dev/null 2>&1 &
 
 nohup php ~/Documents/app-code/business/mobile-biller-php/services/app/Infrastructure/Messaging/user-registered-queue-listener.php  >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/services/app/Infrastructure/Messaging/tenant-provosion-queue-listener.php  >/dev/null 2>&1 &
+
 echo "SERVICES DONE ..."
 
 echo "WALLET STARTED"
 nohup php ~/Documents/app-code/business/mobile-biller-php/wallet/app/Infrastructure/Messaging/user-registered-queue-listener.php  >/dev/null 2>&1 &
+nohup php ~/Documents/app-code/business/mobile-biller-php/wallet/app/Infrastructure/Messaging/tenant-provisioned-queue-listener.php >/dev/null 2>&1 &
 echo "WALLET DONE ..."
 
 

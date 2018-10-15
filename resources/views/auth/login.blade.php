@@ -59,15 +59,22 @@
                                                         @endif
                                                     @endif
 
-                                                    <div class="wrap-input100 validate-input" data-validate = "Enter a Valide E-mail">
-                                                        <input class="input100" type="text" name="email" placeholder="" style="font-family: Poppins-Medium;">
+                                                    <div class="wrap-input100 validate-input" data-validate = "Enter a Valid E-mail">
+                                                        <input class="input100" type="text" name="email" placeholder="" style="font-family: Poppins-Medium;" onblur="filterPossibleTenant(this.value);">
                                                         <span class="focus-input100" data-placeholder="E-Mail"></span>
+                                                    </div>
+                                                    <div class="wrap-input100 validate-input">
+                                                        <select id="tenantid" name="tenantid" class="input100" value="test">
+                                                        </select>
+                                                        <span class="focus-input100" data-placeholder="Entreprise"></span>
                                                     </div>
 
                                                     <div class="wrap-input100 validate-input" data-validate="Enter password">
                                                         <input class="input100" type="password" name="password" placeholder="" style="font-family: Poppins-Medium;">
                                                         <span class="focus-input100" data-placeholder="Password"></span>
                                                     </div>
+
+
 
                                                     <div class="contact100-form-checkbox">
                                                         <label  for="ckb1">
@@ -78,7 +85,7 @@
                                                     </div>
 
                                                     <div class="container-login100-form-btn">
-                                                        <button class="login100-form-btn">
+                                                        <button class="login100-form-btn" id="login_button" type="submit">
                                                             Login
                                                         </button>
                                                     </div>

@@ -37,7 +37,7 @@
 
                                                             </div>
                                                             <div>
-                                                                <img src="{{url('services/'.$service->b_id.'/icon')}}" style="height: 175px; width: 175px; border-radius: 50%; margin-top: 30px;"></div>
+                                                                <img src="{{url('services/'.$service->b_id.'/icon')}}" style="border-radius: 50%; margin-top: 30px;" height="150" width="150"></div>
                                                         </div>
                                                         <div class="home-products-col-details-box back">
                                                             <div style="background: #FFFFFF;">
@@ -78,7 +78,7 @@
                                                                 <input name="serviceshortdescription" value="{{$service->short_description}}" type="hidden">
                                                                 <input name="serviceid" value="{{$service->b_id}}" type="hidden">
                                                                 <input name="price" value="{{$service->unit_amount}}" type="hidden" id="price_{{$service->b_id}}">
-                                                                <input name="unit" value="{{$service->unit}}" type="hidden" id="price_{{$service->b_id}}">
+                                                                <input name="unit" value="{{$service->unit}}" type="hidden" id="unit_{{$service->b_id}}">
                                                                 <input name="currency" value="{{$service->currency}}" type="hidden" id="currency_{{$service->b_id}}">
                                                             </div>
 

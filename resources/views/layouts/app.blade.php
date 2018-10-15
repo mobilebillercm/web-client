@@ -216,6 +216,7 @@
                             <span class="pull-right"><span class="">
                                 <a href="" style="color: #3db4e1; font-weight: bold; font-size: medium;">
                                     <i class="fa fa-user"></i>&nbsp;&nbsp;<span style="font-size: large">{{\Illuminate\Support\Facades\Auth::user()->firstname . '  ' . \Illuminate\Support\Facades\Auth::user()->lastname}}</span>
+                                    <span style="font-size: small;"> @({{\Illuminate\Support\Facades\Auth::user()->tenant_name}})</span>
                                 </a>
                             </span>
                                 &nbsp;&nbsp; <strong style="font-size: large; color: #3db4e1;">|</strong> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -261,18 +262,24 @@
                                     <a href="{{url('/')}}">Payer Un Service</a>
                                 </li>
 
+                                @if(\Illuminate\Support\Facades\Auth::user()->userid === env('SUPER_ADMINISTRATOR_ID'))
+                                    <li>
+                                        <a href="{{url('/services/add/new')}}"><i class="fa fa-plus-square"></i> Creer un Service</a>
+                                    </li>
+                                @endif
+
                             </ul>
                         </li>
 
                         <?php
                            $roles = json_decode(\Illuminate\Support\Facades\Auth::user()->roles)
                         ?>
-                        @if($roles->admin === true)
+                        @if(\Illuminate\Support\Facades\Auth::user()->userid === env('SUPER_ADMINISTRATOR_ID'))
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Etablir les prix</span></a>
                                 <ul class="dropdown-menu" style="margin-top: -20px;">
                                     <li>
-                                        <a href="{{url('/login')}}">Parametrer le prix d'un service</a>
+                                        <a href="{{url('/parametrer-prix-service')}}">Parametrer le prix d'un service</a>
                                     </li>
 
                                     <li>
@@ -281,6 +288,7 @@
                                 </ul>
                             </li>
                         @endif
+                        {{--@endif--}}
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Porte Monnaie</span></a>
@@ -294,7 +302,7 @@
                                 </li>--}}
 
                                 <li>
-                                    <a href="{{url('wallet/transactions/' . \Illuminate\Support\Facades\Auth::user()->userid)}}">Mes Mouvements</a>
+                                    <a href="{{url('wallet/transactions/' . \Illuminate\Support\Facades\Auth::user()->userid)}}">Operations Sur mon Compte</a>
                                 </li>
 
                             </ul>
@@ -581,15 +589,47 @@
     });
 
     function getPrice(serviceid, quantity){
-        var n = parseFloat($('#' + serviceid).val());
-        var p = (n === 1) ? n*1000 : (n < 1) ? (n * 1000*1.1):(n*1000*0.95);
 
-        $('#total_amount_' + serviceid).html(p);
-        $('#price_' + serviceid).val(p);
-        var vet1 = $('#' + serviceid).val().split('.');
-        //alert($('#price').val());
-        $('#n_unit_' + serviceid).html((parseInt(vet1[0]) === 0)?'':'' + vet1[0] + '');
-        $('#decimal_unit_' + serviceid).html((vet1.length === 1)?'':'' + '2 Semaines');
+
+        $.ajax({
+            async:true,
+            beforeSend:function(jqXHR, settings){
+                $('#loading').show();
+            },
+            complete:function(jqXHR ,textStatus){
+                $('#loading').hide();
+            },
+            dataType: "json",
+            error:function(jqXHR, textStatus,errorThrown){
+                $('#loading').hide();
+            },
+            url: '/pricing/calculate-paid-service-price/' + serviceid + '/' + quantity,
+            data: '',
+            success: function (data) {
+                console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
+
+                if (data.success === 1 && data.faillure === 0){
+
+                    var price = data.response;
+                    $('#total_amount_' + serviceid).html(price.amount.value);
+                    $('#price_' + serviceid).val(price.amount.value);
+
+                    var vet1 = $('#' + serviceid).val().split('.');
+                    //alert($('#price').val());
+                    $('#n_unit_' + serviceid).html((parseInt(vet1[0]) === 0)?'':'' + vet1[0] + '');
+                    $('#decimal_unit_' + serviceid).html((vet1.length === 1)?'':'' + '2 Semaines');
+                }else {
+                    //$('#balance').html(data.raison) ;
+                }
+
+                //$('#openmodal').trigger('click');
+            },
+            error:function(jqXHR, textStatus,errorThrown){
+                console.log("Error: " + JSON.stringify(errorThrown));
+                //$('#balance').html(JSON.stringify(errorThrown)) ;
+                //$('#openmodal').trigger('click');
+            }
+        });
     }
 
     function getBalance(username) {
@@ -688,6 +728,11 @@
         $('#issuer').val(provider);
         //alert($('#issuer').val())
     }
+
+
+    function setPaymentMethodTypeId(paymentmethodtype) {
+        $('#payment_method_id').val(paymentmethodtype);
+    }
     
     function submitStep2Paymentform() {
         document.getElementById('form-payment-step2').submit();
@@ -773,7 +818,141 @@
         $('#residual_amount_transfert').html(parseFloat(this.max) - parseFloat(this.value));
         $('#choosen_amount_transfert').html(parseFloat(this.value));
     });
+
+
+
+
+    function filterPossibleTenant(username) {
+
+
+        //alert (username);
+
+        $.ajax({
+            async:true,
+            beforeSend:function(jqXHR, settings){
+                $('#groupLoader').show();
+                //alert(this.url);
+                //console.log(this.url);
+            },
+            complete:function(jqXHR ,textStatus){
+                $('#groupLoader').hide();
+            },
+            dataType: "json",
+            error:function(jqXHR, textStatus,errorThrown){
+                $('#groupLoader').hide();
+                //alert(errorThrown.toString());
+            },
+            url: '<?php echo e(url('')); ?>/tenants-that-matches-username/'+username,
+            data: '',
+            success: function (data) {
+                console.log(JSON.stringify(data.response));
+               if(data.success == 1 && data.faillure == 0){
+
+                   if(data.response.length === 1){
+
+
+                       var options_string = '<option value=""></option>';
+                       for (var i=0 ; i<data.response.length; i++){
+                           options_string += '<option value="'+data.response[i].tenant+'">'+data.response[i].tenant_name+'</option>';
+                       }
+                       $('#tenantid').html(options_string);
+                       document.getElementById('login_button').disabled = false;
+
+
+
+
+
+                   }else if (data.response.length > 1){
+
+                       var options_string = '<option value=""></option>';
+                       for (var i=0 ; i<data.response.length; i++){
+                           options_string += '<option value="'+data.response[i].tenant+'">'+data.response[i].tenant_name+'</option>';
+                       }
+                       $('#tenantid').html(options_string);
+                       document.getElementById('login_button').disabled = false;
+
+                   }else {
+                       document.getElementById('login_button').disabled = true;
+                   }
+
+                }
+            }
+        });
+    }
+
+
+    function login(loginForm) {
+
+        console.log("ENTREEEEEE222222222: \n\n" +loginForm.getElementById('tenantid').value);
+
+
+    }
+
+
+    function addReductionFactor() {
+
+
+        var numfactors = $('#reduction_factors > div.row').length;
+
+
+        var innerHtml = '<div class="row">\n' +
+            '                                        <div class="col-md-12">\n' +
+            '                                            <div cclass="form-group">\n' +
+            '                                                <label  class="dot pull-left" style="text-align: center;margin-left: 15px;">'+ numfactors + '</label>\n' +
+            '                                            </div>\n' +
+            '                                        </div>\n' +
+            '\n' +
+
+            '\n' +
+            '                                    <div class="col-md-5">\n' +
+            '                                        <div class="form-group" style="text-align: left;">\n' +
+            '                                            <label for="reductionfactor'+(numfactors - 1)+'">Facteur</label>\n' +
+            '                                            <input type="text" class="form-control form-control-text" name="reductionfactor'+(numfactors - 1) +'" id="reductionfactor'+(numfactors-1)+'" placeholder="Facteur" />\n' +
+            '                                        </div>\n' +
+            '                                    </div>\n' +
+            '\n' +
+            '                                    <div class="col-md-3">\n' +
+            '                                        <div class="form-group" style="text-align: left;">\n' +
+            '                                            <label for="lowerbound'+(numfactors - 1 )+'">De</label>\n' +
+            '                                                <input type="number" class="form-control form-control-text" name="lowerbound'+(numfactors - 1 )+
+            '" id="lowerbound'+(numfactors - 1 )+'" placeholder="Borne Inf." />\n' +
+            '\n' +
+            '                                        </div>\n' +
+            '                                    </div>\n' +
+            '                                    <div class="col-md-3">\n' +
+            '                                        <div class="form-group" style="text-align: left;">\n' +
+            '                                            <label for="upperbound'+(numfactors - 1 )+'">A</label>\n' +
+            '                                                <input type="number" class="form-control form-control-text" name="upperbound'+(numfactors - 1 )+'" id="upperbound'+(numfactors - 1 )+'" placeholder="Borne Sup."/>\n' +
+            '\n' +
+            '                                        </div>\n' +
+            '                                    </div>\n' +
+            '                                    <div class="col-md-1">\n' +
+            '<br><button class="btn btn-link" onclick="removeReductionFactor(this, \'reduction_factors\'); return false;" style="font-size: medium;" title="Remove Phase ">&times;</button>\n' +
+            '                                        </div>'+
+            '                                </div>' +
+            '\n';
+
+        $('#addreductionfactorsgroup').before(innerHtml);
+
+    }
+
+
+    function removeReductionFactor(target, id) {
+        var row = target.parentElement.parentElement;
+        row.parentElement.removeChild(row);
+
+        $('#' + id +' .dot').each(function (index) {
+            if (!($('#' + id +' .dot').length -1 === index))
+                $(this).html((index+1));
+        });
+    }
+
+
 </script>
+
+
+
+
 
 
 

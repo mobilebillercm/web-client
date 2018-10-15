@@ -17,8 +17,7 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                    @if($transactions['success'] === 1 and $transactions['faillure'] === 0)
-
+                                    @if($transactions and !(is_string($transactions)))
                                         <div class="panel panel-primary filterable">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Mes Transactions</h3>
@@ -45,15 +44,15 @@
 
                                                 <?php $num = 1; ?>
 
-                                                @foreach($transactions['response'] as $transaction)
+                                                @foreach($transactions as $transaction)
                                                     <tr style="color: #225274;">
                                                         <td>{{$num}}</td>
-                                                        <td>{{$transaction['date']}}</td>
-                                                        <td>{{$transaction['made_by']}}</td>
+                                                        <td>{{$transaction->date}}</td>
+                                                        <td>{{$transaction->made_by}}</td>
                                                         <?php
-                                                        $transactionTypeDetails = \App\domain\model\TransactionType::where('b_id', '=', $transaction['transaction_type'])->get();
-                                                        $alertcolor = ($transaction['state'] == 'PENDING')?'alert-warning':($transaction['state'] == 'FAILED')?'alert-danger':'alert-success';
-                                                        $account = json_decode($transaction['accountstate']);
+                                                        $transactionTypeDetails = \App\domain\model\TransactionType::where('b_id', '=', $transaction->transaction_type)->get();
+                                                        $alertcolor = ($transaction->state == 'PENDING')?'alert-warning':($transaction->state == 'FAILED')?'alert-danger':'alert-success';
+                                                        $account = json_decode($transaction->accountstate);
                                                         $beforeAmount = '';
                                                         if (!($account === null)){
                                                             $beforeAmount = $account->balance;
@@ -68,12 +67,12 @@
                                                          */
                                                         ?>
                                                         <td>{{$transactionTypeDetails[0]->name}}</td>
-                                                        <td>{{$transaction['amount']}}</td>
-                                                        <td class="alert {{$alertcolor}}">{{$transaction['state']}}</td>
+                                                        <td>{{$transaction->amount}}</td>
+                                                        <td class="alert {{$alertcolor}}">{{$transaction->state}}</td>
                                                         <td>{{$beforeAmount}}</td>
                                                         <td style="text-align: center;">
 
-                                                            <a href="{{url('wallets/transactions/details/' . $transaction['b_id'])}}" >
+                                                            <a href="{{url('wallets/transactions/details/' . $transaction->b_id)}}" >
                                                                 <i class="fa fa-angle-right" style="font-size: 35px; color: #225274;"></i></a>
                                                         </td>
                                                         <?php $num ++; ?>
@@ -83,7 +82,7 @@
                                                 <tr>
                                                     <th colspan="8">
                                                         <ul class="" style="">
-                                                            <li class="" style="text-align: center; padding-bottom: -25px;">{{ $transactions['response']->links() }}</li>
+                                                            <li class="" style="text-align: center; padding-bottom: -25px;">{{ $transactions->links() }}</li>
                                                         </ul>
                                                     </th>
                                                 </tr>
@@ -95,7 +94,7 @@
                                         </div>
                                     @else
                                         <div class="alert-danger" style="padding: 15px; text-align: center; font-size: large; color: red; font-weight: bold;">
-                                            <h4 style="font-size: large; color: red; font-weight: bold;">{{$transactions['raison']}}</h4>
+                                            <h4 style="font-size: large; color: red; font-weight: bold;">{{$transactions}}</h4>
                                         </div>
                                     @endif
                                 </div>

@@ -41,11 +41,14 @@ Route::get('test-signup', 'FreeController@testSignup');
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('id/home', 'HomeController@index');
+Route::get('id/home', 'IdentityAndAccessController@index');
 
-Route::get('id/logout', 'HomeController@logout');
+Route::get('id/logout', 'IdentityAndAccessController@logout');
 
-Route::get('id/invitation', 'HomeController@showInvitationForm');
+Route::get('id/invitation', 'IdentityAndAccessController@showInvitationForm');
+
+Route::post('id/invitation', 'IdentityAndAccessController@inviteCollaborator');
+
 
 
 
@@ -58,17 +61,18 @@ Route::get('id/invitation', 'HomeController@showInvitationForm');
 ///
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Route::get('wallet/walets', 'HomeController@showTransactionMenu');
-Route::get('wallet/topups/{userid}', 'HomeController@showTopupForm');
-Route::post('wallet/topups', 'HomeController@makeTopup');
-Route::get('wallet/topups/subaccounts/{userid}', 'HomeController@getSubaccounts');
-Route::get('wallet/topups/others/{userid}', 'HomeController@showTopupOtherForm');
-Route::get('wallet/transferts/{userid}', 'HomeController@showTransfertForm');
-Route::post('wallet/transferts', 'HomeController@makeTransfert');
-Route::get('wallet/users/{tenant}', 'HomeController@getUserByTenant');
-Route::get('wallet/mobilebillercreditaccounts/{n}', 'HomeController@getInfos');
-Route::get('wallet/transactions/{userid}', 'HomeController@getTransactions');
-Route::get('wallets/transactions/details/{transactionid}', 'HomeController@getTransactionDetails');
+Route::get('wallet/walets', 'WalletController@showTransactionMenu');
+Route::get('wallet/topups/{userid}', 'WalletController@showTopupForm');
+Route::post('wallet/topups', 'WalletController@makeTopup');
+Route::post('wallet/cash-topups', 'WalletController@makeCashTopup');
+Route::get('wallet/topups/subaccounts/{userid}', 'WalletController@getSubaccounts');
+Route::get('wallet/topups/others/{userid}', 'WalletController@showTopupOtherForm');
+Route::get('wallet/transferts/{userid}', 'WalletController@showTransfertForm');
+Route::post('wallet/transferts', 'WalletController@makeTransfert');
+Route::get('wallet/users/{tenant}', 'WalletController@getUserByTenant');
+Route::get('wallet/mobilebillercreditaccounts/{n}', 'WalletController@getInfos');
+Route::get('wallet/transactions/{userid}', 'WalletController@getTransactions');
+Route::get('wallets/transactions/details/{transactionid}', 'WalletController@getTransactionDetails');
 
 
 
@@ -86,11 +90,22 @@ Route::get('services', 'FreeController@getServices');
 
 Route::get('services/pay-step1', 'FreeController@getServicePaymentFormStep1');
 
-Route::post('service/pay-step2', 'HomeController@getServicePaymentFormStep2');
+Route::post('service/pay-step2', 'ServiceController@getServicePaymentFormStep2');
 
-Route::get('services/{userid}', 'HomeController@getServicesForAUser');
+Route::get('services/{userid}', 'ServiceController@getServicesForAUser');
 
 Route::get('services/{serviceid}/icon', 'FreeController@getIcon');
+
+Route::get('/services/add/new', 'ServiceController@showCreateServiceForm');
+Route::post('/services/add/new', 'ServiceController@addService');
+
+Route::get('/parametrer-prix-service', 'ServiceController@showUnpricedServiceList');
+
+Route::get('/services/{serviceid}/price', 'ServiceController@showPrarametrerPrixForm');
+
+Route::post('/services/{serviceid}/price', 'ServiceController@defineServiceUnitPrice');
+
+
 
 
 
@@ -106,3 +121,49 @@ Route::get('services/{serviceid}/icon', 'FreeController@getIcon');
 
 
 Route::get('tickets/tickets/{userid}', 'HomeController@getTickets');
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///
+///
+///
+///              IAM CONTROLLER
+///
+///
+///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+Route::get('tenants-that-matches-username/{username}', 'IdentityAndAccessReadController@getAllTenantHavingUserWithUsername');
+
+Route::get('users/{invitationid}/registration-invitations/{tenantid}', 'FreeController@getTenantCollaboratorInvitation');
+Route::post('users/{invitationid}/registration-invitations/{tenantid}', 'FreeController@registerInviterdUser');
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///
+///
+///
+///                 PRICING
+///
+///
+///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Route::get('pricing/calculate-paid-service-price/{serviceid}/{quantity}', 'PricingController@getPrice');

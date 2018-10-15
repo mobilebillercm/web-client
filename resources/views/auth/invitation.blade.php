@@ -13,53 +13,69 @@
                             <div class="col-md-1">
 
                             </div>
+
+
+
                             <div class="col-md-10">
                                 <div class="limiter">
-                                    <div class="container-login100"
-                                         style="background-image: url('{{asset('images/header.jpg')}}');">
+                                    <div class="container-login100">
                                         <div class="wrap-login100" style="width: 100%;">
                                             <form class="login100-form validate-form" method="post" action="{{url('id/invitation')}}">
-					<span class="login100-form-logo">
-						<i class="fa fa-user-plus"></i>
-					</span>
+                                                <span class="login100-form-logo">
+                                                    <i class="fa fa-user-plus"></i>
+                                                </span>
                                                 <span class="login100-form-title p-b-34 p-t-27">Invitation</span>
+                                                <hr style="margin-top: -20px; width: 75%; margin-left: auto; margin-right: auto;"> <br>
+
+                                                @if(session('message') and session('message')['result']['success'] === 1 and session('message')['result']['faillure'] === 0)
+                                                    <div class="alert-success">{{session('message')['result']['response']}}</div>
+                                                @else
+                                                    @if(session('message') and session('message')['result']['success'] === 0 and session('message')['result']['faillure'] === 1)
+                                                        <?php
+                                                        $jsonObj = json_decode(session('message')['result']['raison'], true);
+                                                        ?>
+                                                        <div class="alert-danger">
+                                                            <ul class="list-group">
+                                                                <?php
+                                                                //echo  var_dump($jsonObj); exit();
+                                                                if ($jsonObj == null or is_string($jsonObj)) {
+                                                                    echo '<li class="list-group-item">' . session('message')['result']['raison'] . '</li>';
+                                                                } else {
+                                                                foreach ($jsonObj as $key => $value) {
+                                                                ?>
+
+                                                                <li class="list-group-item">{{$value[0]}}</li>
+                                                                <?php
+                                                                }
+                                                                }
+                                                                ?>
+                                                            </ul>
+                                                        </div>
+                                                        <?php
+                                                        ?>
+                                                    @else
+                                                        <div class="alert-danger">{{session('message')['result']['raison']}}</div>
+                                                    @endif
+                                                @endif
+
+
                                                 <div class="small" style="text-align: center;">
-                                                    <span style="font-size: large; color: white;" class="center">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
+                                                    {{--<span style="font-size: large; color: white;" class="center">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
                                                     <br>
-                                                    <span style="font-size: small; color: white;" class="center">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
-                                                    <hr style="margin-top: -20px; width: 75%; margin-left: auto; margin-right: auto;"> <br>
+                                                    <span style="font-size: small; color: white;" class="center">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>--}}
                                                 </div>
                                                 @csrf
-                                                {{--<div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Enter Enterprise Name">
-
-                                                            <input class="input100" type="text" name="tenatname" placeholder="" disabled
-                                                            value="{{\Illuminate\Support\Facades\Auth::user()->email}}">
-                                                            <span class="focus-input100" data-placeholder=" ">
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Enter Last Name">
-                                                            <textarea class="input100" name="lastname" placeholder="" disabled="true">{{\Illuminate\Support\Facades\Auth::user()->email}}</textarea>
-                                                            <span class="focus-input100" data-placeholder=""></span>
-                                                        </div>
-                                                    </div>
-                                                </div>--}}
-
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter First Name">
-                                                            <input class="input100" type="text" name="repfirstname" placeholder="">
+                                                            <input class="input100" type="text" name="lastname" placeholder="">
                                                             <span class="focus-input100" data-placeholder="Nom"></span>
                                                         </div>
                                                     </div>
 
-
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter Last Name">
-                                                            <input class="input100" type="text" name="replastname" placeholder="">
+                                                            <input class="input100" type="text" name="firstname" placeholder="">
                                                             <span class="focus-input100" data-placeholder="Prenom"></span>
                                                         </div>
                                                     </div>
@@ -77,18 +93,6 @@
                                                         </div>
                                                     </div>
 
-                                                    {{--<div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Password Error">
-                                                            <input class="input100" type="password" name="password" placeholder="">
-                                                            <span class="focus-input100" data-placeholder="Mot de Passe"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Password Confirmation Error">
-                                                            <input class="input100" type="password" name="password" placeholder="">
-                                                            <span class="focus-input100" data-placeholder="Confirmer Mot de passe"></span>
-                                                        </div>
-                                                    </div>--}}
 
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter a City">
@@ -101,7 +105,8 @@
                                                             <input type="hidden" name="addressstreetadresse" value="Douala">
                                                             <input type="hidden" name="addresscountrycode" value="CM">
                                                             <input type="hidden" name="addresspostalcode" value="80209">
-                                                            <input type="hidden" name="tenant" value="{{\Illuminate\Support\Facades\Auth::user()->tenant}}">
+                                                            <input type="hidden" name="tenantid" value="{{\Illuminate\Support\Facades\Auth::user()->tenant}}">
+                                                            <input type="hidden" name="invited_by" value="{{\Illuminate\Support\Facades\Auth::user()->userid}}">
                                                         </div>
                                                     </div>
 
@@ -111,35 +116,13 @@
                                                             <span class="focus-input100" data-placeholder="Region"></span>
                                                         </div>
                                                     </div>
-                                                    {{--<div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Enter A Valid file">
-                                                            <input class="input100" type="file" name="logo" placeholder="">
-                                                            <span class="focus-input100" data-placeholder="Logo"></span>
-                                                        </div>
-                                                    </div>--}}
+
                                                 </div>
 
 
-                                                {{-- private String tenantName;
-                                                 private String tenantDescription;
-                                                 private String administorFirstName;
-                                                 private String administorLastName;
-                                                 private String emailAddress;
-                                                 private String primaryTelephone;
-                                                 private String secondaryTelephone;
-                                                 private String primaryCountryCode;
-                                                 private String primaryDialingCountryCode;
-                                                 private String secondaryCountryCode;
-                                                 private String secondaryDialingCountryCode;
-                                                 private String addressStreetAddress;
-                                                 private String addressCity;
-                                                 private String addressStateProvince;
-                                                 private String addressPostalCode;
-                                                 private String addressCountryCode;--}}
-
                                                 <div class="container-login100-form-btn">
                                                     <button class="login100-form-btn">
-                                                        Enregistrer
+                                                        Inviter
                                                     </button>
                                                 </div>
 

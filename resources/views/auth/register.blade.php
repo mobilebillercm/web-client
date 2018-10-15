@@ -58,64 +58,63 @@
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter Enterprise Name">
 
-                                                            <input class="input100" type="text" name="tenatname" placeholder="">
+                                                            <input class="input100" type="text" name="tenantname" placeholder="" value="Soft Mobile">
                                                             <span class="focus-input100" data-placeholder="Entreprise ">
                                                     </span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Enter Description">
-                                                            <textarea class="input100" name="description" placeholder=""></textarea>
+                                                        <div class="wrap-input100 validate-input" data-validate="Enter Description" >
+                                                            <textarea class="input100" name="tenantdescrition" placeholder="">Tenant Description</textarea>
                                                             <span class="focus-input100" data-placeholder="Description"></span>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
+
                                                     <div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Enter First Name">
-                                                            <input class="input100" type="text" name="firstname" placeholder="">
+                                                        <div class="wrap-input100 validate-input" data-validate="Enter Last Name" >
+                                                            <input class="input100" type="text" name="administratorlastname" placeholder="" value="Administrateur">
                                                             <span class="focus-input100" data-placeholder="Nom"></span>
                                                         </div>
                                                     </div>
 
-
                                                     <div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Enter Last Name">
-                                                            <input class="input100" type="text" name="lastname" placeholder="">
+                                                        <div class="wrap-input100 validate-input" data-validate="Enter First Name" >
+                                                            <input class="input100" type="text" name="administratorfirstname" placeholder="" value="Default">
                                                             <span class="focus-input100" data-placeholder="Prenom"></span>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-6">
-                                                        <div class="wrap-input100 validate-input" data-validate="Enter A Valid E-Mail">
-                                                            <input class="input100" type="email" name="email" placeholder="">
+                                                        <div class="wrap-input100 validate-input" data-validate="Enter A Valid E-Mail" >
+                                                            <input class="input100" type="email" name="administratoremail" placeholder="" value="felicien.fotiomanfo@gmail.com">
                                                             <span class="focus-input100" data-placeholder="E-Mail"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter a Valid phone number">
-                                                            <input class="input100" type="tel" name="phone" placeholder="">
+                                                            <input class="input100" type="tel" name="administratorphone" placeholder="" value="669262656">
                                                             <span class="focus-input100" data-placeholder="Telephone"></span>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Password Error">
-                                                            <input class="input100" type="password" name="password" placeholder="">
+                                                            <input class="input100" type="password" name="adminitratorpassword" placeholder="" >
                                                             <span class="focus-input100" data-placeholder="Mot de Passe"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Password Confirmation Error">
-                                                            <input class="input100" type="password" name="passwordconfirmation" placeholder="">
+                                                            <input class="input100" type="password" name="adminitratorpassword_confirmation" placeholder="" >
                                                             <span class="focus-input100" data-placeholder="Confirmer le mot de passe"></span>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Entrer une Ville">
-                                                            <input class="input100" type="text" name="city" placeholder="">
+                                                            <input class="input100" type="text" name="tenantcity" placeholder="" value="Douala">
                                                             <span class="focus-input100" data-placeholder="Ville"></span>
                                                             <input type="hidden" name="primarycontrycode" value="CM">
                                                             <input type="hidden" name="primarydialingcontrycode" value="00237">
@@ -129,35 +128,20 @@
 
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Entrer la Region">
-                                                            <input class="input100" type="text" name="province" placeholder="">
+                                                            <input class="input100" type="text" name="tenantregion" placeholder="" value="Littoral">
                                                             <span class="focus-input100" data-placeholder="Region"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="wrap-input100 validate-input" data-validate="Enter A Valid file">
-                                                            <input class="input100" type="file" name="logo" placeholder="" style="margin-left: 40px; margin-top: 30px;">
+                                                            <input class="input100" type="file" name="tenantlogo" placeholder="" style="margin-left: 40px; margin-top: 30px;">
                                                             <span class="focus-input100" data-placeholder="Logo"></span>
                                                         </div>
                                                     </div>
                                                 </div>
 
 
-                                                {{-- private String tenantName;
-                                                 private String tenantDescription;
-                                                 private String administorFirstName;
-                                                 private String administorLastName;
-                                                 private String emailAddress;
-                                                 private String primaryTelephone;
-                                                 private String secondaryTelephone;
-                                                 private String primaryCountryCode;
-                                                 private String primaryDialingCountryCode;
-                                                 private String secondaryCountryCode;
-                                                 private String secondaryDialingCountryCode;
-                                                 private String addressStreetAddress;
-                                                 private String addressCity;
-                                                 private String addressStateProvince;
-                                                 private String addressPostalCode;
-                                                 private String addressCountryCode;--}}
+
 
                                                 <div class="container-login100-form-btn">
                                                     <button class="login100-form-btn">

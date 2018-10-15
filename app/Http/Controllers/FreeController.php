@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\domain\GlobalDbRecordCounter;
+use App\domain\GlobalResultHandler;
 use App\domain\model\PaymentMethodType;
 use App\domain\model\Service;
+use App\TenantCollaboratorsRegistrationInvitationsView;
+use App\TenantView;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -16,11 +20,28 @@ use Webpatser\Uuid\Uuid;
 class FreeController extends Controller
 {
 
+    private $userViewController;
+
+
+    public function __construct()
+    {
+        $this->userViewController = new IdentityAndAccessReadController();
+    }
+
+
+    public function is_JSON($args) {
+        json_decode($args);
+        return (json_last_error());
+    }
+
     public function welcome () {
         return view('welcome', array('services'=>Service::all(['b_id', 'name', 'short_description', 'detailed_description', 'unit_amount', 'currency', 'unit'])));
     }
 
     public function showLoginForm() {
+
+
+
         return view('auth.login');
     }
 
@@ -33,28 +54,33 @@ class FreeController extends Controller
     }
 
     public function signup(Request $request){
-        //return $request;
+
         $validator = Validator::make(
             $request->all(),
             [
-                'firstname' => 'required|string|min:1|max:100',
-                'lastname' => 'required|string|min:1|max:100',
-                'email' => 'required|email|min:1|max:50',
-                'phone' => ['required', 'regex:/^(22|23|24|67|69|65|68|66)[0-9]{7}$/'],
-                'tenatname' => 'required|string|min:1|max:100',
-                'description' => 'required|string|min:1|max:5000',
-                'password' => 'required|string|min:6|max:50',
-                'passwordconfirmation' => 'required|string|min:1|max:50',
-                'city' => 'required|string|min:1|max:250',
-                'province' => 'required|string|min:1|max:250',
-                'logo'=> 'required|file',
+                'administratorfirstname' => 'required|string|min:1|max:100',
+                'administratorlastname' => 'required|string|min:1|max:100',
+                'administratoremail' => 'required|email|min:1|max:50',
+                'administratorphone' => ['required', 'regex:/^(22|23|24|67|69|65|68|66)[0-9]{7}$/'],
+                'tenantname' => 'required|string|min:1|max:100',
+                'tenantdescrition' => 'required|string|min:1|max:5000',
+                'adminitratorpassword' => 'required|string|min:6|max:50',
+                'adminitratorpassword_confirmation' => 'required|string|min:1|max:50',
+                'tenantcity' => 'required|string|min:1|max:250',
+                'tenantregion' => 'required|string|min:1|max:250',
+                'tenantlogo'=> 'required|file',
             ]
         );
+
+
 
         if ($validator->fails()){
             return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
                 'result'=>json_decode(json_encode(array('raison'=>$validator->errors()->first(), 'success'=>0, 'faillure'=>1)), true)));
         }
+
+        //return $request;
+
 
         $client = new Client();
         try {
@@ -70,7 +96,7 @@ class FreeController extends Controller
 
             }
 
-            $url = env('HOST_IDENTITY_AND_ACCESS').'/api/signup';
+            $url = env('HOST_IDENTITY_AND_ACCESS').'/api/tenants-provisions';
 
             $response = $client->post($url, [
                 'headers'=>[
@@ -78,6 +104,8 @@ class FreeController extends Controller
                 ],
                 'multipart'=>$multipart
             ]);
+
+            //return $response->getBody();
 
             $isjson = $this->is_JSON((string)$response->getBody());
 
@@ -171,21 +199,22 @@ class FreeController extends Controller
     }
 
 
-
     public function login(Request $request){
+
+
+        //return $request->all();
+
+        //return env('HOST_IDENTITY_AND_ACCESS').'/api/access-token';
+
+
 
         $validator = Validator::make($request->all(), [
             'email'=>'required|email|min:5|max:255',
-            'password'=>'required|string|min:6|max:50',
+            'password'=>'required|string|min:8|max:50',
         ]);
-
         if ($validator->fails()){
-            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
-                'result'=>json_decode(json_encode(array('raison'=>$validator->errors()->first(), 'success'=>0, 'faillure'=>1)), true)));
-        }
-        /*if ($validator->fails()){
             Redirect::back()->withErrors($validator->errors());
-        }*/
+        }
 
         $credentials = $request->only('email', 'password');
 
@@ -194,31 +223,44 @@ class FreeController extends Controller
 
         $access_token = null;
 
-        //return json_encode($users);
-
 
         if(count($users) === 1){
 
             $user = $users[0];
 
+            //if()
+            //return $user->access_token;
+
+            if($user->access_token != null){
+
+                $access_token = $user->access_token;
+            }
+
+
             //if($access_token === null or $user->expires_in < time()){
 
             $client = new Client();
-            /*
+
+            //return $request->get('tenantid');
+
 
             try {
                 $response = $client->post(env('HOST_IDENTITY_AND_ACCESS').'/api/access-token', [
                     'form_params' => [
-                        'client_id' => env('IDENTITY_AND_ACCESS_CLIENT_ID'),
-                        'client_secret' => env('IDENTITY_AND_ACCESS_SECRET'),
-                        'grant_type' => env('IDENTITY_AND_ACCESS_GRANT_TYPE'),
+                        'client_id' => env('WEB_CLIENT_ID'),
+                        'client_secret' => env('WEB_CLIENT_SECRET'),
+                        'grant_type' => env('PASSWORD_GRANT_TYPE'),
                         'username' => $request->get('email'),
                         'password' => $request->get('password'),
+                        'tenantid' => $request->get('tenantid'),
+
                     ]
                 ]);
 
                 // You'd typically save this payload in the session
                 $auth = json_decode( (string) $response->getBody() );
+
+                //return $response->getBody();
 
                 $isjson = $this->is_JSON((string)$response->getBody());
 
@@ -235,29 +277,25 @@ class FreeController extends Controller
 
 
 
-            } catch (BadResponseException  $e) {
-                //echo "Unable to retrieve access token login. ".$e->getMessage();
-                //Redirect::back()->withErrors("Unable to retrieve access token login. ".$e->getMessage());
+            } catch (\Exception  $e) {
+
                 return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
-                    'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=>'Unable to login. ')), true)));
-            }*/
+                    'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=>'Unable to login. '. $e->getMessage())), true)));
+            }
 
 
             //}
-           /* try{
+            try{
 
                 $url = env('HOST_IDENTITY_AND_ACCESS').'/api/users/'.$user->email.'/login';
 
 
-                //return $url;
-                $body = json_encode(array('password'=>$request->get('password')));
-                //return $body;
+
                 $response = $client->post($url, [
                     'headers'=>[
                         'Authorization' => 'Bearer '.$user->access_token,
                     ],
-                    'content-type' => 'application/json',
-                    'body'=>$body
+                    'form_params'=>$request->all()
                 ]);
 
                 $isjson = $this->is_JSON((string)$response->getBody());
@@ -282,42 +320,31 @@ class FreeController extends Controller
                 if (Auth::attempt($credentials)) {
                     // Authentication passed...
                     $user->save();
-                    return  view('welcome', array('divisions'=>$this->getDivisions()));//redirect()->intended('protected.home');
+                    return  view('welcome', array('services'=>Service::all(['b_id', 'name', 'short_description', 'detailed_description', 'unit_amount', 'currency', 'unit'])));
                 }else{
-
                     return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
-                        'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=> 'Unable to authenticate the user')), true)));
+                        'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=> 'Unable to authenticate the user1')), true)));
 
                 }
 
                 //return response(array('success' => 0, 'faillure' => 1, 'raison' => $validator->errors()), 200);
-            }catch (BadResponseException  $e){
+            }catch (\Exception  $e){
 
                 return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
                     'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=>'Unable to authenticate the user. ')),true)));
-
-            }*/
-
-            if (Auth::attempt($credentials)) {
-                // Authentication passed...
-                $user->save();
-
-                return  view('welcome', array('services'=>Service::all(['b_id', 'name', 'short_description', 'detailed_description', 'unit_amount', 'currency', 'unit'])));
-            }else{
-
-                return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
-                    'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=> 'Impossible d\'authentifier l\'utilisateur')), true)));
 
             }
 
 
         }else{
             return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
-                'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=>'Impossible d\'authentifier l\'utilisateur.')),true)));
+                'result'=>json_decode(json_encode(array('success'=>0, 'faillure'=>1, 'raison'=>'Unable to authenticate the user.')),true)));
 
         }
 
     }
+
+
 
     public function getServices(Request $request){
         return  view('welcome', array('services'=>Service::all(['b_id', 'name', 'short_description', 'detailed_description', 'unit_amount', 'currency', 'unit'])));
@@ -357,5 +384,64 @@ class FreeController extends Controller
         return response()->make($contents, 200, array(
             'Content-Type' => (new \finfo(FILEINFO_MIME))->buffer($contents)
         ));
+    }
+
+
+    public function getTenantCollaboratorInvitation($invitationid, $tenantid){
+
+        //return $invitationid;
+
+        $tenants = TenantView::where('tenantid', '=', $tenantid)->get();
+
+        if(!GlobalDbRecordCounter::countDbRecordIsExactlelOne($tenants)){
+
+            return GlobalResultHandler::buildFaillureReasonArray('Wrong number of tenants');
+        }
+
+        $tenantCollaborators = TenantCollaboratorsRegistrationInvitationsView::where('tenantid', '=', $tenantid)->where('userid', '=', $invitationid)->get();
+
+        //return $tenantCollaborators;
+
+        if(!GlobalDbRecordCounter::countDbRecordIsExactlelOne($tenantCollaborators)){
+
+            return GlobalResultHandler::buildFaillureReasonArray('Wrong number of collaborator invitations');
+        }
+
+
+        return view('auth.register-tenant-collaborator', array('tenant'=>$tenants[0], 'tenantCollaborator'=>$tenantCollaborators[0]));
+    }
+
+    public function registerInviterdUser(Request $request, $invitationid, $tenantid){
+        $validator = Validator::make($request->all(),
+            [
+                'password'=>'required|string|min:6',
+                'password_confirmation'=>'required|string|min:6',
+                'tenantid'=>'required|string|min:1',
+            ]);
+
+        if ($validator->fails()){
+            return response(array('success' => 0, 'faillure' => 1, 'raison' => $validator->errors()->first()), 200);
+        }
+        //return $request->all();
+        $client = new Client();
+        try {
+            $response = $client->post(env('HOST_IDENTITY_AND_ACCESS').'/api/users/'.$invitationid.'/registration-invitations', [
+                'form_params'=> $request->all()
+            ]);
+
+            $retVal = json_decode((string)$response->getBody(), true);
+            //return (string)$response->getBody();
+            //return $retVal->;
+            if ($retVal['success'] === 0 and $retVal['faillure'] === 1){
+                return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                    'result'=>$retVal));
+            }
+
+            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                'result'=>$retVal));
+
+        } catch (\Exception $e) {
+            return response(array('success'=>0, 'faillure' => 1, 'raison' => $e->getMessage() . "    Voilaaaaaaaaaaaaa"), 200);
+        }
     }
 }

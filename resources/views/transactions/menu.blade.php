@@ -50,19 +50,24 @@
                             <div class="col-md-5">
                                 <ul class="list-group menu-transaction" style="width: 100%;">
                                     <li class="list-group-item">
-                                        <a  href="{{url('wallet/topups/'.\Illuminate\Support\Facades\Auth::user()->userid)}}">Recharger mon Compte</a>
+                                        <a  href="{{url('wallet/topups/'.\Illuminate\Support\Facades\Auth::user()->userid)}}"
+                                            onclick="alert('En cours d\'implementation'); return false;">Recharger mon Compte</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <a  href="{{url('wallet/topups/subaccounts/' . \Illuminate\Support\Facades\Auth::user()->userid)}}">Un de mes sous Comptes</a>
+                                        <a  href="{{url('wallet/topups/subaccounts/' . \Illuminate\Support\Facades\Auth::user()->userid)}}"
+                                            onclick="alert('En cours d\'implementation'); return false;">Un de mes sous Comptes</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-5">
                                 <ul class="list-group menu-transaction" style="width: 100%;">
 
-                                    <li class="list-group-item">
-                                        <a  href="{{url('wallet/topups/others/'. \Illuminate\Support\Facades\Auth::user()->userid)}}">Un Autre compte</a>
-                                    </li>
+                                    @if(\Illuminate\Support\Facades\Auth::user()->userid === env('SUPER_ADMINISTRATOR_ID'))
+                                        <li class="list-group-item">
+                                            <a  href="{{url('wallet/topups/others/'. \Illuminate\Support\Facades\Auth::user()->userid)}}">Un Autre compte</a>
+                                        </li>
+                                    @endif
+
 
                                     <li class="list-group-item">
                                         <a  href="{{url('wallet/transferts/' . \Illuminate\Support\Facades\Auth::user()->userid).'?query=balance'}}">Transfert</a>
