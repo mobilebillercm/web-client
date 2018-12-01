@@ -14,37 +14,7 @@ use Illuminate\Http\Request;
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('tenants/{username}', 'ApiController@getTenantByUsername');
 
 
 ///From external systems
@@ -66,12 +36,28 @@ Route::post('services', 'ApiController@addService');
 //Wallet
 
 Route::post('mobile-credit-accounts', 'ApiController@createMobileCreditAccount');
-
+ 
 Route::post('cash-topup', 'ApiController@topupCash');
 
 Route::post('transfert_operation_created', 'ApiController@saveTransfertOperation');
 
+Route::post('payement-with-mobile-biller-credit-acount-made', 'ApiController@savePayementOperationWithMobileBillerCreditAccount')->middleware('rabbitmq.client');
 
+
+//receipts
+
+Route::post('register-receipt', 'ApiController@registerReceipt')->middleware('rabbitmq.client');
+Route::post('register-bulk-receipt', 'ApiController@registerBulkReceipt')->middleware('rabbitmq.client');
+
+
+//service access
+Route::post('register-service-access', 'ApiController@saveServiceAccess')->middleware('rabbitmq.client');
+
+
+//identity and access
+Route::post('change-user-password', 'ApiController@changePassword')->middleware('rabbitmq.client');
+
+Route::get('services/{userid}/', 'ApiController@getServicesForAUser')->middleware('android.client');
 
 
 

@@ -49,8 +49,19 @@ Route::get('id/invitation', 'IdentityAndAccessController@showInvitationForm');
 
 Route::post('id/invitation', 'IdentityAndAccessController@inviteCollaborator');
 
+Route::get('id/create-subaccount', 'IdentityAndAccessController@createSubaccountForm');
 
+Route::post('id/create-subaccount', 'IdentityAndAccessController@createSubaccount');
 
+Route::get('id/block-subaccounts', 'IdentityAndAccessController@showBlockSubaccountForm');
+
+Route::get('id/subaccounts/{tenantid}/{userid}', 'IdentityAndAccessController@getSubaccount');
+
+Route::post('id/desable-user/tenant/{tenantid}/user/{userid}', 'IdentityAndAccessController@blockSubaccount');
+
+Route::post('id/enable-user/tenant/{tenantid}/user/{userid}', 'IdentityAndAccessController@enableSubaccount');
+
+Route::get('id/users/{userid}', 'IdentityAndAccessController@getUserById');
 
 
 
@@ -97,6 +108,7 @@ Route::get('services/{userid}', 'ServiceController@getServicesForAUser');
 Route::get('services/{serviceid}/icon', 'FreeController@getIcon');
 
 Route::get('/services/add/new', 'ServiceController@showCreateServiceForm');
+
 Route::post('/services/add/new', 'ServiceController@addService');
 
 Route::get('/parametrer-prix-service', 'ServiceController@showUnpricedServiceList');
@@ -120,7 +132,7 @@ Route::post('/services/{serviceid}/price', 'ServiceController@defineServiceUnitP
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Route::get('tickets/tickets/{userid}', 'HomeController@getTickets');
+Route::get('tickets/tickets/{tenantid}/{userid}', 'ReceiptController@getTickets');
 
 
 
@@ -151,8 +163,20 @@ Route::get('tickets/tickets/{userid}', 'HomeController@getTickets');
 Route::get('tenants-that-matches-username/{username}', 'IdentityAndAccessReadController@getAllTenantHavingUserWithUsername');
 
 Route::get('users/{invitationid}/registration-invitations/{tenantid}', 'FreeController@getTenantCollaboratorInvitation');
+
 Route::post('users/{invitationid}/registration-invitations/{tenantid}', 'FreeController@registerInviterdUser');
 
+Route::get('id/change-password', 'IdentityAndAccessController@showChangePasswordForm');
+
+Route::post('id/change-password', 'IdentityAndAccessController@changePassword');
+
+Route::get('id/reset-password', 'FreeController@showPasswordResetRequestForm');
+
+Route::post('id/reset-password', 'FreeController@requestPasswordReset');
+
+Route::get('users/{userid}/password-reset/{invitationid}', 'FreeController@showPasswordResetForm');
+
+Route::post('users/{userid}/password-reset/{invitationid}', 'FreeController@resetPassword');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -166,4 +190,10 @@ Route::post('users/{invitationid}/registration-invitations/{tenantid}', 'FreeCon
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Route::get('pricing/calculate-paid-service-price/{serviceid}/{quantity}', 'PricingController@getPrice');
+Route::get('pricing/calculate-paid-service-price/{serviceid}/{quantity}', 'FreeController@getPrice');
+
+
+Route::get('sms_regular_expressions', 'FreeController@sms_regular_expressions');
+
+
+

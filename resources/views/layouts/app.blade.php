@@ -234,7 +234,7 @@
                     </button>
                     <a class="navbar-brand" href="{{url('/')}}" >
 
-                        <img src="{{asset('assets/images/logo0.png')}}" class="logo logo-display m-top-10" alt="">
+                        <img src="{{asset('assets/images/logo.png')}}" class="logo logo-display m-top-10" alt="">
                         <img src="{{asset('assets/images/logo.png')}}" class="logo logo-scrolled" alt="" >
 
                     </a>
@@ -282,9 +282,9 @@
                                         <a href="{{url('/parametrer-prix-service')}}">Parametrer le prix d'un service</a>
                                     </li>
 
-                                    <li>
+                                   {{-- <li>
                                         <a href="{{url('/login')}}">Inserer un Bonus / Offre</a>
-                                    </li>
+                                    </li>--}}
                                 </ul>
                             </li>
                         @endif
@@ -311,7 +311,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="menu-link-color">Tickets</span></a>
                             <ul class="dropdown-menu" style="margin-top: -20px;">
                                 <li>
-                                    <a href="{{url('tickets/tickets/'.\Illuminate\Support\Facades\Auth::user()->userid)}}">Tickets Imprimes </a>
+                                    <a href="{{url('tickets/tickets/'.\Illuminate\Support\Facades\Auth::user()->tenant.'/'.\Illuminate\Support\Facades\Auth::user()->userid)}}">Tickets Imprimes </a>
                                 </li>
                             </ul>
                         </li>
@@ -329,17 +329,24 @@
                                             style="display: none;" id="myaccount_balance_loader"/> <i id="userid" style="display: none;">{{\Illuminate\Support\Facades\Auth::user()->userid}}</i>
                                         </span>
                                     @endif
+				@if(\Illuminate\Support\Facades\Auth::check() and \Illuminate\Support\Facades\Auth::user()->parent == null)
                                     <a href="{{url('id/invitation')}}"> <i class="fa fa-user-plus"></i> &nbsp;&nbsp;Inviter un Collaborateur</a>
-                                </li>
+
+				    <a href="{{url('id/create-subaccount')}}"> <i class="fa fa-user-plus"></i> &nbsp;&nbsp;Creer un Sous Compte</a>
+				    
+                                    <a href="{{url('id/block-subaccounts')}}"> <i class="fa fa-remove"></i> &nbsp;&nbsp;Bloquer Un Sous-Compte</a>
+
+				 @endif
+				</li>
 
                                 <li class="divider" style="height: 1px; "></li>
 
                                 <li>
-                                    <a href="{{url('/login')}}">Modifier Mot de Passe</a>
+                                    <a href="{{url('/id/change-password')}}">Modifier Mot de Passe</a>
                                 </li>
-                                <li>
+                                {{--<li>
                                     <a href="{{url('/login')}}">Parametrer son Compte</a>
-                                </li>
+                                </li>--}}
                             </ul>
                         </li>
 
@@ -452,9 +459,9 @@
 <!-- paradise slider js -->
 
 
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyD_tAQD36pKp9v4at5AnpGbvBUsLCOSJx8"></script>
+{{--<script src="http://maps.google.com/maps/api/js?key=AIzaSyD_tAQD36pKp9v4at5AnpGbvBUsLCOSJx8"></script>
 <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
-
+--}}
 <script>
     function showmap() {
         var mapOptions = {
@@ -538,7 +545,7 @@
                 error:function(jqXHR, textStatus,errorThrown){
                     $('#myaccount_balance_loader').hide();
                 },
-                url: '/wallet/mobilebillercreditaccounts/' + $('#userid').html() + "?query=balance",
+                url: '{{url('/wallet/mobilebillercreditaccounts/')}}/' + $('#userid').html() + "?query=balance&scope={{env('SCOPE_READ_WALLET')}}",
                 data: '',
                 success: function (data) {
                     console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
@@ -586,24 +593,111 @@
         });
         //$('[data-toggle="popover"]').popover();
 
+	$('.desable-user').click(function (e) {
+            e.preventDefault();
+            var $this = this;
+            var url = this.href;
+            var result = "";
+		id = this.id;
+             console.log("URL : " + url);
+            $.ajax({
+                async:true,
+                method:'POST',
+                beforeSend:function(jqXHR, settings){
+                    $('#' + id + '_desable-user-loader').show();
+			$('#' + id + '_result-desable-user').html("");
+                   //$this.getElementById('desable-user-loader').style.display="block";
+                },
+                complete:function(jqXHR ,textStatus){
+			$('#' + id + '_desable-user-loader').hide();
+                        $('#' + id + '_result-desable-user').html(result);
+                    //$this.getElementById('desable-user-loader').style.display="none";
+                    //$this.getElementById('result-desable-user').ineerHTML = result;
+                },
+                dataType: "json",
+                error:function(jqXHR, textStatus,errorThrown){
+                    //$this.getElementById('desable-user-loader').style.display="none";
+                    result = textStatus;
+                },
+                url: url,
+                data: {
+                    '_token': document.getElementsByName('_token')[0].value
+                } ,
+                success: function (data) {
+                    console.log("data : " + JSON.stringify(data));
+                    if(data != null && data['success'] === 1 && data['faillure'] ===0){
+                        result = data['response'] ;
+                        location.reload();
+                    }else{
+                        result = data['raison'] ;
+                    }
+                }
+            });
+        });
+
+        $('.enable-user').click(function (e) {
+            e.preventDefault();
+            var $this = this;
+            var url = this.href;
+            var result = "";
+		id = this.id;
+            $.ajax({
+                async:true,
+                method:'POST',
+                beforeSend:function(jqXHR, settings){
+                    //$('.desable-user > img#desable-user-loader')
+                    //$this.getElementById('enable-user-loader').style.display="block";
+			$('#' + id + '_enable-user-loader').show();
+                        $('#' + id + '_result-enable-user').html("");
+
+                },
+                complete:function(jqXHR ,textStatus){
+                    //$this.getElementById('enable-user-loader').style.display="none";
+                   // $this.getElementById('result-enable-user').ineerHTML = result;
+                
+			$('#' + id + '_enable-user-loader').hide();
+                        $('#' + id + '_result-enable-user').html(result);
+		},
+                dataType: "json",
+                error:function(jqXHR, textStatus,errorThrown){
+                    //$this.getElementById('enable-user-loader').style.display="none";
+                    result = textStatus;
+                },
+                url: url,
+                data: {
+                    '_token': document.getElementsByName('_token')[0].value
+                } ,
+                success: function (data) {
+                    console.log("data : " + JSON.stringify(data));
+                    if(data != null && data['success'] === 1 && data['faillure'] ===0){
+                        result = data['response'] ;
+			location.reload();
+                    }else{
+                        result = data['raison'] ;
+                    }
+                }
+            });
+        });
+
     });
 
     function getPrice(serviceid, quantity){
 
+	//console.log(serviceid + "   " + quantity);
 
         $.ajax({
             async:true,
             beforeSend:function(jqXHR, settings){
-                $('#loading').show();
+                $('#loader_' + serviceid).show();
             },
             complete:function(jqXHR ,textStatus){
-                $('#loading').hide();
+               $('#loader_' + serviceid).hide();
             },
             dataType: "json",
             error:function(jqXHR, textStatus,errorThrown){
-                $('#loading').hide();
+                $('#loader_' + serviceid).hide();
             },
-            url: '/pricing/calculate-paid-service-price/' + serviceid + '/' + quantity,
+            url: '{{url('/pricing/calculate-paid-service-price/')}}/' + serviceid + '/' + quantity,
             data: '',
             success: function (data) {
                 console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
@@ -646,7 +740,7 @@
             error:function(jqXHR, textStatus,errorThrown){
                 $('#loading').hide();
             },
-            url: 'http://localhost:8000/wallet/mobilebillercreditaccounts/' + username + "?query=balance",
+            url: '{{url('/wallet/mobilebillercreditaccounts/')}}/' + username + "?query=balance&scope={{env('SCOPE_READ_WALLET')}}",
             data: '',
             success: function (data) {
                 console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
@@ -695,6 +789,126 @@
         });
         $('#' + c).hide('fast');
     }
+    function exchangeVisibility0(a,b) {
+        $('#' + b).hide('fast', function () {
+            $('#' + a).show('fast',function () {
+            });
+        });
+    }
+
+    function loadSubAccount(tenantid, userid, domelemid){
+        $.ajax({
+            async:true,
+            beforeSend:function(jqXHR, settings){
+                $('#beneficiaire_subaccount_loader').show();
+            },
+            complete:function(jqXHR ,textStatus){
+                $('#beneficiaire_subaccount_loader').hide();
+            },
+            dataType: "json",
+            error:function(jqXHR, textStatus,errorThrown){
+                $('#beneficiaire_subaccount_loader').hide();
+            },
+            url: '{{url('id/subaccounts/')}}/' + tenantid + "/" + userid ,
+            data: '',
+            success: function (data) {
+                console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
+
+                console.log("ENTREEEEEE222222222 RESPOSE: \n\n" + JSON.stringify(data.response));
+                if (data.success === 1 && data.faillure === 0){
+                    var strinoption = '<option value="">--- Beneficiaire ---</option>';
+                    for (var i = 0; i<data.response.length; i++){
+                            strinoption += '<option value="'+data.response[i].userid+'">'+data.response[i].firstname + '  ' + data.response[i].lastname+'</option>';
+                    }
+                    $('#' + domelemid).html(strinoption);
+                }
+            },
+            error:function(jqXHR, textStatus,errorThrown){
+                console.log("Error: " + JSON.stringify(errorThrown));
+                //$('#balance_content').html('<i style="color: red;">' + JSON.stringify(errorThrown) + '</i>') ;
+                //$('#openmodal').trigger('click');
+            }
+        });
+    }
+
+
+    function hideAll(idArray) {
+        for (var i=0; i<idArray.length; i++){
+            $('#'+idArray[i]).hide();
+        }
+    }
+
+    function loadBenefiaryByTenant0(tenantid, domelemid, loader){
+        $.ajax({
+            async:true,
+            beforeSend:function(jqXHR, settings){
+                $('#' + loader).show();
+            },
+            complete:function(jqXHR ,textStatus){
+                $('#' + loader).hide();
+            },
+            dataType: "json",
+            error:function(jqXHR, textStatus,errorThrown){
+                $('#' + loader).hide();
+            },
+            url: '{{url('/wallet/users/')}}/' + tenantid ,
+            data: '',
+            success: function (data) {
+                console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
+                var strinoption = '<option value="">--- Beneficiaire ---</option>';
+                for (var i = 0; i<data.length; i++){
+                    strinoption += '<option value="'+data[i].userid+'">'+data[i].firstname + '  ' + data[i].lastname+'</option>';
+                }
+                $('#' + domelemid).html(strinoption);
+            },
+            error:function(jqXHR, textStatus,errorThrown){
+                console.log("Error: " + JSON.stringify(errorThrown));
+                //$('#balance_content').html('<i style="color: red;">' + JSON.stringify(errorThrown) + '</i>') ;
+                //$('#openmodal').trigger('click');
+            }
+        });
+    }
+
+    function setBeneficiaryTenantId(tenantid){
+        $('#beneficiarytenantid').val(tenantid);
+    }
+
+    function setBeneficiaryId(beneficiaryid){
+        $('#beneficiary_id').val(beneficiaryid);
+        $.ajax({
+            async:true,
+            beforeSend:function(jqXHR, settings){
+                //$('#' + loader).show();
+            },
+            complete:function(jqXHR ,textStatus){
+                //$('#' + loader).hide();
+            },
+            dataType: "json",
+            error:function(jqXHR, textStatus,errorThrown){
+                //$('#' + loader).hide();
+            },
+            url: '{{url('/id/users/')}}/' + beneficiaryid ,
+            data: '',
+            success: function (data) {
+                console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
+                setDefaulDeneficiaryData(data.firstname, data.lastname, data.username);
+            },
+            error:function(jqXHR, textStatus,errorThrown){
+                console.log("Error: " + JSON.stringify(errorThrown));
+                //$('#balance_content').html('<i style="color: red;">' + JSON.stringify(errorThrown) + '</i>') ;
+                //$('#openmodal').trigger('click');
+            }
+        });
+    }
+
+    function setDefaulDeneficiaryData(firstname, lastname, username){
+        $('#beneficiary_firstname').val(firstname);
+        $('#beneficiary_lastname').val(lastname);
+        $('#beneficiary_username').val(username);
+    }
+
+
+
 
     $('#phonenumber').change(function () {
         $('#card_number').val($('#phonenumber').val());
@@ -760,7 +974,7 @@
             error:function(jqXHR, textStatus,errorThrown){
                 $('#balance-loader').hide();
             },
-            url: '/wallet/mobilebillercreditaccounts/' + username + "?query=balance",
+            url: '{{url('/wallet/mobilebillercreditaccounts/')}}/' + username + "?query=balance&scope={{env('SCOPE_READ_WALLET')}}",
             data: '',
             success: function (data) {
                 console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
@@ -795,13 +1009,13 @@
             error:function(jqXHR, textStatus,errorThrown){
                 $('#benefiary-loader').hide();
             },
-            url: '/wallet/users/' + tenant ,
+            url: '{{url('/wallet/users/')}}/' + tenant ,
             data: '',
             success: function (data) {
                 console.log("ENTREEEEEE222222222: \n\n" + JSON.stringify(data));
                 var strinoption = '<option value="">--- Beneficiaire ---</option>';
                 for (var i = 0; i<data.length; i++){
-                    strinoption += '<option value="'+data[i].userid+'">'+data[i].firstname + '  ' + data[i].lastname+'</option>';
+                    strinoption += '<option value="'+data[i].userid+'">'+data[i].firstname + '  ' + data[i].lastname+ ' (' +  data[i].email +  ')</option>';
                 }
                 $('#beneficiary').html(strinoption);
             },
@@ -851,11 +1065,18 @@
                    if(data.response.length === 1){
 
 
-                       var options_string = '<option value=""></option>';
+                       var options_string = '<option value="">---Choisir l\'entreprise ---</option>';
                        for (var i=0 ; i<data.response.length; i++){
                            options_string += '<option value="'+data.response[i].tenant+'">'+data.response[i].tenant_name+'</option>';
                        }
                        $('#tenantid').html(options_string);
+
+                       $('#tenantid').val(data.response[0].tenant);
+
+
+                       $('#tenant_drop_down').hide();
+
+
                        document.getElementById('login_button').disabled = false;
 
 
@@ -868,11 +1089,20 @@
                        for (var i=0 ; i<data.response.length; i++){
                            options_string += '<option value="'+data.response[i].tenant+'">'+data.response[i].tenant_name+'</option>';
                        }
+
+
                        $('#tenantid').html(options_string);
+
+                       $('#tenant_drop_down').show();
+
+
                        document.getElementById('login_button').disabled = false;
 
                    }else {
                        document.getElementById('login_button').disabled = true;
+
+                       $('#tenant_drop_down').hide();
+
                    }
 
                 }
@@ -948,6 +1178,13 @@
     }
 
 
+    function  setScope(scope) {
+
+        $('#scope').val(scope);
+
+    }
+
+
 </script>
 
 
@@ -958,3 +1195,4 @@
 
 </body>
 </html>
+

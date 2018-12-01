@@ -202,6 +202,8 @@
                                                         <input type="hidden" name="time_value" value="{{session('servicepayment-step1')['quantity']}}">
                                                         <input type="hidden" name="amount_curency" value="{{session('servicepayment-step1')['currency']}}">
                                                         <input type="hidden" name="amount_value" value="{{session('servicepayment-step1')['price']}}">
+                                                        <input type="hidden" id="scope" name="scope" value="{{env('SCOPE_MANAGE_OWN_SERVICE_PAYEMENT')}}">
+
 
                                                         {{--<br>
                                                 {{session('servicepayment-step1')['serviceid']}}--}}
@@ -253,6 +255,129 @@
                                                             <div class="alert-danger">{{session('message')['result']['raison']}}</div>
                                                         @endif
                                                     @endif
+
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h4>Beneficiaire</h4>
+                                                            <hr class="ligne">
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <input type="hidden" name="user_id" id="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->userid}}">
+                                                            <input type="hidden" name="beneficiary_id" id="beneficiary_id" value="{{\Illuminate\Support\Facades\Auth::user()->userid}}">
+
+                                                            <label class="containerradio" id="current_account_label"
+                                                                   onclick="setCurrentUserAsBeneficiary(); setBeneficiaryTenantId('{{\Illuminate\Support\Facades\Auth::user()->tenant}}');
+                                                                           setBeneficiaryId('{{\Illuminate\Support\Facades\Auth::user()->userid}}');
+                                                                           hideAll(['subaccount_beneficiary_group', 'other_beneficiary_group']);
+                                                                           setDefaulDeneficiaryData('{{\Illuminate\Support\Facades\Auth::user()->firstname}}',
+                                                                           '{{\Illuminate\Support\Facades\Auth::user()->lastname}}',
+                                                                           '{{\Illuminate\Support\Facades\Auth::user()->username}}');
+                                                                           setScope('{{env('SCOPE_MANAGE_OWN_SERVICE_PAYEMENT')}}');"
+                                                                   style="font-size: 16px;">
+                                                                Compte Courrant <small style="font-size: x-small">(Compte sous lequel vous etes connectes)</small>
+                                                                <input type="radio" checked="checked" name="account_type_radio" id="current_account_radio">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </div>
+
+                                                        @if(\Illuminate\Support\Facades\Auth::user()->parent == null)
+                                                            <div class="col-md-4">
+                                                                <label class="containerradio" id="subaccount_label"
+                                                                       onclick="exchangeVisibility0('subaccount_beneficiary_group', 'other_beneficiary_group');
+                                                                       loadSubAccount('{{\Illuminate\Support\Facades\Auth::user()->tenant}}',
+                                                                               '{{\Illuminate\Support\Facades\Auth::user()->userid}}', 'beneficiaire_subaccount');
+                                                                               setBeneficiaryTenantId('{{\Illuminate\Support\Facades\Auth::user()->tenant}}');
+                                                                               setScope('{{env('SCOPE_MANAGE_OTHER_ACCOUNTS_SERVICE_PAYEMENT')}}');"
+                                                                       style="font-size: 16px;">Un Sous-compte <small style="font-size: x-small;">( Payer le service pour un de mes sous-comptes)</small>
+                                                                    <input type="radio"  name="account_type_radio" id="subaccount_radio">
+                                                                    <span class="checkmark"></span>
+                                                                </label>
+                                                            </div>
+                                                        @endif
+                                                        <div class="col-md-4">
+                                                            <label class="containerradio" id="otheer_account_label"
+                                                                   onclick="exchangeVisibility0('other_beneficiary_group', 'subaccount_beneficiary_group');
+                                                                           setScope('{{env('SCOPE_MANAGE_OTHER_ACCOUNTS_SERVICE_PAYEMENT')}}');"
+                                                                   style="font-size: 16px;">Autre Compte <small style="font-size: x-small;">( Payer le service pour un compte quelconque)</small>
+                                                                <input type="radio"  name="account_type_radio" id="otheer_account_radio">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="row" id="subaccount_beneficiary_group" style="display: none;">
+
+                                                            <div class="col-md-6" id="subaccount_beneficiary_group">
+                                                                <div class="form-group" style="text-align: left;">
+                                                                    <label for="beneficiaire_subaccount" style="font-size: 16px;">Compte Beneficiaire <b style="color: red;" class=""> *</b>
+                                                                    <span class="pull-right">
+                                                                        <img src="{{asset('assets/images/loader.gif')}}" id="beneficiaire_subaccount_loader" height="25" width="20"
+                                                                             style="display: none;"></span></label>
+                                                                    <select name="beneficiaire_subaccount" id="beneficiaire_subaccount" class="form-control form-control-text"
+                                                                            style="color: #0d0d0d;" onchange="setBeneficiaryId(this.value);">
+
+                                                                    </select>
+                                                                </div>
+
+                                                                <input type="hidden" name="beneficiary" id="beneficiary"/>
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="row" id="other_beneficiary_group" style="display: none;">
+                                                            <div class="col-md-6" >
+                                                                <div class="form-group" style="text-align: left;">
+                                                                    <label for="other_beneficiaire_tenant" style="font-size: 16px;">Entreprise du  Beneficiaire <b style="color: red;" class=""> *</b></label>
+                                                                    <select name="other_beneficiaire_tenant" id="other_beneficiaire_tenant" class="form-control form-control-text"
+                                                                            style="color: #0d0d0d;" onchange="loadBenefiaryByTenant0(this.value, 'beneficiaire_other', 'beneficiaire_other_loader');
+                                                                            setBeneficiaryTenantId(this.value);"
+                                                                            >
+                                                                        <option value="">--- Choisir une entreprise ---</option>
+                                                                        <?php $tenants = \App\TenantView::all(); ?>
+                                                                        @foreach($tenants as $tenant)
+                                                                            <option value="{{$tenant->tenantid}}">{{$tenant->name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+
+                                                                <input type="hidden" name="beneficiary" id="beneficiary"/>
+
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group" style="text-align: left;">
+                                                                    <label for="beneficiaire_other" style="font-size: 16px;">Compte Beneficiaire <b style="color: red;" class=""> *
+                                                                            <span class="pull-right">
+                                                                        <img src="{{asset('assets/images/loader.gif')}}" id="beneficiaire_other_loader" height="25" width="20"
+                                                                             style="display: none;"></span></b>
+                                                                    </label>
+                                                                    <select name="beneficiaire_other" id="beneficiaire_other" class="form-control form-control-text"
+                                                                            style="color: #0d0d0d;" onchange="setBeneficiaryId(this.value);"></select>
+                                                                </div>
+
+                                                                <input type="hidden" name="beneficiary" id="beneficiary"/>
+
+                                                            </div>
+                                                        </div>
+                                                        
+
+                                                        <script>
+                                                            function setCurrentUserAsBeneficiary() {
+                                                                if (document.getElementById('current_account_radio').checked) {
+                                                                    document.getElementById('beneficiary').value = document.getElementById('user_id').value;
+                                                                }
+                                                            }
+                                                            //if (document.getElementById('current_account_radio').checked) {
+                                                                //console.log('is checked');
+                                                                setCurrentUserAsBeneficiary();
+                                                           // }
+                                                        </script>
+                                                        
+                                                    </div>
+                                                
+                                                
 
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -332,7 +457,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <div cclass="form-group" style="text-align: left;">
+                                                                    <div class="form-group" style="text-align: left;">
                                                                         <label for="phonenumber" style="font-size: 16px;">Numero <b style="color: red;" class=""> *</b></label>
                                                                         <input type="tel" class="form-control form-control-text" required name="phonenumber" id="phonenumber"
                                                                                placeholder="Numero du Compte Mobile Money"  value="{{session('phase1')?session('data')['phonenumber']:''}}"
@@ -340,7 +465,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <div cclass="form-group" style="text-align: left;">
+                                                                    <div class="form-group" style="text-align: left;">
                                                                         <label for="holder" style="font-size: 16px;">Titulaire <b style="color: red;" class=""> *</b></label>
                                                                         <input type="text" class="form-control form-control-text" required name="holder" id="holder"
                                                                                placeholder="Titulaire du Numero Mobile Money"  value="{{session('data')?session('data')['holder']:''}}"
@@ -415,7 +540,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <div cclass="form-group" style="text-align: left;">
+                                                                    <div class="form-group" style="text-align: left;">
                                                                         <label for="cardnumber" style="font-size: 16px;">Numero decarte <b style="color: red;" class=""> *</b></label>
                                                                         <input type="text" class="form-control form-control-text" required name="cardnumber" id="cardnumber"
                                                                                placeholder="Numero de carte de credit"  value="{{session('phase1')?session('data')['cardnumber']:''}}"
@@ -424,7 +549,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <div cclass="form-group" style="text-align: left;">
+                                                                    <div class="form-group" style="text-align: left;">
                                                                         <label for="cardholder" style="font-size: 16px;">Titulaire <b style="color: red;" class=""> *</b></label>
                                                                         <input type="text" class="form-control form-control-text" required name="cardholder" id="cardholder"
                                                                                placeholder="Titulaire du Numero Mobile Money"  value="{{session('data')?session('data')['holder']:''}}"
@@ -433,7 +558,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <div cclass="form-group" style="text-align: left;">
+                                                                    <div class="form-group" style="text-align: left;">
                                                                         <label for="expired_date" style="font-size: 16px;">Date d'expiration <b style="color: red;" class=""> *</b></label>
                                                                         <input type="month" class="form-control form-control-text" required name="expired_date" id="expired_date"
                                                                                placeholder="Date d'expiration"  value=""
@@ -443,7 +568,7 @@
                                                                 </div>
 
                                                                 <div class="col-md-6">
-                                                                    <div cclass="form-group" style="text-align: left;">
+                                                                    <div class="form-group" style="text-align: left;">
                                                                         <label for="securitycode" style="font-size: 16px;">Code de Securite <b style="color: red;" class=""> *</b></label>
                                                                         <input type="text" class="form-control form-control-text" required name="securitycode" id="securitycode"
                                                                                placeholder="Security code"  value=""
@@ -474,7 +599,7 @@
                                                                     </div>
 
                                                                     <div class="col-md-12">
-                                                                        <div cclass="form-group" style="text-align: left;">
+                                                                        <div class="form-group" style="text-align: left;">
                                                                             <label for="password" style="font-size: 16px;">Confirmer Avec votre Mot de passe <b style="color: red;" class=""> *</b></label>
                                                                             <input type="password" class="form-control form-control-text" required name="password" id="password"
                                                                                    placeholder="Votre Mot de Passe"
@@ -494,14 +619,22 @@
                                                     <input type="hidden" name="payment_method_id" id="payment_method_id" value="">
                                                     <input type="hidden" name="card_number" id="card_number" value="">
                                                     <input type="hidden" name="card_holder" id="card_holder" value="">
-                                                    <input type="hidden" name="user_id" id="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->userid}}">
                                                     <input type="hidden" name="firstname" id="firstname" value="{{\Illuminate\Support\Facades\Auth::user()->firstname}}">
                                                     <input type="hidden" name="lastname" id="lastname" value="{{\Illuminate\Support\Facades\Auth::user()->lastname}}">
+                                                    <input type="hidden" name="tenantid" id="tenantid" value="{{\Illuminate\Support\Facades\Auth::user()->tenant}}">
+                                                    <input type="hidden" name="beneficiarytenantid" id="beneficiarytenantid" value="{{\Illuminate\Support\Facades\Auth::user()->tenant}}">
                                                     <input type="hidden" name="username" id="username" value="{{\Illuminate\Support\Facades\Auth::user()->username}}">
-
+                                                    <input type="hidden" name="beneficiary_firstname" id="beneficiary_firstname" value="{{\Illuminate\Support\Facades\Auth::user()->firstname}}">
+                                                    <input type="hidden" name="beneficiary_lastname" id="beneficiary_lastname" value="{{\Illuminate\Support\Facades\Auth::user()->lastname}}">
+                                                    <input type="hidden" name="beneficiary_username" id="beneficiary_username" value="{{\Illuminate\Support\Facades\Auth::user()->username}}">
                                                     <input type="hidden" name="expiry_date" id="expiry_date" value="">
                                                     <input type="hidden" name="security_code" id="security_code" value="">
                                                     <input type="hidden" name="issuer" id="issuer" value="">
+                                                    <input type="hidden" name="mobilebilleraccount" value="{{$mobilebilleraccount}}">
+                                                    <input type="hidden" name="user_payment_number" value="{{time()}}">
+
+
+
 
 
 
@@ -543,3 +676,4 @@
         </div><!--End off row-->
     </div><!--End off container -->
 @endsection
+

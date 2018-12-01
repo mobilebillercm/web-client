@@ -6,6 +6,7 @@ use App\domain\GlobalDbRecordCounter;
 use App\domain\GlobalResultHandler;
 use App\domain\model\PaymentMethodType;
 use App\domain\model\Service;
+use App\MobileBillerCreditAccountView;
 use App\TenantCollaboratorsRegistrationInvitationsView;
 use App\TenantView;
 use App\User;
@@ -22,12 +23,10 @@ class FreeController extends Controller
 
     private $userViewController;
 
-
     public function __construct()
     {
         $this->userViewController = new IdentityAndAccessReadController();
     }
-
 
     public function is_JSON($args) {
         json_decode($args);
@@ -198,7 +197,6 @@ class FreeController extends Controller
 
     }
 
-
     public function login(Request $request){
 
 
@@ -344,8 +342,6 @@ class FreeController extends Controller
 
     }
 
-
-
     public function getServices(Request $request){
         return  view('welcome', array('services'=>Service::all(['b_id', 'name', 'short_description', 'detailed_description', 'unit_amount', 'currency', 'unit'])));
     }
@@ -360,15 +356,26 @@ class FreeController extends Controller
     }
 
     public function getServicePaymentFormStep1(Request $request){
+
+	if(!Auth::check()){
+	   return view('auth.login');
+	}
         $request->session()->put('servicepayment-step1', $request->all());
         //$paymentMethodTypes = json_decode(json_encode($this->getPaymentMethodTypes($request)->original));
         //return json_encode($paymentMethodTypes);
+
+        $mobileBillerAccounts = MobileBillerCreditAccountView::where('holder', '=', Auth::user()->userid)->get();
+
+        if(!GlobalDbRecordCounter::countDbRecordIsExactlelOne($mobileBillerAccounts)){
+
+            return GlobalResultHandler::buildFaillureReasonArray('User mobile biller account not found');
+        }
+
+
         $paymentMethodTypes = PaymentMethodType::all();
         $request->session()->put('paymentmethodtypes', $paymentMethodTypes);
-        return view('services.payform', array('paymentmethodtypes'=>$paymentMethodTypes));
+        return view('services.payform', array('paymentmethodtypes'=>$paymentMethodTypes, 'mobilebilleraccount'=>$mobileBillerAccounts[0]->accountnumber));
     }
-
-
 
     public function getIcon($serviceid){
 
@@ -385,7 +392,6 @@ class FreeController extends Controller
             'Content-Type' => (new \finfo(FILEINFO_MIME))->buffer($contents)
         ));
     }
-
 
     public function getTenantCollaboratorInvitation($invitationid, $tenantid){
 
@@ -412,6 +418,7 @@ class FreeController extends Controller
     }
 
     public function registerInviterdUser(Request $request, $invitationid, $tenantid){
+
         $validator = Validator::make($request->all(),
             [
                 'password'=>'required|string|min:6',
@@ -444,4 +451,121 @@ class FreeController extends Controller
             return response(array('success'=>0, 'faillure' => 1, 'raison' => $e->getMessage() . "    Voilaaaaaaaaaaaaa"), 200);
         }
     }
+
+    public function getPrice($serviceid, $quantity){
+
+        $client = new Client();
+        $url = env('HOST_PRICING').'/api/calculate-paid-service-price/'.$serviceid.'/'.$quantity;
+        $res = $client->get($url, [
+
+        ]);
+
+        //$response = json_decode((string));
+
+        return  (string) $res->getBody();
+    }
+
+    public function showPasswordResetRequestForm(){
+
+        return view('auth.password-reset-request-form');
+
+    }
+
+    public function showPasswordResetForm($userid, $resetinvitationid){
+
+        return view('auth.password-reset-form', array('userid'=>$userid, 'resetinvitationid'=>$resetinvitationid));
+
+    }
+
+    public function requestPasswordReset(Request $request){
+
+
+
+        //return $request->all();
+
+
+        $validator = Validator::make($request->all(),
+            [
+                'email' => 'required|email|min:1|max:50',
+                'tenantid'=>'required|string|min:1',
+            ]);
+
+        if ($validator->fails()){
+            return response(array('success' => 0, 'faillure' => 1, 'raison' => $validator->errors()->first()), 200);
+        }
+
+        $client = new Client();
+
+        try {
+
+            $response = $client->post(env('HOST_IDENTITY_AND_ACCESS').'/api/users/'.$request->get('email').'/password-reset-request', [
+                'form_params'=> $request->all()
+            ]);
+
+            $retVal = json_decode((string)$response->getBody(), true);
+            //return (string)$response->getBody();
+            //return $retVal->;
+            if ($retVal['success'] === 0 and $retVal['faillure'] === 1){
+                return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                    'result'=>$retVal));
+            }
+
+            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                'result'=>$retVal));
+
+        } catch (\Exception $e) {
+            return response(array('success'=>0, 'faillure' => 1, 'raison' => $e->getMessage() ), 200);
+        }
+    }
+
+    public function resetPassword(Request $request, $userid, $invitationid){
+
+
+
+        //return $request->all();
+
+
+        $validator = Validator::make($request->all(),
+            [
+                'email'=>'required|string|min:1',
+                'newpassword'=>'required|string|min:1',
+                'passwordconfirmation'=>'required|string|min:1',
+
+            ]);
+
+        if ($validator->fails()){
+            return response(array('success' => 0, 'faillure' => 1, 'raison' => $validator->errors()->first()), 200);
+        }
+
+        $client = new Client();
+
+        try {
+
+            $response = $client->post(env('HOST_IDENTITY_AND_ACCESS').'/api/users/'.$userid.'/password-reset/'.$invitationid, [
+                'form_params'=> $request->all()
+            ]);
+
+
+            //return (string)$response->getBody();
+
+            $retVal = json_decode((string)$response->getBody(), true);
+            //return (string)$response->getBody();
+            //return $retVal->;
+            if ($retVal['success'] === 0 and $retVal['faillure'] === 1){
+                return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                    'result'=>$retVal));
+            }
+
+            return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
+                'result'=>$retVal));
+
+        } catch (\Exception $e) {
+            return response(array('success'=>0, 'faillure' => 1, 'raison' => $e->getMessage() ), 200);
+        }
+    }
+
+
+   public function sms_regular_expressions(Request $request){
+      return response(file_get_contents("sms_regular_expressions.json"), 200);
+   }
 }

@@ -20,10 +20,35 @@ use Illuminate\Support\Facades\Validator;
 
 class WalletController extends Controller
 {
+
+
+
+    private $freeeController;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->freeeController = new FreeController();
+    }
+
     public function showTransactionMenu(Request $request){
+
+
+
         $client = new Client();
-        $url = env('HOST_WALLET').'/api/mobilebillercreditaccounts/'.Auth::user()->email.'?query=balance';
-        $res = $client->get($url, []);
+
+        $url = env('HOST_WALLET').'/api/mobilebillercreditaccounts/'.Auth::user()->userid.'?query=balance&scope='.env('SCOPE_READ_WALLET');
+
+        $res = $client->get($url, [
+            'headers'=>[
+                'Authorization' => 'Bearer '.Auth::user()->access_token,
+            ],
+
+        ]);
         $retVal = json_decode((string)$res->getBody());
         //return (string)$res->getBody();
         return view('transactions.menu',array('balance'=>$retVal->response));
@@ -114,7 +139,7 @@ class WalletController extends Controller
 
         $client = new Client();
         try {
-            $response = $client->post(env('HOST_WALLET').'/api/cash-topups', [
+            $response = $client->post(env('HOST_WALLET').'/api/cash-topups?scope='.env('SCOPE_MANAGE_CASH_TOPUPS'), [
                 'headers'=>[
                     'Authorization' => 'Bearer '.Auth::user()->access_token,
                 ],
@@ -241,7 +266,7 @@ class WalletController extends Controller
         try {
             //return $request;
 
-            $response = $client->post(env('HOST_WALLET').'/api/transferts', [
+            $response = $client->post(env('HOST_WALLET').'/api/transferts?scope='.env('SCOPE_MANAGE_MOBILE_BILLER_CREDIT_TRANSFERTS'), [
                 'headers'=>[
                     'Authorization' => 'Bearer '.Auth::user()->access_token,
                 ],
@@ -272,6 +297,7 @@ class WalletController extends Controller
     }
 
     public function getInfos(Request $request, $userId){
+
         $validator = Validator::make($request->all(), [
             'query' => 'required|string|min:1|max:150',
         ]);
@@ -321,9 +347,10 @@ class WalletController extends Controller
             return view('transactions.transactions',array('transactions'=>'User Account not Found'));
         }
 
+       return view('transactions.transactions',
+            array('transactions'=>MobileBillerCreditAccountTransactionView::where('mobilebillercreditaccount', '=', $mobilebillerCreditAccount[0]->accountnumber)
+                ->orderBy('date')->paginate(env('NUMBER_ITEM_PER_PAGE'))));
 
-        return view('transactions.transactions',
-            array('transactions'=>MobileBillerCreditAccountTransactionView::where('mobilebillercreditaccount', '=', $mobilebillerCreditAccount[0]->accountnumber)->paginate(env('NUMBER_ITEM_PER_PAGE'))));
     }
 
     public function getTransactionDetails(Request $request, $transactionid){

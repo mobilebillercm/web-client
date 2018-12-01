@@ -44,6 +44,12 @@ class GlobalDtoValidator
 
     }
 
+    public static function  requireDate(){
+
+        return 'required|date';
+
+    }
+
 
 
 }

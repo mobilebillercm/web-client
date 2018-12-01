@@ -32,11 +32,11 @@ class Service extends Model
         $this->short_description = $short_d;
 
         $d_d = null;
-        if (strlen($this->detailed_description) <= 500){
+        if (strlen($this->detailed_description) <= 200){
             $d_d = $detailed_description;
         }else{
-            $d_d = substr($detailed_description, 0, 500);
-            $i = 500;
+            $d_d = substr($detailed_description, 0, 200);
+            $i = 200;
             while (!($detailed_description[$i]. "" === " ")){
                 $d_d .= $detailed_description[$i++];
             }

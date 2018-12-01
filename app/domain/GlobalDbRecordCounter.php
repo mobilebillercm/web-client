@@ -11,6 +11,17 @@ namespace App\domain;
 
 class GlobalDbRecordCounter
 {
+
+
+    public static function  countDbRecordIsExactlelZero($records){
+
+        if((count($records) === 0)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public static function  countDbRecordIsExactlelOne($records){
 
         if((count($records) === 1)){
@@ -28,4 +39,6 @@ class GlobalDbRecordCounter
             return false;
         }
     }
+
+
 }

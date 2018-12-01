@@ -33,93 +33,92 @@
                                                     <div class="home-product-col-white" style="text-align: left;">
                                                         <div class="panel panel-info">
                                                             <div class="panel-heading">
-                                                                <h5><b>ID: {{$ticket->b_id}}</b></h5>
+                                                                <h5><b>ID: {{$ticket->receiptid}}</b></h5>
                                                             </div>
                                                             <div class="panel-body">
-                                                                @if(!($ticket->transaction_id === null) and !($ticket->transaction_id === ''))
+                                                                @if(!($ticket->transactionid === null) and !($ticket->transactionid === ''))
                                                                     <li >
-                                                                        <h6>ID Transaction: {{$ticket->transaction_id}}</h6>
+                                                                        <h6>ID Transaction: {{$ticket->transactionid}}</h6>
                                                                     </li>
                                                                 @endif
 
-                                                                    @if(!($ticket->transaction_state === null) and !($ticket->transaction_state === ''))
+                                                                    {{--@if(!($ticket->transaction_state === null) and !($ticket->transaction_state === ''))
                                                                         <li >
                                                                             <h6>Etat Transaction: {{$ticket->transaction_state}}</h6>
                                                                         </li>
-                                                                    @endif
+                                                                    @endif--}}
 
-                                                                    @if(!($ticket->transaction_amount === null) and !($ticket->transaction_amount === ''))
+                                                                    @if(!($ticket->amount === null) and !($ticket->amount === ''))
                                                                         <li >
-                                                                            <h6>Montant Transaction: <b>{{$ticket->transaction_amount}} {{$ticket->transaction_currency}}</b></h6>
+                                                                            <h6>Montant Transaction: <b>{{$ticket->amount}} {{$ticket->currency}}</b></h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->transaction_beneficiary_name === null) and !($ticket->transaction_beneficiary_name === ''))
+                                                                    @if(!($ticket->made_by === null) and !($ticket->made_by === ''))
                                                                         <li >
-                                                                            <h6>Beneficiaire Transaction: {{$ticket->transaction_beneficiary_name}}</h6>
+                                                                            <h6>Beneficiaire Transaction: {{$ticket->made_by}}</h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->transaction_beneficiary_account_number === null) and !($ticket->transaction_beneficiary_account_number === ''))
+                                                                    @if(!($ticket->beneficiary === null) and !($ticket->beneficiary === ''))
                                                                         <li >
-                                                                            <h6>Compte Beneficiaire: {{$ticket->transaction_beneficiary_account_number}}</h6>
+                                                                            <h6>Compte Beneficiaire: {{$ticket->beneficiary}}</h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->transaction_date === null) and !($ticket->transaction_date === ''))
+                                                                    @if(!($ticket->date === null) and !($ticket->date === ''))
                                                                         <li >
-                                                                            <h6>Date Transaction: {{$ticket->transaction_date}}</h6>
+                                                                            <h6>Date Transaction: {{$ticket->date}}</h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->transaction_type === null) and !($ticket->transaction_type === ''))
+                                                                    @if(!($ticket->type === null) and !($ticket->type === ''))
                                                                         <li >
-                                                                            <h6>Type Transaction: {{$ticket->transaction_type}}</h6>
+                                                                            <h6>Type Transaction: {{$ticket->type}}</h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->transaction_reference === null) and !($ticket->transaction_reference === ''))
+                                                                    {{--@if(!($ticket->transaction_reference === null) and !($ticket->transaction_reference === ''))
                                                                         <li >
                                                                             <h6>Reference Transaction: {{$ticket->transaction_reference}}</h6>
                                                                         </li>
-                                                                    @endif
+                                                                    @endif--}}
 
-                                                                    @if(!($ticket->transaction_fees === null) and !($ticket->transaction_fees === ''))
+                                                                    {{--@if(!($ticket->transaction_fees === null) and !($ticket->transaction_fees === ''))
                                                                         <li >
                                                                             <h6>Frais Transaction: {{$ticket->transaction_fees}}</h6>
                                                                         </li>
-                                                                    @endif
+                                                                    @endif--}}
 
-                                                                    @if(!($ticket->transaction_balance === null) and !($ticket->transaction_balance === ''))
+                                                                    @if(!($ticket->current_balance === null) and !($ticket->current_balance === ''))
                                                                         <li >
-                                                                            <h6>Solde Apres Transaction: {{$ticket->transaction_balance}} {{$ticket->transaction_currency}}</h6>
+                                                                            <h6>Solde Apres Transaction: {{$ticket->current_balance}} {{$ticket->current_balance}}</h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->sms_sender === null) and !($ticket->sms_sender === ''))
+                                                                    @if(!($ticket->address === null) and !($ticket->address === ''))
                                                                         <li >
-                                                                            <h6>Expediteur: {{$ticket->sms_sender}}</h6>
+                                                                            <h6>Expediteur: {{$ticket->address}}</h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->sms_date === null) and !($ticket->sms_date === ''))
+                                                                    @if(!($ticket->date_sent === null) and !($ticket->date_sent === ''))
                                                                         <li >
-                                                                            <h6>Date Reception SMS: {{$ticket->sms_date}}</h6>
+                                                                            <h6>Date Reception SMS: {{$ticket->date_sent}}</h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->sms_body === null) and !($ticket->sms_body === ''))
+                                                                    @if(!($ticket->body === null) and !($ticket->body === ''))
                                                                         <li >
-                                                                            <h6>Corps du SMS: {{$ticket->sms_body}}</h6>
+                                                                            <h6>Corps du SMS: {{$ticket->body}}</h6>
                                                                         </li>
                                                                     @endif
 
-                                                                    @if(!($ticket->sms_receiver === null) and !($ticket->sms_receiver === ''))
+                                                                    {{--@if(!($ticket->sms_receiver === null) and !($ticket->sms_receiver === ''))
                                                                         <li >
                                                                             <h6>Recepteur SMS: {{$ticket->sms_receiver}}</h6>
                                                                         </li>
-                                                                    @endif
-
+                                                                    @endif--}}
 
                                                             </div>
                                                             <div class="panel-footer">

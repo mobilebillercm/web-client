@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\domain\GlobalDbRecordCounter;
 use App\domain\GlobalDtoValidator;
 use App\domain\GlobalResultHandler;
+use App\domain\model\ClientServiceValidity;
+use App\domain\model\Receipt;
 use App\domain\model\Service;
 use App\domain\model\ServiceWithNoUnitPriceAssigned;
 use App\domain\model\MobileBillerCreditAccountTransactionView;
@@ -17,6 +19,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -54,7 +57,7 @@ class ApiController extends Controller
                 null
             );
 
-            $tenantToSave = new TenantView(
+	    $tenantToSave = new TenantView(
                 $tenant['tenantid'],
                 $tenant['name'],
                 $tenant['city'],
@@ -62,7 +65,9 @@ class ApiController extends Controller
                 $tenant['description'],
                 $tenant['logo'],
                 $tenant['enablement'],
-                json_encode(array($userToSave))
+                json_encode(array($userToSave)),
+                $tenant['taxpayernumber'],
+                $tenant['numbertraderegister']
             );
 
 
@@ -88,7 +93,11 @@ class ApiController extends Controller
     public function registerTenantCollaboratorRegistered(){
 
         $userJsonString = file_get_contents('php://input');
-        $userArray =  json_decode($userJsonString , true);
+ 
+	$fp = fopen('a1.txt', 'w');
+	fprintf($fp, '%s', $userJsonString);
+	fclose($fp);
+       $userArray =  json_decode($userJsonString , true);
 
         $validator = Validator::make($userArray,
             [
@@ -113,11 +122,12 @@ class ApiController extends Controller
 
 
             $invitations = TenantCollaboratorsRegistrationInvitationsView::where('userid', '=', $userArray['userid'])->get();
-            if (!(count($invitations) === 1)){
-                return GlobalResultHandler::buildFaillureReasonArray("Something went wrong");
+	    if ((count($invitations) === 1)){
+                $invitation = $invitations[0];
+                $invitation->active = 0;
+		$invitation->save();
+                //return GlobalResultHandler::buildFaillureReasonArray("Something went wrong");
             }
-            $invitation = $invitations[0];
-            $invitation->active = 0;
 
             $userToSave = new User(
                 $userArray['userid'],
@@ -135,7 +145,7 @@ class ApiController extends Controller
             );
 
 
-            $invitation->save();
+           // $invitation->save();
             $userToSave->save();
 
 
@@ -213,6 +223,7 @@ class ApiController extends Controller
     }
 
     public function addServiceWithNoUnitPriceAssigned(){
+
         $serviceJsonString = file_get_contents('php://input');
         $serviceArray =  json_decode($serviceJsonString , true);
 
@@ -301,14 +312,14 @@ class ApiController extends Controller
 
                // return __DIR__.'/../../Infrastructure/Messaging/global-var-config.ini';
 
-                $tokenUrl = parse_ini_file( __DIR__.'/../../Infrastructure/Messaging/global-var-config.ini' , true)['URLS']['HOST_SERVICES'] . '/oauth/token';
+                $tokenUrl = env('HOST_SERVICES') . '/oauth/token';
 
 
                 $tokenData = $client->post($tokenUrl, [
                     'form_params' => [
                         'grant_type' => 'client_credentials',
-                        'client_id' => parse_ini_file(__DIR__.'/../../Infrastructure/Messaging/global-var-config.ini', true)['LOGINS']['HOST_SERVICE_CLIENT_ID'],
-                        'client_secret' => parse_ini_file(__DIR__.'/../../Infrastructure/Messaging/global-var-config.ini', true)['LOGINS']['HOST_SERVICE_CLIENT_SECRET'],
+                        'client_id' => env('HOST_SERVICE_CLIENT_ID'),//parse_ini_file(__DIR__.'/../../Infrastructure/Messaging/global-var-config.ini', true)['LOGINS']['HOST_SERVICE_CLIENT_ID'],
+                        'client_secret' => env('HOST_SERVICE_CLIENT_SECRET')//parse_ini_file(__DIR__.'/../../Infrastructure/Messaging/global-var-config.ini', true)['LOGINS']['HOST_SERVICE_CLIENT_SECRET'],
                     ],
                 ]);
 
@@ -557,7 +568,6 @@ class ApiController extends Controller
 
     }
 
-
     public function saveTransfertOperation(){
         $transfertOperationString = file_get_contents('php://input');
         $transfertOperationArray = json_decode($transfertOperationString , true);
@@ -727,6 +737,422 @@ class ApiController extends Controller
         return response(GlobalResultHandler::buildSuccesResponseArray('Transfert Operation Saved successfully'), 200);
     }
 
+    public function savePayementOperationWithMobileBillerCreditAccount(){
 
+        $paymentOperationString = file_get_contents('php://input');
+
+        $paymentOperationArray = json_decode($paymentOperationString , true);
+
+        $sourceAccount = $paymentOperationArray['mobilebillercreditaccount'];
+        $sourceTransaction = $paymentOperationArray['transaction'];
+
+
+        $validatorSrcAccount = Validator::make($sourceAccount,
+            [
+                'b_id'=>GlobalDtoValidator::requireStringMinMax(1, 150),
+                'accountnumber'=>GlobalDtoValidator::requireStringMinMax(1, 150),
+                'holder'=>GlobalDtoValidator::requireStringMinMax(1, 5000),
+                'balance'=>GlobalDtoValidator::requireNumeric(),
+                'issuer'=>GlobalDtoValidator::requireStringMinMax(1, 150),
+                'active'=>GlobalDtoValidator::requireInteger(),
+                'currency'=>GlobalDtoValidator::requireStringMinMax(1, 150),
+            ]);
+
+        if($validatorSrcAccount->fails())
+        {
+            return GlobalResultHandler::buildFaillureReasonArray($validatorSrcAccount->errors()->first());
+        }
+
+
+        $transactionSrcValidator = Validator::make($sourceTransaction,
+            [
+                'b_id'=>GlobalDtoValidator::requireStringMinMax(1, 150),
+                'date'=>GlobalDtoValidator::requireStringMinMax(1, 150),
+                'mobilebillercreditaccount'=>GlobalDtoValidator::requireStringMinMax(1, 5000),
+                'made_by'=>GlobalDtoValidator::requireStringMinMax(1, 150),
+                'amount'=>GlobalDtoValidator::requireNumeric(),
+                'transaction_type'=>GlobalDtoValidator::requireStringMinMax(1, 50),
+                'transaction_details'=>GlobalDtoValidator::requireStringMinMax(1, 5000),
+                'user_transaction_number'=>GlobalDtoValidator::requireInteger(),
+                'state'=>GlobalDtoValidator::requireStringMinMax(1, 50),
+                'accountstate'=>GlobalDtoValidator::required(),
+            ]);
+
+        if($transactionSrcValidator->fails())
+        {
+            return GlobalResultHandler::buildFaillureReasonArray($transactionSrcValidator->errors()->first());
+        }
+
+
+
+        DB::beginTransaction();
+
+        try{
+
+
+            $mobileBillerCreditAccountViewsSrc = MobileBillerCreditAccountView::where('b_id', '=', $sourceAccount['b_id'])->
+            where('accountnumber', '=', $sourceAccount['accountnumber'])->where('holder', '=', $sourceAccount['holder'])->get();
+
+            if(!GlobalDbRecordCounter::countDbRecordIsExactlelOne($mobileBillerCreditAccountViewsSrc)){
+                return response(GlobalResultHandler::buildFaillureReasonArray('User mobile credit account not found'), 200);
+            }
+
+
+            $mobileBillerCreditAccountViewsSrc[0]->balance = $sourceAccount['balance'];
+
+            $mobileBillerCreditAccountViewsSrc[0]->save();
+
+
+
+            $transactionDetailsObjectSrc = json_decode($sourceTransaction['transaction_details'], true);
+
+            $transactionDetailsSrc = new TransactionDetail($transactionDetailsObjectSrc['made_by'], $transactionDetailsObjectSrc['account_number'],
+                $transactionDetailsObjectSrc['account_holder'],  $transactionDetailsObjectSrc['account_security_code'],
+                $transactionDetailsObjectSrc['account_type'], $transactionDetailsObjectSrc['beneficiary'], $transactionDetailsObjectSrc['transactionType']);
+
+            $mobileBillerCreditAccountTransactionViewSrc = new MobileBillerCreditAccountTransactionView(
+                $sourceTransaction['b_id'],
+                $sourceTransaction['date'],
+                $sourceTransaction['mobilebillercreditaccount'],
+                $sourceTransaction['made_by'],
+                $sourceTransaction['amount'],
+                $sourceTransaction['transaction_type'],
+                $transactionDetailsSrc,
+                $sourceTransaction['user_transaction_number'],
+                $sourceTransaction['state'],
+                $sourceTransaction['returned_result'],
+                $sourceTransaction['accountstate']
+
+            );
+
+            $mobileBillerCreditAccountTransactionViewSrc->save();
+
+
+        }catch (\Exception $e){
+
+            DB::rollBack();
+
+            return response(GlobalResultHandler::buildFaillureReasonArray('Unable to save transfert operation '.$e->getMessage()), 200);
+
+        }
+
+        DB::commit();
+
+        return response(GlobalResultHandler::buildSuccesResponseArray('Transfert Operation Saved successfully'), 200);
+    }
+
+    public function registerReceipt(){
+
+        $dataJson = file_get_contents('php://input');
+        $dataArray =  json_decode($dataJson, true);
+
+        if(!$dataArray){
+            return response(GlobalResultHandler::buildFaillureReasonArray("Invalid Data"), 200);
+        }
+
+
+        $validationrules =  [
+            'userid' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'tenantid' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'transactionid' => GlobalDtoValidator::requireStringMinMax(1, 500),
+            'amount' => GlobalDtoValidator::requireNumeric(),
+            'address' => GlobalDtoValidator::requireStringMinMax(1, 1000),
+            'date' => GlobalDtoValidator::required(),
+            'body' => GlobalDtoValidator::requireStringMinMax(1, 5000),
+            'date_sent' => GlobalDtoValidator::required(),
+            'current_balance' => GlobalDtoValidator::requireNumeric(),
+            'available_balance' => GlobalDtoValidator::requireNumeric(),
+            'beneficiary' => GlobalDtoValidator::requireStringMinMax(1, 100),
+            'type' => GlobalDtoValidator::requireStringMinMax(1, 100),
+            'verification_code' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'made_by' => GlobalDtoValidator::requireStringMinMax(1, 250),
+        ];
+
+
+
+        if (GlobalDtoValidator::validateData($dataArray, $validationrules)->fails()) {
+            return response(GlobalResultHandler::buildFaillureReasonArray(GlobalDtoValidator::validateData($dataArray, $validationrules)->errors()->first()), 200);
+        }
+
+
+        $receiptToRegister = new Receipt(
+            $dataArray['receiptid'],
+            $dataArray['userid'],
+            $dataArray['tenantid'],
+            $dataArray['transactionid'],
+            $dataArray['amount'],
+            $dataArray['address'],
+            $dataArray['date'],
+            $dataArray['body'],
+            $dataArray['date_sent'],
+            $dataArray['current_balance'],
+            $dataArray['available_balance'],
+            $dataArray['beneficiary'],
+            $dataArray['type'],
+            $dataArray['verification_code'],
+            1,
+            $dataArray['made_by'],
+            $dataArray['currency']
+        );
+
+        DB::beginTransaction();
+
+        try{
+
+            $receiptToRegister->save();
+
+        }catch (\Exception $e){
+
+            DB::rollBack();
+
+            return response(GlobalResultHandler::buildFaillureReasonArray('Unable to register Receipt ' . $e->getMessage()), 200);
+        }
+
+        DB::commit();
+
+        return response(GlobalResultHandler::buildSuccesResponseArray('Receipt registered Successfully'), 200);
+    }
+
+
+
+     public function registerBulkReceipt(){
+
+        $dataJson = file_get_contents('php://input');
+        $dataArray =  json_decode($dataJson, true);
+
+        if(!$dataArray){
+            return response(GlobalResultHandler::buildFaillureReasonArray("Invalid Data"), 200);
+        }
+
+
+
+        $validationrules =  [
+            'userid' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'tenantid' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'transactionid' => GlobalDtoValidator::requireStringMinMax(1, 500),
+            'amount' => GlobalDtoValidator::requireNumeric(),
+            'address' => GlobalDtoValidator::requireStringMinMax(1, 1000),
+            'date' => GlobalDtoValidator::requireDate(),
+            'body' => GlobalDtoValidator::requireStringMinMax(1, 5000),
+            'date_sent' => GlobalDtoValidator::requireDate(),
+            'current_balance' => GlobalDtoValidator::requireNumeric(),
+            'available_balance' => GlobalDtoValidator::requireNumeric(),
+            'beneficiary' => GlobalDtoValidator::requireStringMinMax(1, 100),
+            'type' => GlobalDtoValidator::requireStringMinMax(1, 100),
+            'verification_code' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'made_by' => GlobalDtoValidator::requireStringMinMax(1, 250),
+        ];
+
+
+        foreach ($dataArray as $receipt){
+            if (GlobalDtoValidator::validateData($receipt, $validationrules)->fails()) {return response(GlobalResultHandler::buildFaillureReasonArray(GlobalDtoValidator::validateData($dataArray, $validationrules)->errors()->first()), 200);}
+        }
+
+     //   $receipts = [];
+
+        DB::beginTransaction();
+
+        try{
+
+            foreach ($dataArray as $receipt){
+                $receiptToRegister = new Receipt(
+                    $receipt['receiptid'],
+                    $receipt['userid'],
+                    $receipt['tenantid'],
+                    $receipt['transactionid'],
+                    $receipt['amount'],
+                    $receipt['address'],
+                    $receipt['date'],
+                    $receipt['body'],
+                    $receipt['date_sent'],
+                    $receipt['current_balance'],
+                    $receipt['available_balance'],
+                    $receipt['beneficiary'],
+                    $receipt['type'],
+                    $receipt['verification_code'],
+                    1,
+                    $receipt['made_by'],
+                    $receipt['currency']
+                );
+                $receiptToRegister->save();
+                //array_push($receipts, $receiptToRegister);
+            }
+
+        }catch (\Exception $e){
+
+            DB::rollBack();
+
+	    return response(GlobalResultHandler::buildFaillureReasonArray('Unable to register bulk Receipt ' . $e->getMessage()), 200);
+           // return response(GlobalResultHandler::buildFaillureReasonArray('Unable to register Receipts'), 200);
+
+        }
+
+        DB::commit();
+
+
+        //ProcessMessages::dispatch(env('REGISTER_BULK_RECEIPT_EXCHANGE'), env('RABBIT_MQ_EXCHANGE_TYPE'), json_encode($dataArray));
+
+        return response(GlobalResultHandler::buildSuccesResponseArray('Receipts registered Successfully'), 200);
+
+    }
+
+
+    public function saveServiceAccess(){
+
+        $dataJson = file_get_contents('php://input');
+        $dataArray =  json_decode($dataJson, true);
+
+        if(!$dataArray){
+            return response(GlobalResultHandler::buildFaillureReasonArray("Invalid Data"), 200);
+        }
+
+
+        $validationrules =  [
+            'serviceid' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'clientid' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'tenantid' => GlobalDtoValidator::requireStringMinMax(1, 150),
+            'startdate' => GlobalDtoValidator::requireInteger(),
+            'enddate' => GlobalDtoValidator::requireInteger(),
+            'enablementstatus' => GlobalDtoValidator::requireInteger(),
+            'expirationstatus' => GlobalDtoValidator::requireInteger(),
+        ];
+
+
+        //return "\n\n             OK \n\n";
+
+        if (GlobalDtoValidator::validateData($dataArray, $validationrules)->fails()) {
+            return response(GlobalResultHandler::buildFaillureReasonArray(GlobalDtoValidator::validateData($dataArray, $validationrules)->errors()->first()), 200);
+        }
+
+
+
+        $services = Service::where('b_id', '=', $dataArray['serviceid'])->get();
+
+        if(!GlobalDbRecordCounter::countDbRecordIsExactlelOne($services)){
+            return response(GlobalResultHandler::buildFaillureReasonArray('Invalid data'), 200);
+
+        }
+
+
+
+
+        $existingservices = ClientServiceValidity::where('serviceid', '=', $dataArray['serviceid'])->
+        where('clientid', '=', $dataArray['clientid'])->where('tenantid', '=', $dataArray['tenantid'])->get();
+
+        if(GlobalDbRecordCounter::countDbRecordIsExactlelOne($existingservices)){
+
+            $existingservices[0]->startdate = $dataArray['startdate'];
+            $existingservices[0]->enddate =  $dataArray['enddate'];
+
+            $existingservices[0]->save();
+
+            return response(GlobalResultHandler::buildSuccesResponseArray('Service access registered Successfully'), 200);
+
+        }elseif (GlobalDbRecordCounter::countDbRecordIsExactlelZero($existingservices)){
+
+
+            $serviceAccessToRegister = new ClientServiceValidity(
+                $dataArray['serviceid'],
+                $dataArray['clientid'],
+                $dataArray['tenantid'],
+                $dataArray['startdate'],
+                $dataArray['enddate'],
+                $dataArray['enablementstatus'],
+                $dataArray['expirationstatus'],
+                $dataArray['reasonenablementchanged'],
+                $services[0]->name,
+                $services[0]->short_description,
+                $services[0]->detailed_description
+
+            );
+
+
+
+            DB::beginTransaction();
+
+            try{
+
+                $serviceAccessToRegister->save();
+
+            }catch (\Exception $e){
+
+                DB::rollBack();
+
+                return response(GlobalResultHandler::buildFaillureReasonArray('Unable to register Service '), 200);
+            }
+
+            DB::commit();
+
+            return response(GlobalResultHandler::buildSuccesResponseArray('Service access registered Successfully'), 200);
+        }else{
+
+            return response(GlobalResultHandler::buildFaillureReasonArray('Wrong state'), 200);
+
+        }
+
+
+    }
+
+   /* public function changePassword(){
+        $userToRegisterJsonString = file_get_contents('php://input');
+        $userToRegisterArray =  json_decode($userToRegisterJsonString, true);
+
+        //echo $userToRegisterArray['password'];
+
+        $users = User::where('tenant', '=', $userToRegisterArray['tenantid'])->where('email', '=', $userToRegisterArray['email'])->get();
+
+
+        if(!(count($users) === 1)){
+            return response(GlobalResultHandler::buildFaillureReasonArray('Something went wrong '), 200);
+            //return "Something went wrong";
+        }
+
+
+        $user = $users[0];
+
+
+        $user->password = Hash::make($userToRegisterArray['password']);
+
+        $user->save();
+        return response(GlobalResultHandler::buildSuccesResponseArray('Password Changed Successfully'), 200);
+
+    }*/
+
+
+    public function changePassword(){
+        $userToRegisterJsonString = file_get_contents('php://input');
+        $userToRegisterArray =  json_decode($userToRegisterJsonString, true);
+
+        //echo $userToRegisterArray['password'];
+
+        $users = User::where('tenant', '=', $userToRegisterArray['tenantid'])->where('email', '=', $userToRegisterArray['email'])->get();
+
+
+        if(!(count($users) === 1)){
+            return response(GlobalResultHandler::buildFaillureReasonArray('Something went wrong '), 200);
+            //return "Something went wrong";
+        }
+
+
+        $user = $users[0];
+
+
+        $user->password = Hash::make($userToRegisterArray['password']);
+
+        $user->save();
+        return response(GlobalResultHandler::buildSuccesResponseArray('Password Changed Successfully'), 200);
+
+    }
+
+
+    public function getTenantByUsername($username){
+        return response(array('success' => 1, 'faillure' => 0, 'response' => User::where('username', '=', $username)->get(['tenant', 'tenant_name'])),200);
+    }
+
+
+    public function getServicesForAUser(Request $request, $userid){
+        $services = ClientServiceValidity::where('clientid', '=', $userid)->get();
+        return response(array('success' => 1, 'faillure' => 0, 'response' => $services),200);
+    }
 
 }

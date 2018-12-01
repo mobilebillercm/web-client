@@ -63,6 +63,9 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
         $tokenUrl = parse_ini_file("global-var-config.ini", true)['URLS']['HOST_WEB_CLIENT'] . '/oauth/token';
 
 
+        echo  $tokenUrl.PHP_EOL;
+        echo  $tokenUrl.PHP_EOL;
+
         $tokenData = $client->post($tokenUrl, [
             'form_params' => [
                 'grant_type' => 'client_credentials',
@@ -74,8 +77,13 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 
         $token = json_decode((string)$tokenData->getBody());
 
+        //echo  $token;
+
+
 
     } catch (BadResponseException $e) {
+
+        echo $e->getMessage();
 
         return $e->getMessage();
 

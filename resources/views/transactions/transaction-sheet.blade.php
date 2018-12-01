@@ -183,7 +183,7 @@
                                                                                     </li>
 
                                                                                     <li class="list-group-item">
-                                                                                        <h6>Identifiant Utilisateur: {{$transaction['response']['user_transaction_number']}}</h6>
+                                                                                        <h6>Identifiant Client de la Transaction: {{$transaction['response']['user_transaction_number']}}</h6>
                                                                                     </li>
 
                                                                                     <li class="list-group-item">

@@ -68,7 +68,8 @@
                                                             @csrf
                                                             <div class="form-group" style="text-align: left; margin-left: 10px; margin-right: 10px;">
                                                                 <label for="{{$service->b_id}}" style="color: #3db4e1;"><span id="n_unit_{{$service->b_id}}">1</span>
-                                                                    <span id="unit_{{$service->b_id}}">{{$service->unit}}</span> <span id="decimal_unit_{{$service->b_id}}"></span></label>
+                                                                    <span id="unit_{{$service->b_id}}">{{$service->unit}}</span> <span id="decimal_unit_{{$service->b_id}}"></span>
+								<span class="pull-right"><img src="{{asset('assets/images/loader.gif')}}" id="loader_{{$service->b_id}}" height="25" width="20" style="display:none;"/></span></label>
                                                                 <input type="range" name="quantity" max="12" min="0.5" value="1" step="0.5" id="{{$service->b_id}}"
                                                                        style="color: #3db4e1;" onchange="getPrice('{{$service->b_id}}', this.value);">
                                                                 <label for="{{$service->b_id}}" class="pull-right" style="color: #3db4e1;">

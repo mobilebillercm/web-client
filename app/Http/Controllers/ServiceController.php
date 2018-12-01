@@ -29,9 +29,13 @@ class ServiceController extends Controller
 
     public function getServicePaymentFormStep2(Request $request){
         //return $request->all();
+
+
+        //return env('HOST_PAYMENTS').'/api/payments';
+
         $client = new Client();
         try {
-            $response = $client->post(env('HOST_PAYMENT').'/api/payments', [
+            $response = $client->post(env('HOST_PAYMENTS').'/api/payments?scope='. $request->get('scope'), [
                 'headers'=>[
                     'Authorization' => 'Bearer '.Auth::user()->access_token,
                 ],
@@ -39,6 +43,7 @@ class ServiceController extends Controller
             ]);
 
 
+            //return $response->getBody();
 
             $retVal = json_decode((string)$response->getBody(), true);
             /*if ($retVal->success === 0 and $retVal->faillure === 1){
@@ -96,7 +101,12 @@ class ServiceController extends Controller
 
             }
 
-            array_push($multipart, ['name'=>'scope',  'contents'=>'SCOPE_MANAGE_ACTIVITIES_AND_PROJECTS']);
+            array_push($multipart, ['name'=>'scope',  'contents'=>env('SCOPE_MANAGE_SERVICES')]);
+
+
+            //return env('HOST_SERVICES').'/api/services';
+
+            //return '.'. Auth::user()->access_token;
 
             $response = $client->post(env('HOST_SERVICES').'/api/services', [
                 'headers'=>[
@@ -107,13 +117,15 @@ class ServiceController extends Controller
 
 
 
+            //return $response->getBody();
+
             $retVal = json_decode((string)$response->getBody(), true);
 
             return Redirect::back()->with('message',array('receiveResultStatusCode' => 200, 'result'=>$retVal));
 
         } catch (\Exception $e) {
             return Redirect::back()->with('message',array('receiveResultStatusCode' => 200,
-                'result'=>array('success'=>0,'faillure'=>1,'raison'=>"Something went wrong  " . 'Bearer '.Auth::user()->access_token . ">>>>>>>>>>>>" . $e->getMessage())));
+                'result'=>array('success'=>0,'faillure'=>1,'raison'=>"Something went wrong f " . 'Bearer '. ">>>>>>>>>>>>" . $e->getMessage().' END')));
             //return response(array('success'=>0, 'faillure' => 1, 'raison' => $e->getMessage()), 200);
         }
     }
@@ -134,7 +146,7 @@ class ServiceController extends Controller
     public function defineServiceUnitPrice(Request $request, $serviceid){
         $client = new Client();
         try {
-            $response = $client->post(env('HOST_PRICING').'/api/define-price-for-unpriced-services?scope=SCOPE_MANAGE_IDENTITIES_AND_ACCESSES', [
+            $response = $client->post(env('HOST_PRICING').'/api/define-price-for-unpriced-services?scope='.env('SCOPE_MANAGE_PRICES'), [
                 'headers'=>[
                     'Authorization' => 'Bearer '.Auth::user()->access_token,
                 ],

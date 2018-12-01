@@ -26,18 +26,5 @@ class PricingController extends Controller
         return (json_last_error());
     }
 
-    public function getPrice($serviceid, $quantity){
 
-        $client = new Client();
-        $url = env('HOST_PRICING').'/api/calculate-paid-service-price/'.$serviceid.'/'.$quantity.'?scope=SCOPE_MANAGE_IDENTITIES_AND_ACCESSES';
-        $res = $client->get($url, [
-            'headers' => [
-                'Authorization' => 'Bearer ' . Auth::user()->access_token,
-            ]
-        ]);
-
-        //$response = json_decode((string));
-
-        return  (string) $res->getBody();
-    }
 }

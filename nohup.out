@@ -1,160 +1,2825 @@
-8040/tcp:            26909
-8041/tcp:            26859
-8042/tcp:            26893
-8043/tcp:            26839
-8044/tcp:            26819
-8045/tcp:            26870
-8046/tcp:            26847
-8047/tcp:            26831
-8040/tcp:            28947
-8041/tcp:            29001
-8042/tcp:            28943
-8043/tcp:            28921
-8044/tcp:            28941
-8045/tcp:            28967
-8046/tcp:            28935
-8047/tcp:            28981
-8040/tcp:            30086
-8041/tcp:            30137
-8042/tcp:            30123
-8043/tcp:            30075
-8044/tcp:            30067
-8045/tcp:            30115
-8046/tcp:            30062
-8047/tcp:            30051
-8040/tcp:            31580
-8041/tcp:            31536
-8042/tcp:            31558
-8043/tcp:            31592
-8044/tcp:            31544
-8045/tcp:            31612
-8046/tcp:            31566
-8047/tcp:            31620
-8040/tcp:            18455
-8041/tcp:            18496
-8042/tcp:            18454
-8043/tcp:            18443
-8044/tcp:            18459
-8045/tcp:            18480
-8046/tcp:            18457
-8047/tcp:            18444
-8040/tcp:             3640
-8041/tcp:             3618
-8042/tcp:             3631
-8043/tcp:             3636
-8044/tcp:             3610
-8045/tcp:             3624
-8046/tcp:             3567
-8047/tcp:             3621
-8040/tcp:             7600
-8041/tcp:             7624
-8042/tcp:             7651
-8043/tcp:             7617
-8044/tcp:             7646
-8045/tcp:             7561
-8046/tcp:             7603
-8047/tcp:             7625
-8040/tcp:             3759
-8041/tcp:             3771
-8042/tcp:             3811
-8043/tcp:             3762
-8044/tcp:             3787
-8045/tcp:             3831
-8046/tcp:             3761
-8047/tcp:             3760
-8040/tcp:            21553
-8041/tcp:            21533
-8042/tcp:            21584
-8043/tcp:            21554
-8044/tcp:            21599
-8045/tcp:            21500
-8046/tcp:            21595
-8047/tcp:            21597
-8040/tcp:            16985
-8041/tcp:            17033
-8042/tcp:            16983
-8043/tcp:            16989
-8044/tcp:            16988
-8045/tcp:            17007
-8046/tcp:            16991
-8047/tcp:            16999
-8040/tcp:            31696
-8041/tcp:            17933
-8042/tcp:            18012
-8043/tcp:            18033
-8044/tcp:            17973
-8045/tcp:            17935
-8046/tcp:            18005
-8047/tcp:            18017
-8040/tcp:            32297
-8041/tcp:            32376
-8042/tcp:            32313
-8043/tcp:            32293
-8044/tcp:            32299
-8045/tcp:            32351
-8046/tcp:            32353
-8047/tcp:            32361
-8040/tcp:              863
-8041/tcp:              884
-8042/tcp:              811
-8043/tcp:              835
-8044/tcp:              862
-8045/tcp:              840
-8046/tcp:              821
-8047/tcp:              841
-8040/tcp:             1590
-8041/tcp:             1555
-8042/tcp:             1572
-8043/tcp:             1530
-8044/tcp:             1541
-8045/tcp:             1620
-8046/tcp:             1598
-8047/tcp:             1532
-8040/tcp:            19972
-8041/tcp:            20015
-8042/tcp:            19964
-8043/tcp:            19947
-8044/tcp:            19961
-8045/tcp:            20016
-8046/tcp:            20007
-8047/tcp:            19979
-8040/tcp:            13955
-8041/tcp:            13969
-8042/tcp:            13986
-8043/tcp:            13999
-8044/tcp:            13954
-8045/tcp:            14021
-8046/tcp:            13994
-8047/tcp:            13951
-8040/tcp:              870
-8041/tcp:              903
-8042/tcp:              830
-8043/tcp:              844
-8044/tcp:              816
-8045/tcp:              856
-8046/tcp:              901
-8047/tcp:              884
-8040/tcp:            24382
-8041/tcp:            24377
-8042/tcp:            24384
-8043/tcp:            24386
-8044/tcp:            24383
-8045/tcp:            24381
-8046/tcp:            24388
-8047/tcp:            24385
-8040/tcp:            27216
-8041/tcp:            27207
-8042/tcp:            27220
-8043/tcp:            27213
-8044/tcp:            27221
-8045/tcp:            27218
-8046/tcp:            27215
-8047/tcp:            27219
-8040/tcp:             3530
-8041/tcp:             3524
-8042/tcp:             3564
-8043/tcp:             3526
-8044/tcp:             3528
-8045/tcp:             3581
+8040/tcp:            18949
+8041/tcp:            18897
+8042/tcp:            18935
+8043/tcp:            18898
+8044/tcp:            18860
+8045/tcp:            18931
+8046/tcp:            18899
+8047/tcp:            18896
+8040/tcp:            22916
+8041/tcp:            22917
+8042/tcp:            22870
+8043/tcp:            22848
+8044/tcp:            22904
+8045/tcp:            22900
+8046/tcp:            22889
+8047/tcp:            22902
+8040/tcp:             9484
+8041/tcp:             9508
+8042/tcp:             9479
+8043/tcp:             9495
+8044/tcp:             9496
+8045/tcp:             9491
+8046/tcp:             9492
+8047/tcp:             9473
+8040/tcp:            19192
+8041/tcp:            19145
+8042/tcp:            19182
+8043/tcp:            19188
+8044/tcp:            19179
+8045/tcp:            19196
+8046/tcp:            19156
+8047/tcp:            19189
+8040/tcp:            11027
+8041/tcp:            11022
+8042/tcp:            11013
+8043/tcp:            10967
+8044/tcp:            10968
+8045/tcp:            11020
+8046/tcp:            10964
+8047/tcp:            11018
+8040/tcp:            25749
+8041/tcp:            25760
+8042/tcp:            25761
+8043/tcp:            25689
+8044/tcp:            25669
+8045/tcp:            25741
+8046/tcp:            25727
+8047/tcp:            25691
+8040/tcp:            30629
+8041/tcp:            30599
+8042/tcp:            30627
+8043/tcp:            30571
+8044/tcp:            30626
+8045/tcp:            30573
+8046/tcp:            30570
+8047/tcp:            30575
+8040/tcp:             6698
+8041/tcp:             6775
+8042/tcp:             6742
+8043/tcp:             6683
+8044/tcp:             6790
+8045/tcp:             6760
+8046/tcp:             6728
+8047/tcp:             6682
+8040/tcp:             7987
+8041/tcp:             7893
+8042/tcp:             7934
+8043/tcp:             7903
+8044/tcp:             7948
+8045/tcp:             7929
+8046/tcp:             7873
+8047/tcp:             7895
+8040/tcp:            12335
+8041/tcp:            12397
+8042/tcp:            12392
+8043/tcp:            12384
+8044/tcp:            12387
+8045/tcp:            12319
+8046/tcp:            12391
+8047/tcp:            12402
+8040/tcp:            17992
+8041/tcp:            17987
+8042/tcp:            17982
+8043/tcp:            17983
+8044/tcp:            17979
+8045/tcp:            17970
+8046/tcp:            17976
+8047/tcp:            17985
+8040/tcp:            19882
+8041/tcp:            19914
+8042/tcp:            19843
+8043/tcp:            19933
+8044/tcp:            19880
+8045/tcp:            19887
+8046/tcp:            19924
+8047/tcp:            19912
+8040/tcp:            21704
+8041/tcp:            21699
+8042/tcp:            21686
+8043/tcp:            21701
+8044/tcp:            21708
+8045/tcp:            21710
+8046/tcp:            21693
+8047/tcp:            21702
+8040/tcp:            26274
+8041/tcp:            26281
+8042/tcp:            26280
+8043/tcp:            26275
+8044/tcp:            26208
+8045/tcp:            26282
+8046/tcp:            26283
+8047/tcp:            26190
+8040/tcp:            32344
+8041/tcp:            32414
+8042/tcp:            32361
+8043/tcp:            32328
+8044/tcp:            32404
+8045/tcp:            32395
+8046/tcp:            32387
+8047/tcp:            32366
+8040/tcp:             5535
+8041/tcp:             5482
+8042/tcp:             5536
+8043/tcp:             5509
+8044/tcp:             5498
+8045/tcp:             5564
+8046/tcp:             5484
+8047/tcp:             5520
+8040/tcp:             1476
+8041/tcp:             1397
+8042/tcp:             1459
+8043/tcp:             1422
+8044/tcp:             1490
+8045/tcp:             1423
+8046/tcp:             1405
+8047/tcp:             1448
+8040/tcp:            30712
+8041/tcp:            30696
+8042/tcp:            30748
+8043/tcp:            30698
+8044/tcp:            30743
+8045/tcp:            30766
+8046/tcp:            30726
+8047/tcp:            30774
+8040/tcp:              309
+8041/tcp:            32725
+8042/tcp:              311
+8043/tcp:              316
+8044/tcp:            32710
+8045/tcp:            32759
+8046/tcp:            32711
+8047/tcp:            32730
+8040/tcp:             3489
+8041/tcp:             3505
+8042/tcp:             3484
+8043/tcp:             3461
+8044/tcp:             3536
+8045/tcp:             3555
 8046/tcp:             3550
-8047/tcp:             3542
+8047/tcp:             3494
+8040/tcp:             8351
+8041/tcp:             8270
+8042/tcp:             8346
+8043/tcp:             8298
+8044/tcp:             8093
+8045/tcp:             8317
+8046/tcp:             8306
+8047/tcp:             8366
+8040/tcp:            10740
+8041/tcp:            10677
+8042/tcp:            10692
+8043/tcp:            10735
+8044/tcp:            10753
+8045/tcp:            10703
+8046/tcp:            10730
+8047/tcp:            10742
+8040/tcp:            27083
+8041/tcp:            27047
+8042/tcp:            26997
+8043/tcp:            27015
+8044/tcp:            27066
+8045/tcp:            27007
+8046/tcp:            27045
+8047/tcp:            27006
+8040/tcp:             9561
+8041/tcp:             9528
+8042/tcp:             9615
+8043/tcp:             9633
+8044/tcp:             9647
+8045/tcp:             9625
+8046/tcp:             9422
+8047/tcp:             9583
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+8040/tcp:            24467
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+8040/tcp:            25789
+8041/tcp:            25948
+8042/tcp:            24504
+8043/tcp:            24485
+8044/tcp:            24497
+8045/tcp:            24484
+8046/tcp:            24507
+8047/tcp:            24503
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+8040/tcp:             5273
+8041/tcp:             5285
+8042/tcp:             5281
+8043/tcp:             5268
+8044/tcp:             5284
+8045/tcp:             5263
+8046/tcp:             5309
+8047/tcp:             5385
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+8040/tcp:             7109
+8041/tcp:             7137
+8042/tcp:             7135
+8043/tcp:             7106
+8044/tcp:             7133
+8045/tcp:             7116
+8046/tcp:             7157
+8047/tcp:             7111
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+
+Usage:
+rabbitmqctl [-n <node>] [-l] [-q] <command> [<command options>]
+
+General options:
+    -n node
+    -q quiet
+    -l longnames
+
+Default node is "rabbit@server", where `server` is the local hostname. On a host
+named "server.example.com", the node name of the RabbitMQ Erlang node will
+usually be rabbit@server (unless RABBITMQ_NODENAME has been set to some
+non-default value at broker startup time). The output of hostname -s is usually
+the correct suffix to use after the "@" sign. See rabbitmq-server(1) for
+details of configuring the RabbitMQ broker.
+
+Quiet output mode is selected with the "-q" flag. Informational messages are
+suppressed when quiet mode is in effect.
+
+If RabbitMQ broker uses long node names for erlang distribution, "longnames"
+option should be specified.
+
+Some commands accept an optional virtual host parameter for which
+to display results. The default value is "/".
+
+Commands:
+    add_user <username> <password>
+    add_vhost <vhost>
+    authenticate_user <username> <password>
+    await_online_nodes <count> [-t <timeout>]
+    cancel_sync_queue [-p <vhost>] queue
+    change_cluster_node_type <disc|ram>
+    change_password <username> <password>
+    clear_global_parameter <key>
+    clear_operator_policy [-p <vhost>] <key>
+    clear_parameter [-p <vhost>] <component_name> <key>
+    clear_password <username>
+    clear_permissions [-p vhost] <username>
+    clear_policy [-p <vhost>] <key>
+    clear_topic_permissions [-p vhost] <username> [<exchange>]
+    clear_vhost_limits [-p <vhost>]
+    close_all_connections [-p <vhost> --limit <limit>] [-n <node> --global] [--per-connection-delay <delay>] <explanation>
+    close_connection <connectionpid> <explanation>
+    cluster_status
+    decode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    delete_queue queue_name [--if_empty|-e] [--if_unused|-u] [-t <timeout>]
+    delete_shovel [-p <vhost>] <name>
+    delete_user <username>
+    delete_vhost <vhost>
+    encode value passphrase [--cipher cipher] [--hash hash] [--iterations iterations]
+    environment
+    eval <expr>
+    exec <expr> [--offline]
+    force_boot
+    force_reset
+    forget_cluster_node [--offline] <existing_cluster_member_node>
+    help <command>
+    hipe_compile <directory>
+    join_cluster [--disc|--ram] <existing_cluster_member_node>
+    list_bindings [-p <vhost>] [<bindinginfoitem> ...] [-t <timeout>]
+    list_channels [<channelinfoitem> ...]
+    list_ciphers
+    list_connections [<connectioninfoitem> ...] [-t <timeout>]
+    list_consumers [-p vhost] [<consumerinfoitem> ...] [-t <timeout>]
+    list_exchanges [-p <vhost>] [<exchangeinfoitem> ...] [-t <timeout>]
+    list_global_parameters [-t <timeout>]
+    list_hashes
+    list_operator_policies [-p <vhost>] [-t <timeout>]
+    list_parameters [-p <vhost>] [-t <timeout>]
+    list_permissions [-p <vhost>] [-t <timeout>]
+    list_policies [-p <vhost>] [-t <timeout>]
+    list_queues [-p <vhost>] [--online] [--offline] [--local] [<queueinfoitem> ...] [-t <timeout>]
+    list_topic_permissions [-p <vhost>] [-t <timeout>]
+    list_unresponsive_queues [--local] [--queue-timeout <queue-timeout>] [<unresponsiveq_ueueinfoitem> ...] [-t <timeout>]
+    list_user_permissions <username> [-t <timeout>]
+    list_user_topic_permissions <username> [-t <timeout>]
+    list_users [-t <timeout>]
+    list_vhost_limits [-p <vhost>] [--global]
+    list_vhosts [<vhostinfoitem> ...] [-t <timeout>]
+    node_health_check [-t <timeout>]
+    ping [-t <timeout>]
+    purge_queue <queue> [-t <timeout>]
+    rename_cluster_node <oldnode1> <newnode1> [oldnode2] [newnode2] ...
+    report
+    reset
+    restart_vhost [-p <vhost>] [-t <timeout>]
+    rotate_logs
+    set_cluster_name <name>
+    set_disk_free_limit <disk_limit>
+set_disk_free_limit mem_relative <fraction>
+    set_global_parameter <name> <value>
+    set_operator_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_parameter [-p <vhost>] <component_name> <name> <value>
+    set_permissions [-p <vhost>] <username> <conf> <write> <read>
+    set_policy [-p <vhost>] [--priority <priority>] [--apply-to <apply-to>] <name> <pattern> <definition>
+    set_topic_permissions [-p <vhost>] <username> <exchange> <write_pattern> <read_pattern>
+    set_user_tags <username> <tag> [...]
+    set_vhost_limits [-p <vhost>] <definition>
+    set_vm_memory_high_watermark <fraction>
+    set_vm_memory_high_watermark absolute <value>
+    shovel_status
+    shutdown
+    start_app
+    status
+    stop [<pidfile>]
+    stop_app
+    sync_queue [-p <vhost>] queue
+    trace_off [-p <vhost>]
+    trace_on [-p <vhost>]
+    update_cluster_nodes <existing_cluster_member_node_to_seed_from>
+    wait [<pid_file>] [--pid|-P <pid>] [-t <timeout>]
+
+<timeout> - operation timeout in seconds. Default is "infinity".
+
+<queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, policy, pid, owner_pid, exclusive, exclusive_consumer_pid, exclusive_consumer_tag, messages_ready, messages_unacknowledged, messages, messages_ready_ram, messages_unacknowledged_ram, messages_ram, messages_persistent, message_bytes, message_bytes_ready, message_bytes_unacknowledged, message_bytes_ram, message_bytes_persistent, head_message_timestamp, disk_reads, disk_writes, consumers, consumer_utilisation, memory, slave_pids, synchronised_slave_pids, state].
+
+<bindinginfoitem> must be a member of the list [source_name, source_kind, destination_name, destination_kind, routing_key, arguments].
+
+<connectioninfoitem> must be a member of the list [pid, name, port, host, peer_port, peer_host, ssl, ssl_protocol, ssl_key_exchange, ssl_cipher, ssl_hash, peer_cert_subject, peer_cert_issuer, peer_cert_validity, state, channels, protocol, auth_mechanism, user, vhost, timeout, frame_max, channel_max, client_properties, recv_oct, recv_cnt, send_oct, send_cnt, send_pend, connected_at].
+
+<channelinfoitem> must be a member of the list [pid, connection, name, number, user, vhost, transactional, confirm, consumer_count, messages_unacknowledged, messages_uncommitted, acks_uncommitted, messages_unconfirmed, prefetch_count, global_prefetch_count].
+
+<exchangeinfoitem> must be a member of the list [name, type, durable, auto_delete, internal, arguments, policy].
+
+<vhostinfoitem> must be a member of the list [name, tracing, cluster_state].
+
+<consumerinfoitem> must be a member of the list [queue_name, channel_pid, consumer_tag, ack_required, prefetch_count, arguments].
+
+<unresponsive_queueinfoitem> must be a member of the list [name, durable, auto_delete, arguments, pid, recoverable_slaves].
+
+Only root or rabbitmq can run rabbitmqctl
+
+8040/tcp:             7879
+8041/tcp:             7897
+8042/tcp:             7838
+8043/tcp:             7840
+8044/tcp:             7848
+8045/tcp:             7913
+8046/tcp:             7905
+8047/tcp:             7889
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:             8693
+8041/tcp:             8665
+8042/tcp:             8705
+8043/tcp:             8721
+8044/tcp:             8697
+8045/tcp:             8695
+8046/tcp:             8713
+8047/tcp:             8694
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            11428
+8041/tcp:            11439
+8042/tcp:            11431
+8043/tcp:            11447
+8044/tcp:            11440
+8045/tcp:            11427
+8046/tcp:            11429
+8047/tcp:            11441
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            13918
+8041/tcp:            13941
+8042/tcp:            13952
+8043/tcp:            13953
+8044/tcp:            13937
+8045/tcp:            13915
+8046/tcp:            13933
+8047/tcp:            13946
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            14784
+8041/tcp:            14832
+8042/tcp:            14792
+8043/tcp:            14801
+8044/tcp:            14791
+8045/tcp:            14815
+8046/tcp:            14865
+8047/tcp:            14790
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            28883
+8041/tcp:            28895
+8042/tcp:            28890
+8043/tcp:            28884
+8044/tcp:            28881
+8045/tcp:            28877
+8046/tcp:            28888
+8047/tcp:            28885
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:             7361
+8041/tcp:             7368
+8042/tcp:             7367
+8043/tcp:             7348
+8044/tcp:             7353
+8045/tcp:             7354
+8046/tcp:             7364
+8047/tcp:             7362
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            10707
+8041/tcp:            10722
+8042/tcp:            10725
+8043/tcp:            10705
+8044/tcp:            10712
+8045/tcp:            10717
+8046/tcp:            10724
+8047/tcp:            10709
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            13928
+8041/tcp:            13912
+8042/tcp:            13878
+8043/tcp:            13894
+8044/tcp:            13921
+8045/tcp:            13896
+8046/tcp:            13936
+8047/tcp:            13904
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            15490
+8041/tcp:            15498
+8042/tcp:            15516
+8043/tcp:            15506
+8044/tcp:            15524
+8045/tcp:            15532
+8046/tcp:            15540
+8047/tcp:            15441
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            23596
+8041/tcp:            23644
+8042/tcp:            23642
+8043/tcp:            23627
+8044/tcp:            23652
+8045/tcp:            23632
+8046/tcp:            23633
+8047/tcp:            23638
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            26177
+8041/tcp:            26199
+8042/tcp:            26169
+8043/tcp:            26185
+8044/tcp:            26341
+8045/tcp:            26201
+8046/tcp:            26138
+8047/tcp:            26161
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            28226
+8041/tcp:            28242
+8042/tcp:            28272
+8043/tcp:            28224
+8044/tcp:            28276
+8045/tcp:            28210
+8046/tcp:            28201
+8047/tcp:            28234
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:              764
+8041/tcp:              769
+8042/tcp:              771
+8043/tcp:              789
+8044/tcp:              758
+8045/tcp:              788
+8046/tcp:              768
+8047/tcp:              774
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:             2366
+8041/tcp:             2385
+8042/tcp:             2370
+8043/tcp:             2382
+8044/tcp:             2419
+8045/tcp:             2384
+8046/tcp:             2444
+8047/tcp:             2380
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:             5740
+8041/tcp:             5735
+8042/tcp:             5717
+8043/tcp:             5772
+8044/tcp:             5767
+8045/tcp:             5768
+8046/tcp:             5725
+8047/tcp:             5766
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:             6579
+8041/tcp:             6571
+8042/tcp:             6587
+8043/tcp:             6620
+8044/tcp:             6610
+8045/tcp:             6606
+8046/tcp:             6625
+8047/tcp:             6632
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:             7816
+8041/tcp:             7784
+8042/tcp:             7796
+8043/tcp:             7817
+8044/tcp:             7838
+8045/tcp:             7834
+8046/tcp:             7806
+8047/tcp:             7776
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.
+8040/tcp:            10267
+8041/tcp:            10261
+8042/tcp:            10255
+8043/tcp:            10233
+8044/tcp:            10217
+8045/tcp:            10232
+8046/tcp:            10275
+8047/tcp:            10256
+Stopping rabbit application on node rabbit@dg-Inspiron-7559 ...
+Resetting node rabbit@dg-Inspiron-7559 ...
+Starting node rabbit@dg-Inspiron-7559 ...
+ completed with 6 plugins.

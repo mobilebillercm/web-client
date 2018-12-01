@@ -7,10 +7,11 @@ class TenantView extends Model
 {
 
     protected $table = 'tenantview';
-    protected $fillable = ['tenantid', 'name', 'city', 'region', 'description', 'logo', 'enablement', 'users'];
+    protected $fillable = ['tenantid', 'name', 'city', 'region', 'description', 'logo', 'enablement', 'users' ,'taxpayernumber', 'numbertraderegister'];
 
 
-    public function __construct($tenantid = null, $name = null, $city = null, $region = null, $description = null, $logo = null, $enablement = null, $users = null, $attributes = array())
+    public function __construct($tenantid = null, $name = null, $city = null, $region = null, $description = null, $logo = null, $enablement = null,$users = null,
+                                $taxpayernumber = null, $numbertraderegister = null, $attributes = array())
     {
         parent::__construct($attributes);
         $this->tenantid = $tenantid;
@@ -21,8 +22,8 @@ class TenantView extends Model
         $this->logo = $logo;
         $this->enablement = $enablement;
         $this->users = $users;
+        $this->taxpayernumber = $taxpayernumber;
+        $this->numbertraderegister = $numbertraderegister;
 
     }
-
-
 }

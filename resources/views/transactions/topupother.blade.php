@@ -263,7 +263,11 @@
                                                                             <label for="beneficiary" style="font-size: 16px;">Beneficiaire <b style="color: red;" class=""> *</b></label>
                                                                             <select class="form-control form-control-text" required name="beneficiary" id="beneficiary"
 
-                                                                                    style="color: #0d0d0d;" ></select> <br>
+                                                                                    style="color: #0d0d0d;" >
+                                                                                <option value="">---Beneficiare---</option>
+
+                                                                            </select>
+                                                                            <br>
                                                                         </div>
                                                                     </div>
 
